@@ -34,8 +34,8 @@ Version 2.0.0 (2019-04-27)
 
    If you have an older version, upgrade with one of the following two options:
 
-   - *START* > "Windows Update Settings" <kbd>RETURN<kbd>
-   - [Windows 10 Update Assistant](https://www.microsoft.com/software-download/windows10) for feature upgrades
+   - Updates: *START* > "Windows Update Settings" <kbd>RETURN</kbd>
+   - Upgrades: [Windows 10 Update Assistant](https://www.microsoft.com/software-download/windows10)
 
 ## Install Ubuntu GNU/Linux
 
