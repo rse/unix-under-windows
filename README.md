@@ -94,18 +94,48 @@ Version 2.0.0 (2019-04-27)
    
     - `sudo vi /etc/wsl.conf`<br/>
       &rarr; ```[automount]```<br/>
-      &rarr; ```options = "metadata"```
+      rarr; ```options = "metadata"```
 
 4. **Install Unix Shell Configurations**:<br/>
 
+    `apt-get install netcat socat subversion git less`
+    `apt-get install bash vim tmux vifm`
+-	Install FZF
+
+~/.dotfiles.d/gitconfig
+
+[user]
+    user  = engelscr
+    name  = Ralf S. Engelschall
+    email = ralf.engelschall@msg.group
+
+## Configure SSH Usage
+
+1. **Install PuTTY Agent**<br/>
+
+-	Install PuTTY pageant
+
+1. **Install PuTTY Agent**<br/>
+
+-	Install weasel-pageant
+
+`echo "eval \$(~/AppData/Roaming/weasel-pageant/weasel-pageant -r -s)" >>~/.dotfiles.d/bashrc`
+
+1. **Install WSL Utilities**:<br/>
+
+    - Install wsl-open
+
+        `echo \"PATH=\$PATH:/mnt/c/Windows/System32/WindowsPowerShell/v1.0/" >>~/.dotfiles.d/bashrc`
+        `echo "alias open=wsl-open" >>~/.dotfiles.d/bashrc`
+
 ## Install Docker Desktop for Windows
 
--	Install bash vim tmux vifm
--	Install FZF
 -	Install Docker for Windows
 -	Install docker and docker-compose for Ubuntu and kubectl and helm
--	Install wsl-open
--	Install weasel-pageant
--	Install PuTTY pageant
--	apt-get install netcat socat subversion git less
+
+`echo "export DOCKER_HOST=tcp://localhost:2375" >>~/.dotfiles.d/bashrc`
+
+## Install Node.js
+
+## Install Java
 
