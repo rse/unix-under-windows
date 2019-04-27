@@ -37,7 +37,8 @@ Version 2.0.0 (2019-04-27)
    - Windows Upgrades: [Windows 10 Update Assistant](https://www.microsoft.com/software-download/windows10)
 
 2. **Enable Windows Subsystem for Linux**:<br/>
-   Enable the Windows feature *Windows Subsystem for Linux*.
+   Enable the Windows feature *Windows Subsystem for Linux*.<br/>
+   Rationale: Windows Subsystem for Linux is the core feature we want to use.
 
    - *START* &rarr; *Settings* &rarr; *Updates & Security* &rarr; *For developers* &rarr; *Developer mode*
    - <kbd>WIN+r</kbd> &rarr; `powershell` &rarr; <kbd>RIGHT-CLICK</kbd> &rarr; *Run as administrator*
@@ -46,25 +47,26 @@ Version 2.0.0 (2019-04-27)
 ## Install Ubuntu GNU/Linux
 
 1. **Install Ubuntu 18.09 LTS**:<br/>
-   Install Ubuntu GNU/Linix 18.09 LTS from the Windows Store.
+   Install Ubuntu GNU/Linix 18.09 LTS from the Windows Store.<br/>
+   Rationale
 
 ## Install MinTTY/WSLTTY
 
 1. **Install DejaVu Sans Mono font**:<br/>
-   Install
+   Install...<br/>
    Rationale: a perfect monospaced font should be used in the terminal emulator.
 
    - [DejaVu Sans](https://dejavu-fonts.github.io/Download.html) &rarr; `dejavu-fonts-ttf-*.zip`
    - `ttf/` &arr; `*.ttf` &rarr; <kbd>RIGHT-CLICK</kbd> &rarr; *Install*
 
 2. **Install MinTTY/WSLTTY**:<br/>
-   Install the WSLTTY variant of MinTTY.
+   Install the WSLTTY variant of MinTTY.<br/>
    Rationale: a reasonable terminal emulator has to be used and the default WSL console is not good enough.
 
    - [WSLTTY version &ge; 3.0.0](https://github.com/mintty/wsltty/releases) &rarr; `wsltty-*-install.exe`
 
 3. **Install MinTTY/WSLTTY Configuration**:<br/>
-   Install a reasonable MinTTY/WSLTTY configuration.
+   Install a reasonable MinTTY/WSLTTY configuration.<br/>
    Rationale: colors and fonts should be used.
    
    - Download: [config](https://raw.githubusercontent.com/rse/mintty-config/master/config)
@@ -73,17 +75,23 @@ Version 2.0.0 (2019-04-27)
 ## Configure Unix Shell Environment
 
 1. **Enable Convenient Root Access**:<br/>
+   Ensure no password is needed for root access.<br/>
+   Rationale: just convenience only -- feel free to ignore.
 
-    - `$ sudo vi /etc/sudoers`
+    - `sudo vi /etc/sudoers`
+    - &larr; `%sudo ALL=(ALL:ALL) ALL`<br/>
       &rarr; `%sudo ALL=(ALL:ALL) NOPASSWD: ALL`
 
 2. **Use Combined Home Directory**:<br/>
+   Map the Unix home directory to the regular Windows home directory.<br/>
+   Rationale: just convenience only -- feel free to ignore.
 
-    - `sudo rm -rf /home`
-    - `sudo ln -s /mnt/c/Users /home`
+    - `sudo usermod -d /mnt/c/Users $LOGNAME`
 
-3. **Use Combined Home Directory**:<br/>
-
+3. **Mount Windows directories in WSL with Meta-Data enabled**:<br/>
+   Configure the mounting of Windows directories in WSL (`/mnt/c`) with *Meta-Data* enabled.<br/>
+   Rationale: allow POSIX file permissions on Windows drives from within WSL.
+   
     - `sudo vi /etc/wsl.conf`
     ```
     [automount]
