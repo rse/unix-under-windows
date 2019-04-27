@@ -22,7 +22,7 @@ Version 2.0.0 (2019-04-27)
    under those Windows editions, only under 64-bit and in a reasonable
    fashion only under at least this version or newer.
 
-   - *START* &rarr; *Settings* &rarr; *System* &rarr; *About*/*Info*:
+   - *START* &rarr; *Settings* &rarr; *System* &rarr; *About*:
    - ... *Device Specifications* &rarr; *System type*
    - ... *Windows Specifications* &rarr; *Edition*
    - ... *Windows Specifications* &rarr; *Version*
@@ -61,7 +61,7 @@ Version 2.0.0 (2019-04-27)
    Install the WSLTTY variant of MinTTY.
    Rationale: a reasonable terminal emulator has to be used and the default WSL console is not good enough.
 
-   - [WSLTTY &ge; 3.0.0](https://github.com/mintty/wsltty/releases) &rarr; `wsltty-*-install.exe`
+   - [WSLTTY version &ge; 3.0.0](https://github.com/mintty/wsltty/releases) &rarr; `wsltty-*-install.exe`
 
 3. **Install MinTTY/WSLTTY Configuration**:<br/>
    Install a reasonable MinTTY/WSLTTY configuration.
@@ -72,9 +72,25 @@ Version 2.0.0 (2019-04-27)
 
 ## Configure Unix Shell Environment
 
-1. Homedir
+1. **Enable Convenient Root Access**:<br/>
 
-1. Dotfiles Shell Environment
+    - `$ sudo vi /etc/sudoers`
+      &rarr; `%sudo ALL=(ALL:ALL) NOPASSWD: ALL`
+
+2. **Use Combined Home Directory**:<br/>
+
+    - `sudo rm -rf /home`
+    - `sudo ln -s /mnt/c/Users /home`
+
+3. **Use Combined Home Directory**:<br/>
+
+    - `sudo vi /etc/wsl.conf`
+    ```
+    [automount]
+    options = "metadata"
+    ```
+
+4. **Install Unix Shell Configurations**:<br/>
 
 ## Install Docker Desktop for Windows
 
