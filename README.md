@@ -17,25 +17,30 @@ Version 2.0.0 (2019-04-27)
 
 1. **Ensure Windows 10 Professional/Enterprise**:<br/>
    Ensure you are running Windows 10 Professional or Windows 10 Enterprise.<br/>
-   Rationale: Windows Subsystem for Linux (WSL) is available only under those Windows editions only.
+   *Rationale*: Windows Subsystem for Linux (WSL) is available only under those Windows editions only.
 
-    - <kbd>WIN+r</kbd>
-    - `winver`
+    - <kbd>WIN+r</kbd> &rarr; `winver`
 
    If you have a different edition, you are out of luck with WSL. Sorry, then
    you have to went with [MSYS2](https://www.msys2.org/) or [Cygwin](https://www.cygwin.com/).
 
 2. **Ensure Windows 10 Version 1809**<br/>
    Ensure you are running at least Windows 10 Version 1809 (October 2018) or higher.<br/>
-   Rationale: Windows Subsystem for Linux (WSL) is available in a reasonable way since this version only.
+   *Rationale*: Windows Subsystem for Linux (WSL) is available in a reasonable way since this version only.
 
-    - <kbd>WIN+r</kbd>
-    - `winver`
+    - <kbd>WIN+r</kbd> &rarr; `winver`
 
    If you have an older version, upgrade with one of the following two options:
 
-   - Updates: *START* &rarr; "Windows Update Settings" <kbd>RETURN</kbd>
+   - Updates: *START* &rarr; `windows update settings` <kbd>RETURN</kbd>
    - Upgrades: [Windows 10 Update Assistant](https://www.microsoft.com/software-download/windows10)
+
+3. **Enable Windows Subsystem for Linux**:<br/>
+   Enable the Windows feature *Windows Subsystem for Linux*.
+
+   - *START* &rarr; *Settings* &rarr; *For developers* &rarr; *Developer mode*
+   - <kbd>WIN+r</kbd> &arr; `powershell` &rarr; <kbd>RIGHT-CLICK</kbd> &arr; *Run as administrator*
+   - `Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux`
 
 ## Install Ubuntu GNU/Linux
 
