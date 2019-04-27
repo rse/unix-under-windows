@@ -23,9 +23,9 @@ Version 2.0.0 (2019-04-27)
    fashion only under at least this version or newer.
 
    - *START* &rarr; *Settings* &rarr; *System* &rarr; *About*:
-   - *Device Specifications* &rarr; *System type*
-   - *Windows Specifications* &rarr; *Edition*
-   - *Windows Specifications* &rarr; *Version*
+   - ... *Device Specifications* &rarr; *System type*
+   - ... *Windows Specifications* &rarr; *Edition*
+   - ... *Windows Specifications* &rarr; *Version*
 
    If you have a different edition or you are running in 32-bit mode,
    you are out of luck with WSL. Sorry, then you have to went with
