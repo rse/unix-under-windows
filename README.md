@@ -20,7 +20,7 @@ Version 2.0.0 (2019-04-27)
    in 64-bit mode and in Version 1809 (October 2018) or newer.<br/>
    *Rationale*: Windows Subsystem for Linux (WSL) is available only
    under those Windows editions, only under 64-bit and in a reasonable
-   fashion only under version 1809 or newer.
+   fashion only under at least this version or newer.
 
    - *START* &rarr; *Settings* &rarr; *System* &rarr; *About*:
    - *Device Specifications* &rarr; *System type*
