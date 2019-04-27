@@ -78,8 +78,8 @@ Version 2.0.0 (2019-04-27)
    Ensure no password is needed for root access.<br/>
    Rationale: just convenience only -- feel free to ignore.
 
-    - `sudo vi /etc/sudoers`
-    - &larr; `%sudo ALL=(ALL:ALL) ALL`<br/>
+    - `sudo vi /etc/sudoers`<br/>
+      &larr; `%sudo ALL=(ALL:ALL) ALL`<br/>
       &rarr; `%sudo ALL=(ALL:ALL) NOPASSWD: ALL`
 
 2. **Use Combined Home Directory**:<br/>
@@ -93,10 +93,10 @@ Version 2.0.0 (2019-04-27)
    Rationale: allow POSIX file permissions on Windows drives from within WSL.
    
     - `sudo vi /etc/wsl.conf`
-    ```
-    [automount]
-    options = "metadata"
-    ```
+        ```
+        [automount]
+        options = "metadata"
+        ```
 
 4. **Install Unix Shell Configurations**:<br/>
 
