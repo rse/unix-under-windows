@@ -104,12 +104,18 @@ Version 2.0.0 (2019-04-27)
 
 4. **Install Unix Shell Configurations**:<br/>
 
+   - `curl -skLO https://github.com/rse/dotfiles/archive/master.zip`
+   - `tar zxf master.zip`
+   - `cd dotfiles-master`
+   - `make install`
+   - `dotfiles -f ~`
+
 ~/.dotfiles.d/gitconfig
 
 [user]
-    user  = engelscr
-    name  = Ralf S. Engelschall
-    email = ralf.engelschall@msg.group
+    user  = <username>
+    name  = <firstname> <lastname>
+    email = <firstname>.<lastname>@<domain>
 
 ## Configure SSH Usage
 
