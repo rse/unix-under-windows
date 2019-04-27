@@ -96,11 +96,13 @@ Version 2.0.0 (2019-04-27)
       &rarr; ```[automount]```<br/>
       rarr; ```options = "metadata"```
 
-4. **Install Unix Shell Configurations**:<br/>
+3. **Install Essential Unix Tools**:<br/>
 
-    `apt-get install netcat socat subversion git less`
-    `apt-get install bash vim tmux vifm`
--	Install FZF
+   - `apt-get install bash less vim vifm vifm tmux git subversion curl socat`
+
+   - Install FZF
+
+4. **Install Unix Shell Configurations**:<br/>
 
 ~/.dotfiles.d/gitconfig
 
@@ -130,12 +132,17 @@ Version 2.0.0 (2019-04-27)
 
 ## Install Docker Desktop for Windows
 
--	Install Docker for Windows
--	Install docker and docker-compose for Ubuntu and kubectl and helm
+- Ensure PULSE Client &ge; 5.3.5
+- Install Docker for Windows
+- Install docker and docker-compose for Ubuntu and kubectl and helm
 
 `echo "export DOCKER_HOST=tcp://localhost:2375" >>~/.dotfiles.d/bashrc`
 
 ## Install Node.js
 
 ## Install Java
+
+## Install zScaler Certificates
+
+update-ca-certificates
 
