@@ -92,11 +92,9 @@ Version 2.0.0 (2019-04-27)
    Configure the mounting of Windows directories in WSL (`/mnt/c`) with *Meta-Data* enabled.<br/>
    Rationale: allow POSIX file permissions on Windows drives from within WSL.
    
-    - `sudo vi /etc/wsl.conf`
-        ```
-        [automount]
-        options = "metadata"
-        ```
+    - `sudo vi /etc/wsl.conf`<br/>
+      &rarr; ```[automount]```<br/>
+      &rarr; ```options = "metadata"```
 
 4. **Install Unix Shell Configurations**:<br/>
 
