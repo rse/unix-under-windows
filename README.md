@@ -30,7 +30,6 @@ Version 2.0.0 (2019-04-27)
    If you have a different edition or you are running in 32-bit mode,
    you are out of luck with WSL. Sorry, then you have to went with
    [MSYS2](https://www.msys2.org/) or [Cygwin](https://www.cygwin.com/).
-
    If you have an older Windows version, upgrade with one of the following two options:
 
    - Updates: *START* &rarr; `windows update settings` <kbd>RETURN</kbd>
