@@ -135,7 +135,7 @@ Notice:
    Notice:
    
    > Don't panic: We have to `exec` the command here to release the current user's processes
-   > and this way let `usermod` proceeed. This will immediately close the Unix terminal.
+   > and this way let `usermod` proceeed. This will immediately close the Unix terminal, of course.
 
 ## Configure Unix Shell Environment
 
@@ -151,9 +151,15 @@ Notice:
 
    First, the tools available via standard package manager:
 
-   - `sudo apt-get install -y bash less vim vifm tmux git`
-   - `sudo apt-get install -y subversion curl socat`
-   - `sudo apt-get install -y make gcc g++ golang`
+   - `sudo apt-get install -y bash less vim vifm tmux`
+   - `sudo apt-get install -y dnsutils tcpdump lsof top nmap`
+   - `sudo apt-get install -y openssh-client stunnel subversion git curl`
+   - `sudo apt-get install -y mc tree file findutils`
+   - `sudo apt-get install -y rsync rdup rclone w3m lftp`
+   - `sudo apt-get install -y atool gzip bzip2 xz-utils zip unzip`
+   - `sudo apt-get install -y diff diffstat patch patchutils par`
+   - `sudo apt-get install -y openssl gnupg golang-cfssl apg uuid bc`
+   - `sudo apt-get install -y imagemagick poppler-utils`
 
    Second, the tool ([FZF](https://github.com/junegunn/fzf)) not available
    (at least not in latest version) via standard package manager:
@@ -162,6 +168,12 @@ Notice:
    - `tar zxf fzf-0.18.0-linux_amd64.tgz`
    - `sudo install -c -m 755 fzf /usr/local/bin/`
    - `rm fzf-0.18.0-linux_amd64.tgz fzf`
+
+   Third, the tool ([Git-Town](https://www.git-town.com)) not available via standard package manager:
+
+   - `curl -skLO https://github.com/Originate/git-town/releases/download/v7.2.0/git-town-amd64.deb`
+   - `sudo dpkg -i git-town-amd64.deb`
+   - `rm git-town-amd64.deb`
 
 3. **Install Unix Shell Configurations**:<br/>
    Install Ralf S. Engelschall's essential Unix dotfiles.<br/>
@@ -335,16 +347,34 @@ Notice:
    - `curl -skL https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl -o /usr/local/bin/kubectl`
    - `chmod +x /usr/local/bin/kubectl`
 
-## Install JavaScript/Java Program Runtimes
+## Install C/C++/Go/JavaScript/Java Development Environments
 
-1. **Install Node.js**:<br/>
+1. **Install GCC**:<br/>
+   Install the GCC C/C++ compilers.<br/>
+   Rationale: you want reasonable C/C++ compilers available -- feel free to skip.
+
+   - `sudo apt-get install -y make gcc g++ bison flex`
+
+2. **Install Go**:<br/>
+   Install the Go compiler.<br/>
+   Rationale: you want reasonable Go compiler available -- feel free to skip.
+
+   - `sudo apt-get install -y golang`
+
+3. **Install Perl**:<br/>
+   Install the Perl runtime.<br/>
+   Rationale: you want reasonable Perl runtime available -- feel free to skip.
+
+   - `sudo apt-get install -y perl`
+
+4. **Install Node.js**:<br/>
    Install the Node.js JavaScript runtime.<br/>
    Rationale: you want a reasonable JavaScript environment available -- feel free to skip.
 
    - `curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -`
    - `sudo apt-get install -y nodejs`
 
-2. **Install OpenJDK**:<br/>
+5. **Install OpenJDK**:<br/>
    Install the OpenJDK Java runtime.<br/>
    Rationale: you want a reasonable Java environment available -- feel free to skip.
 
