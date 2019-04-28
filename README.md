@@ -4,7 +4,7 @@ Version 2.0.0 (2019-04-27)
 
 # Unix Environment under Windows
 
-> This is a summary on how to setup a reasonable Unix development environment under
+> This is a documentation on how to setup a reasonable but opinionated Unix development environment under
 > [*Microsoft Windows 10*](https://windows.com) (Pro edition, 64-bit mode, version &ge; 1809) with the help of the
 > native [*Windows Subsystem for Linux (WSL)*](blogs.msdn.microsoft.com/wsl/),
 > the [*Ubuntu*](https://www.ubuntu.com/) GNU/Linux distribution,
@@ -97,7 +97,7 @@ Version 2.0.0 (2019-04-27)
       &rarr; `%sudo ALL=(ALL:ALL) NOPASSWD: ALL`
 
 3. **Upgrade Ubuntu Operating System**:<br/>
-   Upgrade to the latest package versions of Ubunu.<br/>
+   Upgrade to the latest package versions of Ubuntu.<br/>
    Rationale: you always want the latest updates.
 
    - `sudo apt-get update`
