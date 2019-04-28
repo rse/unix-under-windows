@@ -32,13 +32,13 @@ Version 2.0.0 (2019-04-27)
    > If you have a different edition or you are running in 32-bit mode,
    > you are out of luck with WSL. Sorry, then you have to went with
    > [MSYS2](https://www.msys2.org/) or [Cygwin](https://www.cygwin.com/).
-   > If you just still have an older Windows version, upgrade with one of the following
-   > two options:
-   > - Windows Updates: *START* &rarr; `windows update settings` <kbd>RETURN</kbd>
-   > - Windows Upgrades: [Windows 10 Update Assistant](https://www.microsoft.com/software-download/windows10)
-   >
    > If you want to perform a fresh Windows 10 installation, start over with Microsoft's
    > [Download Windows 10 Disc Image (ISO File)](https://www.microsoft.com/en-us/software-download/windows10ISO/).
+   > If you just still have an older Windows version, upgrade with one of the following
+   > two options:
+   >
+   > - Windows Updates: *START* &rarr; `windows update settings` <kbd>RETURN</kbd>
+   > - Windows Upgrades: [Windows 10 Update Assistant](https://www.microsoft.com/software-download/windows10)
 
 2. **Enable Windows Subsystem for Linux**:<br/>
    Enable the Windows feature *Windows Subsystem for Linux*.<br/>
