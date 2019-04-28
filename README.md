@@ -100,25 +100,27 @@ Version: 2.0.0 (2019-04-27)
       &rarr; `%sudo ALL=(ALL:ALL) NOPASSWD: ALL`
 
 3. **Upgrade Ubuntu Operating System**:<br/>
-   Upgrade to the latest package versions of Ubuntu.<br/>
-   Rationale: you always want the latest updates.
+   Upgrade to the latest package versions of Ubuntu and allow APT to use HTTPS.<br/>
+   Rationale: you always want the latest updates and Docker later needs HTTPS access.
 
    - `sudo apt-get update`
    - `sudo apt-get upgrade -y --with-new-pkgs`
+   - `sudo apt-get install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common`
 
 4. **Mount Windows directories in WSL with Meta-Data enabled**:<br/>
-   Configure the mounting of Windows directories in WSL (`/mnt/c`) with *Meta-Data* enabled.<br/>
+   Configure the mounting of Windows directories in WSL (`/c` instead of `/mnt/c`) and with *Meta-Data* enabled.<br/>
    Rationale: allow POSIX file permissions on Windows drives from within WSL.
    
     - `sudo vi /etc/wsl.conf`<br/>
       &rarr; `[automount]`<br/>
+      &rarr; `root    = /`
       &rarr; `options = "metadata"`
 
 5. **Use Combined Home Directory**:<br/>
    Map the Unix home directory to the regular Windows home directory.<br/>
    Rationale: just convenience only -- feel free to ignore.
 
-    - `exec sudo usermod -d /mnt/c/Users/$USER $USER`
+    - `exec sudo usermod -d /c/Users/$USER $USER`
 
    Notice:
    
@@ -148,17 +150,18 @@ Version: 2.0.0 (2019-04-27)
 
    - `curl -skLO https://github.com/junegunn/fzf-bin/releases/download/0.18.0/fzf-0.18.0-linux_amd64.tgz`
    - `tar zxf fzf-0.18.0-linux_amd64.tgz`
-   - `sudo mv fzf /usr/local/bin/`
-   - `rm fzf-0.18.0-linux_amd64.tgz`
+   - `sudo install -c -m 755 fzf /usr/local/bin/`
+   - `rm fzf-0.18.0-linux_amd64.tgz fzf`
 
 3. **Install Unix Shell Configurations**:<br/>
    Install Ralf S. Engelschall's essential Unix dotfiles.<br/>
    Rationale: you really want a reasonable pre-configured Unix shell environment.
 
    - `curl -skLO https://github.com/rse/dotfiles/archive/master.zip`
-   - `tar zxf master.zip`
+   - `unzip -x master.zip`
    - `(cd dotfiles-master && sudo make install)`
-   - `rm -f master.zip`
+   - `rm -rf dotfiles-master`
+   - `rm master.zip`
    - `dotfiles -f ~`
 
 4. **Extend Unix Shell Configurations**:<br/>
@@ -175,14 +178,16 @@ Version: 2.0.0 (2019-04-27)
    Install additional WSL utilities.<br/>
    Rationale: you want additional features inside WSL.
 
-   - `sudo apt-get install ubuntu-wsl wslu`
+   - `sudo apt-get install -y ubuntu-wsl wslu`
    - `curl -skLO https://github.com/4U6U57/wsl-open/archive/master.zip`
-   - `tar zxf master.zip`
-   - `sudo install -c -m 755 wsl-open/wsl-open.sh /usr/local/bin/wsl-open`
-   - `sudo install -c -m 644 wsl-open/wsl-open.1 /usr/local/man/man1/`
+   - `unzip -x master.zip`
+   - `sudo install -c -m 755 wsl-open-master/wsl-open.sh /usr/local/bin/wsl-open`
+   - `sudo mkdir -p /usr/local/share/man/man1`
+   - `sudo install -c -m 644 wsl-open-master/wsl-open.1 /usr/local/share/man/man1/`
+   - `rm -rf wsl-open-master`
    - `rm master.zip`
    - `vi ~/.dotfiles.d/bashrc`<br/>
-      &rarr; `PATH=$PATH:/mnt/c/Windows/System32/WindowsPowerShell/v1.0/`<br/>
+      &rarr; `PATH=$PATH:/c/Windows/System32/WindowsPowerShell/v1.0/`<br/>
       &rarr; `alias open=wsl-open`
 
 ## Install MinTTY/WSLTTY Terminal Emulator
@@ -193,21 +198,22 @@ Version: 2.0.0 (2019-04-27)
 
    - [WSLTTY version &ge; 3.0.0](https://github.com/mintty/wsltty/releases) &rarr; `wsltty-*-install.exe`
 
-2. **Install MinTTY/WSLTTY Configuration**:<br/>
-   Install a reasonable MinTTY/WSLTTY configuration.<br/>
-   Rationale: colors and fonts should be used.
-   
-   - download: [config](https://raw.githubusercontent.com/rse/mintty-config/master/config)
-   - <kbd>WIN+e</kbd> &rarr; `%APPDATA%\wsltty` <kbd>RETURN</kbd>
-   - override: `config`
-
-3. **Install DejaVu Sans Mono font**:<br/>
+2. **Install DejaVu Sans Mono font**:<br/>
    Install a perfect monospaced font for the terminal emulator.<br/>
    Rationale: MinTTY/WSLTTY configuration above references it.
 
    - download: [DejaVu Sans](https://dejavu-fonts.github.io/Download.html) &rarr; `dejavu-fonts-ttf-*.zip`
-   - extract: `dejavu-fonts-ttf-*.zip`
-   - install: `ttf/` &arr; `*.ttf` &rarr; <kbd>RIGHT-CLICK</kbd> &rarr; *Install*
+   - extract: `dejavu-fonts-ttf-*.zip` &rarr; <kbd>RIGHT-CLICK</kbd> *Extract all*
+   - install: `dejavu-fonts-ttf-*\ttf\` &arr; select all `*.ttf` &rarr; <kbd>RIGHT-CLICK</kbd> &rarr; *Install*
+
+3. **Install MinTTY/WSLTTY Configuration**:<br/>
+   Install a reasonable MinTTY/WSLTTY configuration.<br/>
+   Rationale: colors and fonts should be used.
+   
+   - download: [MinTTY-config](https://github.com/rse/mintty-config/archive/master.zip)
+   - extract: `master.zip` &rarr; <kbd>RIGHT-CLICK</kbd> *Extract all*
+   - copy: `mintty-config-master\config`
+   - paste: `%APPDATA%\wsltty` (override `config` file)
 
 ## Install Secure-Shell (SSH) Environment
 
@@ -215,36 +221,38 @@ Version: 2.0.0 (2019-04-27)
    Install the PuTTY SSH client.<br/>
    Rationale: you want to run the PuTTY Agent (`pageant`).
 
-   - [PuTTY Downloads](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) &rarr; `putty-*-installer.msi`
+   - [PuTTY Downloads](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) &rarr; `putty-64bit-*-installer.msi`
 
 2. **Generate SSH Key**:<br/>
    Generate (or use existing) SSH key.<br/>
    Rationale: you don't want to use passwords.
 
    - *START* &rarr; `puttygen` <kbd>RETURN</kbd>
-
-   - Convert to standard format.
+   
+   Save the Private Key under `c:\Users\<username>\Documents\ssh-key-prv.ppk`.<br/>
+   Save the Converted Private Key under `c:\Users\<username>\Documents\ssh-key-prv.pem`.<br/>
+   Save the Public Key under `c:\Users\<username>\Documents\ssh-key-pub.pem`.
 
 3. **Autostart PuTTY Agent**:<br/>
-   Enable the PuTTY Agent to autostart on login.<br/>
+   Enable the PuTTY Agent to autostart on login and load the SSH private key.<br/>
    Rationale: you want it to be running all the time.
 
-   - FIXME
-   - `pageant.exe <ppk-file>`
+   - <kbd>WIN+e</kbd> &rarr; `%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup` &rarr; <kbd>RIGHT-CLICK</kbd> &rarr; *New* &rarr; *Shortcut*
+   - `"C:\Program Files\PuTTY\pageant.exe" "C:\Users\<username>\Documents\ssh-key-prv.ppk"`
 
 5. **Install PuTTY Agent Client (Weasel-Pageant)**<br/>
    Install Weasel-Pageant for accessing the PuTTY Agent from within WSL.<br/>
    Rationale: you want to directly access PuTTY Agent from within WSL.
  
    - [Weasel-Pageant Downloads](https://github.com/vuori/weasel-pageant/releases) &rarr; `weasel-pageant-1.3.zip`
-   - `weasel-pageant-1.3.zip` &rarr; <kbd>RIGHT-CLICK</kbd> &rarr; Extract
-   - move `weasel-pageant-1.3` to `%APPDATA%\weasel-pageant`
+   - `weasel-pageant-1.3.zip` &rarr; <kbd>RIGHT-CLICK</kbd> &rarr; *Extract all*
+   - move `weasel-pageant-1.3\` to `%APPDATA%\weasel-pageant\`
 
 4. **Enter Ubuntu under WSL via MinTTY/WSLTTY**:<br/>
    Enter Ubuntu GNU/Linux under Windows Subsystem for Linux again (this time via MinTTY/WSLTTY).<br/>
    Rationale: we have to configure also the Unix of SSH.
     
-    - *START* &rarr; `wsltty` <kbd>RETURN</kbd>
+    - *START* &rarr; `wsl terminal` <kbd>RETURN</kbd>
 
 5. **Configure Unix Environment for SSH Agent**:<br/>
    Configure the Unix environment to use the Weasel-Pageant as the SSH agent.<br/>
@@ -253,20 +261,71 @@ Version: 2.0.0 (2019-04-27)
    - `vi ~/.dotfiles.d/bashrc`<br/>
      &rarr; `eval $(~/AppData/Roaming/weasel-pageant/weasel-pageant -r -s)`
 
-## Install Docker Desktop for Windows
+## Install Docker/Kubernetes Container Runtimes
 
-- Ensure PULSE Client &ge; 5.3.5
-- Install Docker for Windows
+1. **Install Docker Desktop**:<br/>
+   Install the Docker Desktop for Windows (Community Edition) distribution.<br/>
+   Rationale: you want Docker container engine be available for development.
+
    - *START* &rarr; `control panel` &rarr; *Programs* &rarr; *Turn Windows features on or off* &rarr; *Hyper-V*
-- Install docker and docker-compose for Ubuntu and kubectl and helm
+   - [Docker Desktop](https://www.docker.com/products/docker-desktop) &rarr; *Download for Windows*
+   - *START* &rarr; `computer management` <kbd>RIGHT-CLICK</kbd> &rarr; *Run as administrator*
+   - *Computer Management* &rarr; *System Tools* &rarr; *Local Users and Groups* &rarr; *Groups* &rarr; `docker-users` &rarr; <kbd>LEFT-DOUBLE-CLICK</kbd> &rarr; *Add...*
 
-`echo "export DOCKER_HOST=tcp://localhost:2375" >>~/.dotfiles.d/bashrc`
+   Notice:
 
-## Install Node.js
+   > You need a Docker Hub account for downloading and using Docker Desktop.
+   > [Sign up](https://hub.docker.com/signup) first if you still don't have a Docker Hub account.
 
-## Install Java
+   Notice:
 
-## Install zScaler Certificates
+   > Yes, Hyper-V is necessary as Docker Desktop for Windows (in
+   > contrast to the regular Docker for Linux) runs Docker inside a
+   > small Linux distribution which is executed in a virtual machine via
+   > Hyper-V. You have to use this separate Docker Desktop for Windows,
+   > as Docker cannot be run on the WSL-based Ubuntu directly.
 
-update-ca-certificates
+2. **Start & Configure Docker Desktop**:<br/>
+   Start and configure Docker Desktop.<br/>
+   Rationale: for CLI access from within WSL, the Docker daemon API has to be exposed via TCP on localhost.
+
+   - *START* &rarr; `docker desktop` <kbd>RETURN</kbd>
+   - *System Tray* &rarr; *Docker Desktop* &rarr; <kbd>RIGHT-CLICK</kbd> &rarr; *Settings* &rarr; *General* &rarr; *Expose daemon...*
+
+3. **Re-Enter Ubuntu under WSL**:<br/>
+   Re-Enter Ubuntu GNU/Linux under Windows Subsystem for Linux again.<br/>
+   Rationale: we have to install also the Unix client side of Docker.
+    
+   - *START* &rarr; `wsl terminal` <kbd>RETURN</kbd>
+
+4. **Install Docker CLI and Docker-Compose**:<br/>
+   Install native Linux versions of the Docker CLI, Docker-Compose and Kubectl.<br/>
+   Rationale: native Linux versions work more flawless than executing the Windows versions under WSL.
+
+   - `curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -`
+   - `sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"`
+   - `sudo apt-get update -y`
+   - `sudo apt-get install -y docker-ce-cli`
+   - `sudo usermod -aG docker $USER`
+   - `vi ~/.dotfiles.d/bashrc`<br/>
+     &rarr; `export DOCKER_HOST=tcp://localhost:2375`
+   - `curl -skL https://github.com/docker/compose/releases/download/1.24.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose`
+   - `chmod +x /usr/local/bin/docker-compose`
+   - `curl -skL https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl -o /usr/local/bin/kubectl`
+   - `chmod +x /usr/local/bin/kubectl`
+
+## Install JavaScript/Java Program Runtimes
+
+1. **Install Node.js**:<br/>
+   Install the Node.js JavaScript runtime.<br/>
+   Rationale: you want a reasonable JavaScript environment available -- feel free to skip.
+
+   - `curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -`
+   - `sudo apt-get install -y nodejs`
+
+2. **Install OpenJDK**:<br/>
+   Install the OpenJDK Java runtime.<br/>
+   Rationale: you want a reasonable Java environment available -- feel free to skip.
+
+   - `sudo apt-get install -y default-jdk`
 
