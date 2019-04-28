@@ -375,28 +375,28 @@ Notice:
 ## Install C/C++/Go/JavaScript/Java Development Environments
 
 1. **Install GCC**:<br/>
-   Install the GCC C/C++ compilers.<br/>
+   Install the GCC C/C++ compilers.
 
    > Rationale: you want reasonable C/C++ compilers available -- feel free to skip.
 
    - `sudo apt-get install -y gcc g++ bison flex`
 
 2. **Install Go**:<br/>
-   Install the Go compiler.<br/>
+   Install the Go compiler.
 
    > Rationale: you want reasonable Go compiler available -- feel free to skip.
 
    - `sudo apt-get install -y golang`
 
 3. **Install Perl**:<br/>
-   Install the Perl runtime.<br/>
+   Install the Perl runtime.
 
    > Rationale: you want reasonable Perl runtime available -- feel free to skip.
 
    - `sudo apt-get install -y perl`
 
 4. **Install Node.js**:<br/>
-   Install the Node.js JavaScript runtime.<br/>
+   Install the Node.js JavaScript runtime.
 
    > Rationale: you want a reasonable JavaScript environment available -- feel free to skip.
 
@@ -404,7 +404,7 @@ Notice:
    - `sudo apt-get install -y nodejs`
 
 5. **Install OpenJDK**:<br/>
-   Install the OpenJDK Java runtime.<br/>
+   Install the OpenJDK Java runtime.
 
    > Rationale: you want a reasonable Java environment available -- feel free to skip.
 
