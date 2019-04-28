@@ -16,6 +16,13 @@ Version: 2.0.0 (2019-04-27)
 > the [*Docker Desktop for Windows*](https://www.docker.com/products/docker-desktop)
 > container execution platform.
 
+Notice:
+
+> In short, the crux of this documentation is: `sudo` `NOPASSWD`
+> configuration, `wsl.conf` configuration, `/c/Users/$USER` home
+> directory, essential Unix "dotfiles", WSL utilities, MinTTY/WSLTTY,
+> `weasel-pageant`, `DOCKER_HOST` based remote access, etc.
+
 ## Install Windows Subsystem for Linux (WSL)
 
 1. **Ensure Windows 10 Professional/Enterprise, 64 Bit, Version &ge; 18.09**:<br/>
@@ -306,7 +313,6 @@ Version: 2.0.0 (2019-04-27)
    - `sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"`
    - `sudo apt-get update -y`
    - `sudo apt-get install -y docker-ce-cli`
-   - `sudo usermod -aG docker $USER`
    - `vi ~/.dotfiles.d/bashrc`<br/>
      &rarr; `export DOCKER_HOST=tcp://localhost:2375`
 
