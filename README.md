@@ -152,7 +152,7 @@ Notice:
    First, the tools available via standard package manager:
 
    - `sudo apt-get install -y bash less vim vifm tmux`
-   - `sudo apt-get install -y dnsutils tcpdump lsof top nmap`
+   - `sudo apt-get install -y procps lsof dnsutils tcpdump nmap`
    - `sudo apt-get install -y openssh-client stunnel subversion git curl`
    - `sudo apt-get install -y mc tree file findutils`
    - `sudo apt-get install -y rsync rdup rclone w3m lftp`
