@@ -50,8 +50,6 @@ Version 2.0.0 (2019-04-27)
 
    - *START* &rarr; `control panel` &rarr; *Programs* &rarr; *Turn Windows features on or off* &rarr; *Windows-Subsystem for Linux*
 
-   (Let the system reboot)
-
 ## Install Ubuntu GNU/Linux
 
 1. **Install Ubuntu 18.09 LTS**:<br/>
