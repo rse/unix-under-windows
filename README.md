@@ -36,7 +36,7 @@ Notice:
 
 1. **Ensure Windows 10 Professional/Enterprise, 64 Bit, Version &ge; 18.09**:<br/>
    Ensure you are running Windows 10 Professional or Windows 10 Enterprise
-   in 64-bit mode and in Version 1809 (October 2018) or newer.<br/>
+   in 64-bit mode and in Version 1809 (October 2018) or newer.
 
    > Rationale: Windows Subsystem for Linux (WSL) is available only
    > under those Windows editions, only under 64-bit and in a reasonable
@@ -61,7 +61,7 @@ Notice:
    > - Windows Upgrades: [Windows 10 Update Assistant](https://www.microsoft.com/software-download/windows10)
 
 2. **Enable Windows Subsystem for Linux**:<br/>
-   Enable the Windows feature *Windows Subsystem for Linux*.<br/>
+   Enable the Windows feature *Windows Subsystem for Linux*.
 
    > Rationale: Windows Subsystem for Linux is the core feature we want to use.
 
@@ -78,7 +78,7 @@ Notice:
 ## Install Ubuntu GNU/Linux Operating System
 
 1. **Install Ubuntu 18.04 LTS**:<br/>
-   Install Ubuntu GNU/Linux 18.04 Long Term Support (LTS) from the Microsoft Store.<br/>
+   Install Ubuntu GNU/Linux 18.04 Long Term Support (LTS) from the Microsoft Store.
 
    > Rationale: you need a reasonable GNU/Linux distribution.
 
@@ -101,14 +101,14 @@ Notice:
 ## Setup Ubuntu GNU/Linux Operating System
 
 1. **Enter Ubuntu under WSL**:<br/>
-   Enter Ubuntu GNU/Linux under Windows Subsystem for Linux.<br/>
+   Enter Ubuntu GNU/Linux under Windows Subsystem for Linux.
 
    > Rationale: we have to setup Ubuntu from itself.
     
     - *START* &rarr; *Ubuntu 18.04*
 
 2. **Enable Convenient Root Access**:<br/>
-   Ensure no password is needed for subsequent root access.<br/>
+   Ensure no password is needed for subsequent root access.
 
    > Rationale: just convenience only -- feel free to ignore.
 
@@ -117,7 +117,7 @@ Notice:
       &rarr; `%sudo ALL=(ALL:ALL) NOPASSWD: ALL`
 
 3. **Upgrade Ubuntu Operating System**:<br/>
-   Upgrade to the latest package versions of Ubuntu and allow APT to use HTTPS.<br/>
+   Upgrade to the latest package versions of Ubuntu and allow APT to use HTTPS.
 
    > Rationale: you always want the latest updates and Docker later needs HTTPS access.
 
@@ -126,7 +126,7 @@ Notice:
    - `sudo apt-get install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common`
 
 4. **Mount Windows directories in WSL with Meta-Data enabled**:<br/>
-   Configure the mounting of Windows directories in WSL (`/c` instead of `/mnt/c`) and with *Meta-Data* enabled.<br/>
+   Configure the mounting of Windows directories in WSL (`/c` instead of `/mnt/c`) and with *Meta-Data* enabled.
 
    > Rationale: allow POSIX file permissions on Windows drives from within WSL.
    
@@ -136,7 +136,7 @@ Notice:
       &rarr; `options = "metadata"`
 
 5. **Use Combined Home Directory**:<br/>
-   Map the Unix home directory to the regular Windows home directory.<br/>
+   Map the Unix home directory to the regular Windows home directory.
 
    > Rationale: just convenience only -- feel free to ignore.
 
@@ -148,14 +148,14 @@ Notice:
 ## Configure Unix Shell Environment
 
 1. **Re-Enter Ubuntu under WSL**:<br/>
-   Re-Enter Ubuntu GNU/Linux under Windows Subsystem for Linux again.<br/>
+   Re-Enter Ubuntu GNU/Linux under Windows Subsystem for Linux again.
 
    > Rationale: we have to configure the Unix environment from itself.
     
     - *START* &rarr; *Ubuntu 18.04*
 
 2. **Install Essential Unix Tools**:<br/>
-   Install all necessary essential and some more useful Unix tools.<br/>
+   Install all necessary essential and some more useful Unix tools.
 
    > Rationale: the subsequent Unix Shell Configurations are based on them.
 
@@ -186,7 +186,7 @@ Notice:
    - `rm git-town-amd64.deb`
 
 3. **Install Unix Shell Configurations**:<br/>
-   Install Ralf S. Engelschall's essential Unix dotfiles.<br/>
+   Install Ralf S. Engelschall's essential Unix dotfiles.
 
    > Rationale: you really want a reasonable pre-configured Unix shell environment.
 
@@ -199,7 +199,7 @@ Notice:
    - `dotfiles -f ~`
 
 4. **Install Unix Shell Addon Configurations**:<br/>
-   Install Ralf S. Engelschall's Bash-FZF and Bash-ENVRC addons.<br/>
+   Install Ralf S. Engelschall's Bash-FZF and Bash-ENVRC addons.
 
    > Rationale: you really want a reasonable pre-configured Unix shell environment.
 
@@ -207,7 +207,7 @@ Notice:
    - `curl -skL https://raw.githubusercontent.com/rse/bash-envrc/master/bash-envrc.rc -o ~/.bash-envrc.rc`
 
 4. **Extend Unix Shell Configurations**:<br/>
-   Extend the Unix shell configuration with your personal information.<br/>
+   Extend the Unix shell configuration with your personal information.
 
    > Rationale: these informations are individual.
 
@@ -218,7 +218,7 @@ Notice:
      &rarr; `email = <firstname>.<lastname>@<domain>`<br/>
 
 6. **Install WSL Utilities**:<br/>
-   Install additional WSL utilities.<br/>
+   Install additional WSL utilities.
 
    > Rationale: you want additional features inside WSL.
 
@@ -237,14 +237,14 @@ Notice:
 ## Install MinTTY/WSLTTY Terminal Emulator
 
 1. **Install MinTTY/WSLTTY**:<br/>
-   Install the WSLTTY variant of MinTTY.<br/>
+   Install the WSLTTY variant of MinTTY.
 
    > Rationale: a reasonable terminal emulator has to be used and the default WSL console is not good enough.
 
    - [WSLTTY version &ge; 3.0.0](https://github.com/mintty/wsltty/releases) &rarr; `wsltty-*-install.exe`
 
 2. **Install DejaVu Sans Mono font**:<br/>
-   Install a perfect monospaced font for the terminal emulator.<br/>
+   Install a perfect monospaced font for the terminal emulator.
 
    > Rationale: MinTTY/WSLTTY configuration above references it.
 
@@ -253,7 +253,7 @@ Notice:
    - install: `dejavu-fonts-ttf-*\ttf\` &arr; select all `*.ttf` &rarr; <kbd>RIGHT-CLICK</kbd> &rarr; *Install*
 
 3. **Install MinTTY/WSLTTY Configuration**:<br/>
-   Install a reasonable MinTTY/WSLTTY configuration.<br/>
+   Install a reasonable MinTTY/WSLTTY configuration.
 
    > Rationale: colors and fonts should be used.
    
@@ -265,14 +265,14 @@ Notice:
 ## Install Secure-Shell (SSH) Environment
 
 1. **Install PuTTY**:<br/>
-   Install the PuTTY SSH client.<br/>
+   Install the PuTTY SSH client.
 
    > Rationale: you want to run the PuTTY Agent (`pageant`).
 
    - [PuTTY Downloads](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) &rarr; `putty-64bit-*-installer.msi`
 
 2. **Generate SSH Key**:<br/>
-   Generate (or use existing) SSH key.<br/>
+   Generate (or use existing) SSH key.
 
    > Rationale: you don't want to use passwords.
 
@@ -283,7 +283,7 @@ Notice:
    Save the Public Key under `c:\Users\<username>\Documents\ssh-key-pub.pem`.
 
 3. **Autostart PuTTY Agent**:<br/>
-   Enable the PuTTY Agent to autostart on login and load the SSH private key.<br/>
+   Enable the PuTTY Agent to autostart on login and load the SSH private key.
 
    > Rationale: you want it to be running all the time.
 
@@ -291,7 +291,7 @@ Notice:
    - `"C:\Program Files\PuTTY\pageant.exe" "C:\Users\<username>\Documents\ssh-key-prv.ppk"`
 
 5. **Install PuTTY Agent Client (Weasel-Pageant)**<br/>
-   Install Weasel-Pageant for accessing the PuTTY Agent from within WSL.<br/>
+   Install Weasel-Pageant for accessing the PuTTY Agent from within WSL.
 
    > Rationale: you want to directly access PuTTY Agent from within WSL.
  
@@ -300,14 +300,14 @@ Notice:
    - move `weasel-pageant-1.3\` to `%APPDATA%\weasel-pageant\`
 
 4. **Enter Ubuntu under WSL via MinTTY/WSLTTY**:<br/>
-   Enter Ubuntu GNU/Linux under Windows Subsystem for Linux again (this time via MinTTY/WSLTTY).<br/>
+   Enter Ubuntu GNU/Linux under Windows Subsystem for Linux again (this time via MinTTY/WSLTTY).
 
    > Rationale: we have to configure also the Unix of SSH.
     
     - *START* &rarr; `wsl terminal` <kbd>RETURN</kbd>
 
 5. **Configure Unix Environment for SSH Agent**:<br/>
-   Configure the Unix environment to use the Weasel-Pageant as the SSH agent.<br/>
+   Configure the Unix environment to use the Weasel-Pageant as the SSH agent.
 
    > Rationale: in every WSL terminal you want SSH agent access available automatically.
 
@@ -317,7 +317,7 @@ Notice:
 ## Install Docker/Kubernetes Container Runtimes
 
 1. **Install Docker Desktop**:<br/>
-   Install the Docker Desktop for Windows (Community Edition) distribution.<br/>
+   Install the Docker Desktop for Windows (Community Edition) distribution.
 
    > Rationale: you want Docker container engine be available for development.
 
@@ -336,7 +336,7 @@ Notice:
    > as Docker cannot be run on the WSL-based Ubuntu directly.
 
 2. **Start & Configure Docker Desktop**:<br/>
-   Start and configure Docker Desktop.<br/>
+   Start and configure Docker Desktop.
 
    > Rationale: for CLI access from within WSL, the Docker daemon API has to be exposed via TCP on localhost.
 
@@ -344,14 +344,14 @@ Notice:
    - *System Tray* &rarr; *Docker Desktop* &rarr; <kbd>RIGHT-CLICK</kbd> &rarr; *Settings* &rarr; *General* &rarr; *Expose daemon...*
 
 3. **Re-Enter Ubuntu under WSL**:<br/>
-   Re-Enter Ubuntu GNU/Linux under Windows Subsystem for Linux again.<br/>
+   Re-Enter Ubuntu GNU/Linux under Windows Subsystem for Linux again.
 
    > Rationale: we have to install also the Unix client side of Docker.
     
    - *START* &rarr; `wsl terminal` <kbd>RETURN</kbd>
 
 4. **Install Docker CLI and Docker-Compose**:<br/>
-   Install native Linux versions of the Docker CLI.<br/>
+   Install native Linux versions of the Docker CLI.
 
    > Rationale: native Linux version works more flawless than executing the Windows version under WSL.
 
@@ -363,7 +363,7 @@ Notice:
      &rarr; `export DOCKER_HOST=tcp://localhost:2375`
 
 5. **Install Docker-Compose and Kubectl**:<br/>
-   Install native Linux versions of the Docker-Compose and Kubernetes Kubectl.<br/>
+   Install native Linux versions of the Docker-Compose and Kubernetes Kubectl.
 
    > Rationale: native Linux versions work more flawless than executing the Windows versions under WSL.
 
