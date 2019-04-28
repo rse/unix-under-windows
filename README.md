@@ -34,7 +34,6 @@ Version 2.0.0 (2019-04-27)
    > [MSYS2](https://www.msys2.org/) or [Cygwin](https://www.cygwin.com/).
    > If you just still have an older Windows version, upgrade with one of the following
    > two options:
-   >
    > - Windows Updates: *START* &rarr; `windows update settings` <kbd>RETURN</kbd>
    > - Windows Upgrades: [Windows 10 Update Assistant](https://www.microsoft.com/software-download/windows10)
    >
