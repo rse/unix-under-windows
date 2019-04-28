@@ -55,17 +55,23 @@ Version 2.0.0 (2019-04-27)
 
 ## Install Ubuntu GNU/Linux Operating System
 
-1. **Install Ubuntu 18.09 LTS**:<br/>
-   Install Ubuntu GNU/Linux 18.09 LTS from the Windows Store.<br/>
+1. **Install Ubuntu 18.04 LTS**:<br/>
+   Install Ubuntu GNU/Linux 18.04 Long Term Support (LTS) from the Microsoft Store.<br/>
    Rationale: you need a reasonable GNU/Linux distribution.
 
-   - *START* &rarr; `microsoft store` &rarr; *Search* &rarr; `ubuntu`
+   - *START* &rarr; `microsoft store` &rarr; *Search* &rarr; `ubuntu 18.04 lts` &rarr; *Get* &rarr; *Launch*
 
-   In case Microsoft Store is not available on your system, the reason
+   Just be patient on first launch, it really takes time.
+   Then, when asked for your username, enter the same as your Windows username.
+   When asked for your password, enter either your Windows password or another one, but
+   remember it (at least once until next step)!
+
+   Notice: In case the Microsoft Store is not available on your system, the reason
    can be that you still have User Account Control (UAC) disabled, or
-   you are still not signed in with a Microsoft Account, your Windows is
-   still not activated or you are still running an evaluation version of
-   Windows. Anyway, try to fix the problems the following way first:
+   you are still not signed in with a Microsoft Account (although it
+   should be not required), or your Windows is still not activated or
+   you are still running an evaluation version of Windows. Anyway, try
+   to fix the problems the following way:
 
    - *START* &rarr; *Settings* &rarr; *Updates & Security* &rarr; *Troubleshoot* &rarr; *Windows Store Apps* &rarr; *Run the troubleshooter*
 
@@ -75,9 +81,7 @@ Version 2.0.0 (2019-04-27)
    Enter Ubuntu GNU/Linux under Windows Subsystem for Linux.<br/>
    Rationale: we have to setup Ubuntu from itself.
     
-    - *START* &rarr; `ubuntu` <kbd>RETURN</kbd>
-
-   When asked for your password, enter an existing or new one, but remember it (at least once until next step)!
+    - *START* &rarr; *Ubuntu 18.04*
 
 2. **Enable Convenient Root Access**:<br/>
    Ensure no password is needed for subsequent root access.<br/>
@@ -87,11 +91,12 @@ Version 2.0.0 (2019-04-27)
       &larr; `%sudo ALL=(ALL:ALL) ALL`<br/>
       &rarr; `%sudo ALL=(ALL:ALL) NOPASSWD: ALL`
 
-3. **Use Combined Home Directory**:<br/>
-   Map the Unix home directory to the regular Windows home directory.<br/>
-   Rationale: just convenience only -- feel free to ignore.
+3. **Upgrade Ubuntu Operating System**:<br/>
+   Upgrade to the latest package versions of Ubunu.<br/>
+   Rationale: you always want the latest updates.
 
-    - `sudo usermod -d /mnt/c/Users $LOGNAME`
+   - `sudo apt-get update`
+   - `sudo apt-get upgrade`
 
 4. **Mount Windows directories in WSL with Meta-Data enabled**:<br/>
    Configure the mounting of Windows directories in WSL (`/mnt/c`) with *Meta-Data* enabled.<br/>
@@ -101,20 +106,22 @@ Version 2.0.0 (2019-04-27)
       &rarr; `[automount]`<br/>
       &rarr; `options = "metadata"`
 
-5. **Upgrade Ubuntu Operating System**:<br/>
-   Upgrade to the latest package versions of Ubunu.<br/>
-   Rationale: you always want the latest updates.
+5. **Use Combined Home Directory**:<br/>
+   Map the Unix home directory to the regular Windows home directory.<br/>
+   Rationale: just convenience only -- feel free to ignore.
 
-   - `sudo apt-get update`
-   - `sudo apt-get upgrade`
+    - `exec sudo usermod -d /mnt/c/Users/$USER $USER`
+
+   (don't panic: we have to `exec` the command here to release the current user's shell
+   and let `usermod` proceeed and this will immediately close the Unix terminal)
 
 ## Configure Unix Shell Environment
 
-1. **Enter Ubuntu under WSL**:<br/>
-   Enter Ubuntu GNU/Linux under Windows Subsystem for Linux again.<br/>
+1. **Re-Enter Ubuntu under WSL**:<br/>
+   Re-Enter Ubuntu GNU/Linux under Windows Subsystem for Linux again.<br/>
    Rationale: we have to configure the Unix environment from itself.
     
-    - *START* &rarr; `ubuntu` <kbd>RETURN</kbd>
+    - *START* &rarr; *Ubuntu 18.04*
 
 2. **Install Essential Unix Tools**:<br/>
    Install all necessary essential and some more useful Unix tools.<br/>
@@ -124,6 +131,7 @@ Version 2.0.0 (2019-04-27)
 
    - `sudo apt-get install bash less vim vifm vifm tmux git`
    - `sudo apt-get install subversion curl socat`
+   - `sudo apt-get install build-tools`
 
    Second, the tool ([FZF](https://github.com/junegunn/fzf)) not available
    (at least not in latest version) via standard package manager:
