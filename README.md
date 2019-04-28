@@ -3,7 +3,7 @@
 <img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Windows_logo_-_2012.svg" width="120" align="right" alt=""/>
 
 Author: [Dr. Ralf S. Engelschall](mailto:rse@engelschall.com)<br/>
-Version: 2.0.0 (2019-04-27)
+Version: 2.0.0 (2019-04-28)
 
 # Unix Environment under Windows
 
