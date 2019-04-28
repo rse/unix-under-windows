@@ -62,7 +62,7 @@ Notice:
 
 2. **Enable Windows Subsystem for Linux**:<br/>
    Enable the Windows feature *Windows Subsystem for Linux*.<br/>
-   Rationale: Windows Subsystem for Linux is the core feature we want to use.
+   > Rationale: Windows Subsystem for Linux is the core feature we want to use.
 
    - <kbd>WIN+r</kbd> &rarr; `powershell` &rarr; <kbd>RIGHT-CLICK</kbd> &rarr; *Run as administrator*
    - `Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux`
