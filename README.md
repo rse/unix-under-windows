@@ -50,6 +50,9 @@ Version 2.0.0 (2019-04-27)
 
    - *START* &rarr; `control panel` &rarr; *Programs* &rarr; *Turn Windows features on or off* &rarr; *Windows-Subsystem for Linux*
 
+   In case you have trouble to enable *Windows Subsystem for Linux*, this can have many reasons.
+   In most cases, the reason is that point (1) above is not exactly fulfilled. Start over there again.
+
 ## Install Ubuntu GNU/Linux Operating System
 
 1. **Install Ubuntu 18.09 LTS**:<br/>
@@ -58,9 +61,11 @@ Version 2.0.0 (2019-04-27)
 
    - *START* &rarr; `microsoft store` &rarr; *Search* &rarr; `ubuntu`
 
-   In case Microsoft Store is not available on your system, the reason can be that
-   you still have User Account Control (UAC) disabled and/or you are still not logged in with
-   a Microsoft Account. Anyway, fix the problems the following way first:
+   In case Microsoft Store is not available on your system, the reason
+   can be that you still have User Account Control (UAC) disabled, or
+   you are still not signed in with a Microsoft Account, your Windows is
+   still not activated or you are still running an evaluation version of
+   Windows. Anyway, try to fix the problems the following way first:
 
    - *START* &rarr; *Settings* &rarr; *Updates & Security* &rarr; *Troubleshoot* &rarr; *Windows Store Apps* &rarr; *Run the troubleshooter*
 
@@ -234,6 +239,7 @@ Version 2.0.0 (2019-04-27)
 
 - Ensure PULSE Client &ge; 5.3.5
 - Install Docker for Windows
+   - *START* &rarr; `control panel` &rarr; *Programs* &rarr; *Turn Windows features on or off* &rarr; *Hyper-V*
 - Install docker and docker-compose for Ubuntu and kubectl and helm
 
 `echo "export DOCKER_HOST=tcp://localhost:2375" >>~/.dotfiles.d/bashrc`
