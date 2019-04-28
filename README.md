@@ -18,9 +18,7 @@ Version: 2.1.0 (2019-04-28)
 
 ![screenshot](screenshot.png)
 
-Notice:
-
-> In short, the crux of this setup in contrast to the usual WSL setups is:
+> Notice: In short, the crux of this setup in contrast to the usual WSL setups is:
 >
 > - convenient root access (password-less `sudo`)
 > - reasonably mapped home directory (`/c/Users/$USER`)
