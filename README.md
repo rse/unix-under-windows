@@ -27,7 +27,7 @@ Version 2.0.0 (2019-04-27)
    - ... *Windows Specifications* &rarr; *Edition*
    - ... *Windows Specifications* &rarr; *Version*
 
-   NOTICE:
+   Notice:
 
    > If you have a different edition or you are running in 32-bit mode,
    > you are out of luck with WSL. Sorry, then you have to went with
@@ -51,8 +51,10 @@ Version 2.0.0 (2019-04-27)
 
    - *START* &rarr; `control panel` &rarr; *Programs* &rarr; *Turn Windows features on or off* &rarr; *Windows-Subsystem for Linux*
 
-   In case you have trouble to enable *Windows Subsystem for Linux*, this can have many reasons.
-   In most cases, the reason is that point (1) above is not exactly fulfilled. Start over there again.
+   Notice:
+
+   > In case you have trouble to enable *Windows Subsystem for Linux*, this can have many reasons.
+   > In most cases, the reason is that point (1) above is not exactly fulfilled. Start over there again.
 
 ## Install Ubuntu GNU/Linux Operating System
 
@@ -67,14 +69,16 @@ Version 2.0.0 (2019-04-27)
    When asked for your password, enter either your Windows password or another one, but
    remember it (at least once until next step)!
 
-   Notice: In case the Microsoft Store is not available on your system, the reason
-   can be that you still have User Account Control (UAC) disabled, or
-   you are still not signed in with a Microsoft Account (although it
-   should be not required), or your Windows is still not activated or
-   you are still running an evaluation version of Windows. Anyway, try
-   to fix the problems the following way:
-
-   - *START* &rarr; *Settings* &rarr; *Updates & Security* &rarr; *Troubleshoot* &rarr; *Windows Store Apps* &rarr; *Run the troubleshooter*
+   Notice:
+   
+   > In case the Microsoft Store is not available on your system, the reason
+   > can be that you still have User Account Control (UAC) disabled, or
+   > you are still not signed in with a Microsoft Account (although it
+   > should be not required), or your Windows is still not activated or
+   > you are still running an evaluation version of Windows. Anyway, try
+   > to fix the problems the following way:
+   > 
+   > - *START* &rarr; *Settings* &rarr; *Updates & Security* &rarr; *Troubleshoot* &rarr; *Windows Store Apps* &rarr; *Run the troubleshooter*
 
 ## Setup Ubuntu GNU/Linux Operating System
 
