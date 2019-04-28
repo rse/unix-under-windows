@@ -104,7 +104,7 @@ Version: 2.0.0 (2019-04-27)
    Rationale: you always want the latest updates.
 
    - `sudo apt-get update`
-   - `sudo apt-get upgrade`
+   - `sudo apt-get upgrade -y --with-new-pkgs`
 
 4. **Mount Windows directories in WSL with Meta-Data enabled**:<br/>
    Configure the mounting of Windows directories in WSL (`/mnt/c`) with *Meta-Data* enabled.<br/>
@@ -139,9 +139,9 @@ Version: 2.0.0 (2019-04-27)
 
    First, the tools available via standard package manager:
 
-   - `sudo apt-get install bash less vim vifm vifm tmux git`
-   - `sudo apt-get install subversion curl socat`
-   - `sudo apt-get install build-tools`
+   - `sudo apt-get install -y bash less vim vifm tmux git`
+   - `sudo apt-get install -y subversion curl socat`
+   - `sudo apt-get install -y make gcc g++ golang`
 
    Second, the tool ([FZF](https://github.com/junegunn/fzf)) not available
    (at least not in latest version) via standard package manager:
