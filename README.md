@@ -30,7 +30,7 @@ Notice:
 > - host terminal emulator (MinTTY/WSLTTY)
 > - host SSH agent with transparent access from within WSL (`weasel-pageant`)
 > - host Docker engine with transparent access from within WSL (`$DOCKER_HOST`)
-> - essential programming languagesd (C/C++/Go/Perl/JavaScript/Java)
+> - essential programming languages (C/C++/Go/Perl/JavaScript/Java)
 
 ## Install Windows Subsystem for Linux (WSL)
 
