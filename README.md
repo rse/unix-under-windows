@@ -50,7 +50,7 @@ Version 2.0.0 (2019-04-27)
 
    - *START* &rarr; `control panel` &rarr; *Programs* &rarr; *Turn Windows features on or off* &rarr; *Windows-Subsystem for Linux*
 
-## Install Ubuntu GNU/Linux
+## Install Ubuntu GNU/Linux Operating System
 
 1. **Install Ubuntu 18.09 LTS**:<br/>
    Install Ubuntu GNU/Linux 18.09 LTS from the Windows Store.<br/>
@@ -64,7 +64,7 @@ Version 2.0.0 (2019-04-27)
 
    - *START* &rarr; *Settings* &rarr; *Updates & Security* &rarr; *Troubleshoot* &rarr; *Windows Store Apps* &rarr; *Run the troubleshooter*
 
-## Setup Ubuntu GNU/Linux
+## Setup Ubuntu GNU/Linux Operating System
 
 1. **Enter Ubuntu under WSL**:<br/>
    Enter Ubuntu GNU/Linux under Windows Subsystem for Linux.<br/>
@@ -148,23 +148,29 @@ Version 2.0.0 (2019-04-27)
      &rarr; `name  = <firstname> <lastname>`<br/>
      &rarr; `email = <firstname>.<lastname>@<domain>`<br/>
 
-## Install MinTTY/WSLTTY
+6. **Install WSL Utilities**:<br/>
+   Install additional WSL utilities.<br/>
+   Rationale: you want additional features inside WSL.
 
-1. **Install DejaVu Sans Mono font**:<br/>
-   Install a perfect monospaced font for the terminal emulator.<br/>
-   Rationale: MinTTY/WSLTTY configuration requires it.
+   - `sudo apt-get install ubuntu-wsl wslu`
+   - `curl -skLO https://github.com/4U6U57/wsl-open/archive/master.zip`
+   - `tar zxf master.zip`
+   - `sudo install -c -m 755 wsl-open/wsl-open.sh /usr/local/bin/wsl-open`
+   - `sudo install -c -m 644 wsl-open/wsl-open.1 /usr/local/man/man1/`
+   - `rm master.zip`
+   - `vi ~/.dotfiles.d/bashrc`<br/>
+      &rarr; `PATH=$PATH:/mnt/c/Windows/System32/WindowsPowerShell/v1.0/`<br/>
+      &rarr; `alias open=wsl-open`
 
-   - download: [DejaVu Sans](https://dejavu-fonts.github.io/Download.html) &rarr; `dejavu-fonts-ttf-*.zip`
-   - extract: `dejavu-fonts-ttf-*.zip`
-   - install: `ttf/` &arr; `*.ttf` &rarr; <kbd>RIGHT-CLICK</kbd> &rarr; *Install*
+## Install MinTTY/WSLTTY Terminal Emulator
 
-2. **Install MinTTY/WSLTTY**:<br/>
+1. **Install MinTTY/WSLTTY**:<br/>
    Install the WSLTTY variant of MinTTY.<br/>
    Rationale: a reasonable terminal emulator has to be used and the default WSL console is not good enough.
 
    - [WSLTTY version &ge; 3.0.0](https://github.com/mintty/wsltty/releases) &rarr; `wsltty-*-install.exe`
 
-3. **Install MinTTY/WSLTTY Configuration**:<br/>
+2. **Install MinTTY/WSLTTY Configuration**:<br/>
    Install a reasonable MinTTY/WSLTTY configuration.<br/>
    Rationale: colors and fonts should be used.
    
@@ -172,24 +178,58 @@ Version 2.0.0 (2019-04-27)
    - <kbd>WIN+e</kbd> &rarr; `%APPDATA%\wsltty` <kbd>RETURN</kbd>
    - override: `config`
 
-## Configure Secure-Shell (SSH)
+3. **Install DejaVu Sans Mono font**:<br/>
+   Install a perfect monospaced font for the terminal emulator.<br/>
+   Rationale: MinTTY/WSLTTY configuration above references it.
 
-1. **Install PuTTY Agent**<br/>
+   - download: [DejaVu Sans](https://dejavu-fonts.github.io/Download.html) &rarr; `dejavu-fonts-ttf-*.zip`
+   - extract: `dejavu-fonts-ttf-*.zip`
+   - install: `ttf/` &arr; `*.ttf` &rarr; <kbd>RIGHT-CLICK</kbd> &rarr; *Install*
 
--	Install PuTTY pageant
+## Install Secure-Shell (SSH) Environment
 
-1. **Install PuTTY Agent**<br/>
+1. **Install PuTTY**:<br/>
+   Install the PuTTY SSH client.<br/>
+   Rationale: you want to run the PuTTY Agent (`pageant`).
 
--	Install weasel-pageant
+   - [PuTTY Downloads](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) &rarr; `putty-*-installer.msi`
 
-`echo "eval \$(~/AppData/Roaming/weasel-pageant/weasel-pageant -r -s)" >>~/.dotfiles.d/bashrc`
+2. **Generate SSH Key**:<br/>
+   Generate (or use existing) SSH key.<br/>
+   Rationale: you don't want to use passwords.
 
-1. **Install WSL Utilities**:<br/>
+   - *START* &rarr; `puttygen` <kbd>RETURN</kbd>
 
-    - Install wsl-open
+   - Convert to standard format.
 
-        `echo \"PATH=\$PATH:/mnt/c/Windows/System32/WindowsPowerShell/v1.0/" >>~/.dotfiles.d/bashrc`
-        `echo "alias open=wsl-open" >>~/.dotfiles.d/bashrc`
+3. **Autostart PuTTY Agent**:<br/>
+   Enable the PuTTY Agent to autostart on login.<br/>
+   Rationale: you want it to be running all the time.
+
+   - FIXME
+   - `pageant.exe <ppk-file>`
+
+5. **Install PuTTY Agent Client (Weasel-Pageant)**<br/>
+   Install Weasel-Pageant for accessing the PuTTY Agent from within WSL.<br/>
+   Rationale: you want to directly access PuTTY Agent from within WSL.
+ 
+   - [Weasel-Pageant Downloads](https://github.com/vuori/weasel-pageant/releases) &rarr; `weasel-pageant-1.3.zip`
+   - `weasel-pageant-1.3.zip` &rarr; <kbd>RIGHT-CLICK</kbd> &rarr; Extract
+   - move `weasel-pageant-1.3` to `%APPDATA%\weasel-pageant`
+
+4. **Enter Ubuntu under WSL via MinTTY/WSLTTY**:<br/>
+   Enter Ubuntu GNU/Linux under Windows Subsystem for Linux again (this time via MinTTY/WSLTTY).<br/>
+   Rationale: we have to configure also the Unix of SSH.
+    
+    - *START* &rarr; `wsltty` <kbd>RETURN</kbd>
+
+5. **Configure Unix Environment for SSH Agent**:<br/>
+   Configure the Unix environment to use the Weasel-Pageant as the SSH agent.<br/>
+   Rationale: in every WSL terminal you want SSH agent access available automatically.
+
+   - `vi ~/.dotfiles.d/bashrc`<br/>
+     &rarr; `eval $(~/AppData/Roaming/weasel-pageant/weasel-pageant -r -s)`
+
 
 ## Install Docker Desktop for Windows
 
