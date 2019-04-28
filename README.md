@@ -5,7 +5,7 @@ Version 2.0.0 (2019-04-27)
 # Unix Environment under Windows
 
 > This is a summary on how to setup a reasonable Unix development environment under
-> [*Microsoft Windows 10*](https://windows.com) with the help of the
+> [*Microsoft Windows 10*](https://windows.com) (Pro edition, 64-bit mode, version &ge; 1809) with the help of the
 > native [*Windows Subsystem for Linux (WSL)*](blogs.msdn.microsoft.com/wsl/),
 > the [*Ubuntu*](https://www.ubuntu.com/) GNU/Linux distribution,
 > Ralf S. Engelschall's [*Unix dotfiles*](https://github.com/rse/dotfiles) shell environment,
@@ -229,7 +229,6 @@ Version 2.0.0 (2019-04-27)
 
    - `vi ~/.dotfiles.d/bashrc`<br/>
      &rarr; `eval $(~/AppData/Roaming/weasel-pageant/weasel-pageant -r -s)`
-
 
 ## Install Docker Desktop for Windows
 
