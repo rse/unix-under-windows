@@ -299,8 +299,8 @@ Version: 2.0.0 (2019-04-27)
    - *START* &rarr; `wsl terminal` <kbd>RETURN</kbd>
 
 4. **Install Docker CLI and Docker-Compose**:<br/>
-   Install native Linux versions of the Docker CLI, Docker-Compose and Kubectl.<br/>
-   Rationale: native Linux versions work more flawless than executing the Windows versions under WSL.
+   Install native Linux versions of the Docker CLI.<br/>
+   Rationale: native Linux version works more flawless than executing the Windows version under WSL.
 
    - `curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -`
    - `sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"`
@@ -309,6 +309,11 @@ Version: 2.0.0 (2019-04-27)
    - `sudo usermod -aG docker $USER`
    - `vi ~/.dotfiles.d/bashrc`<br/>
      &rarr; `export DOCKER_HOST=tcp://localhost:2375`
+
+5. **Install Docker-Compose and Kubectl**:<br/>
+   Install native Linux versions of the Docker-Compose and Kubernetes Kubectl.<br/>
+   Rationale: native Linux versions work more flawless than executing the Windows versions under WSL.
+
    - `curl -skL https://github.com/docker/compose/releases/download/1.24.0/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose`
    - `chmod +x /usr/local/bin/docker-compose`
    - `curl -skL https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl -o /usr/local/bin/kubectl`
