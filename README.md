@@ -36,6 +36,9 @@ Version 2.0.0 (2019-04-27)
    - Windows Updates: *START* &rarr; `windows update settings` <kbd>RETURN</kbd>
    - Windows Upgrades: [Windows 10 Update Assistant](https://www.microsoft.com/software-download/windows10)
 
+   If you want to perform a fresh Windows 10 installation, start over with Microsoft's
+   [Download Windows 10 Disc Image (ISO File)](https://www.microsoft.com/en-us/software-download/windows10ISO/).
+
 2. **Enable Windows Subsystem for Linux**:<br/>
    Enable the Windows feature *Windows Subsystem for Linux*.<br/>
    Rationale: Windows Subsystem for Linux is the core feature we want to use.
@@ -52,8 +55,16 @@ Version 2.0.0 (2019-04-27)
 ## Install Ubuntu GNU/Linux
 
 1. **Install Ubuntu 18.09 LTS**:<br/>
-   Install Ubuntu GNU/Linix 18.09 LTS from the Windows Store.<br/>
-   Rationale
+   Install Ubuntu GNU/Linux 18.09 LTS from the Windows Store.<br/>
+   Rationale: you need a reasonable GNU/Linux distribution.
+
+   - *START* &rarr; `microsoft store` &rarr; *Search* &rarr; `ubuntu`
+
+   In case Microsoft Store is not available on your system, the reason can be that
+   you still have User Account Control (UAC) disabled and/or you are still not logged in with
+   a Microsoft Account. Anyway, fix the problems the following way first:
+
+   - *START* &rarr; *Settings* &rarr; *Updates & Security* &rarr; *Troubleshoot* &rarr; *Windows Store Apps* &rarr; *Run the troubleshooter*
 
 ## Install MinTTY/WSLTTY
 
@@ -99,7 +110,7 @@ Version 2.0.0 (2019-04-27)
    
     - `sudo vi /etc/wsl.conf`<br/>
       &rarr; ```[automount]```<br/>
-      rarr; ```options = "metadata"```
+      &rarr; ```options = "metadata"```
 
 3. **Install Essential Unix Tools**:<br/>
 
