@@ -66,11 +66,11 @@ Version 2.0.0 (2019-04-27)
 
    - *START* &rarr; *Settings* &rarr; *Updates & Security* &rarr; *Troubleshoot* &rarr; *Windows Store Apps* &rarr; *Run the troubleshooter*
 
-## Configure Unix Shell Environment
+## Setup Ubuntu GNU/Linux
 
 1. **Enter Ubuntu under WSL**:<br/>
    Enter Ubuntu GNU/Linux under Windows Subsystem for Linux.<br/>
-   Rationale: we have to configure the Unix environment from itself.
+   Rationale: we have to setup Ubuntu from itself.
     
     - *START* &rarr; `ubuntu` <kbd>RETURN</kbd>
 
@@ -105,7 +105,15 @@ Version 2.0.0 (2019-04-27)
    - `sudo apt-get update`
    - `sudo apt-get upgrade`
 
-5. **Install Essential Unix Tools**:<br/>
+## Configure Unix Shell Environment
+
+1. **Enter Ubuntu under WSL**:<br/>
+   Enter Ubuntu GNU/Linux under Windows Subsystem for Linux again.<br/>
+   Rationale: we have to configure the Unix environment from itself.
+    
+    - *START* &rarr; `ubuntu` <kbd>RETURN</kbd>
+
+2. **Install Essential Unix Tools**:<br/>
    Install all necessary essential and some more useful Unix tools.<br/>
    Rationale: the subsequent Unix Shell Configurations are based on them.
 
@@ -122,7 +130,7 @@ Version 2.0.0 (2019-04-27)
    - `sudo mv fzf /usr/local/bin/`
    - `rm fzf-0.18.0-linux_amd64.tgz`
 
-6. **Install Unix Shell Configurations**:<br/>
+3. **Install Unix Shell Configurations**:<br/>
    Install Ralf S. Engelschall's essential Unix dotfiles.<br/>
    Rationale: you really want a reasonable pre-configured Unix shell environment.
 
@@ -132,7 +140,7 @@ Version 2.0.0 (2019-04-27)
    - `rm -f master.zip`
    - `dotfiles -f ~`
 
-7. **Extend Unix Shell Configurations**:<br/>
+4. **Extend Unix Shell Configurations**:<br/>
    Extend the Unix shell configuration with your personal information.<br/>
    Rationale: these informations are individual.
 
