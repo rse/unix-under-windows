@@ -21,14 +21,16 @@ Version: 2.0.1 (2019-04-28)
 Notice:
 
 > In short, the crux of this setup in contrast to the usual WSL setups is:
-> - password-less `sudo` usage
-> - reasonably mapped home directory `/c/Users/$USER`
-> - essential Unix shell configuration ("dot-files")
+>
+> - convenient root access (password-less `sudo`)
+> - reasonably mapped home directory (`/c/Users/$USER`)
+> - essential Unix shell configurations ("dot-files")
 > - essential Unix shell utilities
 > - additional WSL shell utilities (`wsl-open`)
 > - host terminal emulator (MinTTY/WSLTTY)
 > - host SSH agent with transparent access from within WSL (`weasel-pageant`)
-> - host Docker engine with transparent access from within WSL (`DOCKER_HOST`)
+> - host Docker engine with transparent access from within WSL (`$DOCKER_HOST`)
+> - essential programming languagesd (C/C++/Go/Perl/JavaScript/Java)
 
 ## Install Windows Subsystem for Linux (WSL)
 
