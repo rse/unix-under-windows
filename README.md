@@ -119,8 +119,8 @@ Version 2.0.0 (2019-04-27)
 
    Notice:
    
-   > Don't panic: we have to `exec` the command here to release the current user's shell
-   > and let `usermod` proceeed and this will immediately close the Unix terminal.
+   > Don't panic: We have to `exec` the command here to release the current user's processes
+   > and this way let `usermod` proceeed. This will immediately close the Unix terminal.
 
 ## Configure Unix Shell Environment
 
