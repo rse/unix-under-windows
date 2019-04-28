@@ -66,30 +66,6 @@ Version 2.0.0 (2019-04-27)
 
    - *START* &rarr; *Settings* &rarr; *Updates & Security* &rarr; *Troubleshoot* &rarr; *Windows Store Apps* &rarr; *Run the troubleshooter*
 
-## Install MinTTY/WSLTTY
-
-1. **Install DejaVu Sans Mono font**:<br/>
-   Install a perfect monospaced font for the terminal emulator.<br/>
-   Rationale: MinTTY/WSLTTY configuration requires it.
-
-   - download: [DejaVu Sans](https://dejavu-fonts.github.io/Download.html) &rarr; `dejavu-fonts-ttf-*.zip`
-   - extract: `dejavu-fonts-ttf-*.zip`
-   - install: `ttf/` &arr; `*.ttf` &rarr; <kbd>RIGHT-CLICK</kbd> &rarr; *Install*
-
-2. **Install MinTTY/WSLTTY**:<br/>
-   Install the WSLTTY variant of MinTTY.<br/>
-   Rationale: a reasonable terminal emulator has to be used and the default WSL console is not good enough.
-
-   - [WSLTTY version &ge; 3.0.0](https://github.com/mintty/wsltty/releases) &rarr; `wsltty-*-install.exe`
-
-3. **Install MinTTY/WSLTTY Configuration**:<br/>
-   Install a reasonable MinTTY/WSLTTY configuration.<br/>
-   Rationale: colors and fonts should be used.
-   
-   - download: [config](https://raw.githubusercontent.com/rse/mintty-config/master/config)
-   - <kbd>WIN+e</kbd> &rarr; `%APPDATA%\wsltty` <kbd>RETURN</kbd>
-   - override: `config`
-
 ## Configure Unix Shell Environment
 
 1. **Enter Ubuntu under WSL**:<br/>
@@ -162,11 +138,35 @@ Version 2.0.0 (2019-04-27)
 
    - `vi ~/.dotfiles.d/gitconfig`<br/>
      &rarr; `[user]`<br/>
-     &rarr; &nbsp;&nbsp;`user  = <username>`<br/>
-     &rarr; &nbsp;&nbsp;`name  = <firstname> <lastname>`<br/>
-     &rarr; &nbsp;&nbsp;`email = <firstname>.<lastname>@<domain>`<br/>
+     &rarr; `user  = <username>`<br/>
+     &rarr; `name  = <firstname> <lastname>`<br/>
+     &rarr; `email = <firstname>.<lastname>@<domain>`<br/>
 
-## Configure SSH Usage
+## Install MinTTY/WSLTTY
+
+1. **Install DejaVu Sans Mono font**:<br/>
+   Install a perfect monospaced font for the terminal emulator.<br/>
+   Rationale: MinTTY/WSLTTY configuration requires it.
+
+   - download: [DejaVu Sans](https://dejavu-fonts.github.io/Download.html) &rarr; `dejavu-fonts-ttf-*.zip`
+   - extract: `dejavu-fonts-ttf-*.zip`
+   - install: `ttf/` &arr; `*.ttf` &rarr; <kbd>RIGHT-CLICK</kbd> &rarr; *Install*
+
+2. **Install MinTTY/WSLTTY**:<br/>
+   Install the WSLTTY variant of MinTTY.<br/>
+   Rationale: a reasonable terminal emulator has to be used and the default WSL console is not good enough.
+
+   - [WSLTTY version &ge; 3.0.0](https://github.com/mintty/wsltty/releases) &rarr; `wsltty-*-install.exe`
+
+3. **Install MinTTY/WSLTTY Configuration**:<br/>
+   Install a reasonable MinTTY/WSLTTY configuration.<br/>
+   Rationale: colors and fonts should be used.
+   
+   - download: [config](https://raw.githubusercontent.com/rse/mintty-config/master/config)
+   - <kbd>WIN+e</kbd> &rarr; `%APPDATA%\wsltty` <kbd>RETURN</kbd>
+   - override: `config`
+
+## Configure Secure-Shell (SSH)
 
 1. **Install PuTTY Agent**<br/>
 
