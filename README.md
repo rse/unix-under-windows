@@ -240,6 +240,7 @@ container execution platform.
    > Rationale: a reasonable terminal emulator has to be used and the default WSL console is not good enough.
 
    - [WSLTTY version &ge; 3.0.0](https://github.com/mintty/wsltty/releases) &rarr; `wsltty-*-install.exe`
+   - <kbd>WIN+r</kbd> &rarr; `%LOCALAPPDATA%\wsltty` &rarr; `add to context menu.lnk`
 
 2. **Install DejaVu Sans Mono font**:<br/>
    Install a perfect monospaced font for the terminal emulator.
