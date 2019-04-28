@@ -69,11 +69,12 @@ Version 2.0.0 (2019-04-27)
 ## Install MinTTY/WSLTTY
 
 1. **Install DejaVu Sans Mono font**:<br/>
-   Install...<br/>
-   Rationale: a perfect monospaced font should be used in the terminal emulator.
+   Install a perfect monospaced font for the terminal emulator.<br/>
+   Rationale: MinTTY/WSLTTY configuration requires it.
 
-   - [DejaVu Sans](https://dejavu-fonts.github.io/Download.html) &rarr; `dejavu-fonts-ttf-*.zip`
-   - `ttf/` &arr; `*.ttf` &rarr; <kbd>RIGHT-CLICK</kbd> &rarr; *Install*
+   - download: [DejaVu Sans](https://dejavu-fonts.github.io/Download.html) &rarr; `dejavu-fonts-ttf-*.zip`
+   - extract: `dejavu-fonts-ttf-*.zip`
+   - install: `ttf/` &arr; `*.ttf` &rarr; <kbd>RIGHT-CLICK</kbd> &rarr; *Install*
 
 2. **Install MinTTY/WSLTTY**:<br/>
    Install the WSLTTY variant of MinTTY.<br/>
@@ -85,53 +86,85 @@ Version 2.0.0 (2019-04-27)
    Install a reasonable MinTTY/WSLTTY configuration.<br/>
    Rationale: colors and fonts should be used.
    
-   - Download: [config](https://raw.githubusercontent.com/rse/mintty-config/master/config)
-   - Move to: `%APPDATA%/wsltty/config`
+   - download: [config](https://raw.githubusercontent.com/rse/mintty-config/master/config)
+   - <kbd>WIN+e</kbd> &rarr; `%APPDATA%\wsltty` <kbd>RETURN</kbd>
+   - override: `config`
 
 ## Configure Unix Shell Environment
 
-1. **Enable Convenient Root Access**:<br/>
-   Ensure no password is needed for root access.<br/>
+1. **Enter Ubuntu under WSL**:<br/>
+   Enter Ubuntu GNU/Linux under Windows Subsystem for Linux.<br/>
+   Rationale: we have to configure the Unix environment from itself.
+    
+    - *START* &rarr; `ubuntu` <kbd>RETURN</kbd>
+
+   When asked for your password, enter an existing or new one, but remember it (at least once until next step)!
+
+2. **Enable Convenient Root Access**:<br/>
+   Ensure no password is needed for subsequent root access.<br/>
    Rationale: just convenience only -- feel free to ignore.
 
     - `sudo vi /etc/sudoers`<br/>
       &larr; `%sudo ALL=(ALL:ALL) ALL`<br/>
       &rarr; `%sudo ALL=(ALL:ALL) NOPASSWD: ALL`
 
-2. **Use Combined Home Directory**:<br/>
+3. **Use Combined Home Directory**:<br/>
    Map the Unix home directory to the regular Windows home directory.<br/>
    Rationale: just convenience only -- feel free to ignore.
 
     - `sudo usermod -d /mnt/c/Users $LOGNAME`
 
-3. **Mount Windows directories in WSL with Meta-Data enabled**:<br/>
+4. **Mount Windows directories in WSL with Meta-Data enabled**:<br/>
    Configure the mounting of Windows directories in WSL (`/mnt/c`) with *Meta-Data* enabled.<br/>
    Rationale: allow POSIX file permissions on Windows drives from within WSL.
    
     - `sudo vi /etc/wsl.conf`<br/>
-      &rarr; ```[automount]```<br/>
-      &rarr; ```options = "metadata"```
+      &rarr; `[automount]`<br/>
+      &rarr; `options = "metadata"`
 
-3. **Install Essential Unix Tools**:<br/>
+5. **Upgrade Ubuntu Operating System**:<br/>
+   Upgrade to the latest package versions of Ubunu.<br/>
+   Rationale: you always want the latest updates.
 
-   - `apt-get install bash less vim vifm vifm tmux git subversion curl socat`
+   - `sudo apt-get update`
+   - `sudo apt-get upgrade`
 
-   - Install FZF
+5. **Install Essential Unix Tools**:<br/>
+   Install all necessary essential and some more useful Unix tools.<br/>
+   Rationale: the subsequent Unix Shell Configurations are based on them.
 
-4. **Install Unix Shell Configurations**:<br/>
+   First, the tools available via standard package manager:
+
+   - `sudo apt-get install bash less vim vifm vifm tmux git`
+   - `sudo apt-get install subversion curl socat`
+
+   Second, the tool ([FZF](https://github.com/junegunn/fzf)) not available
+   (at least not in latest version) via standard package manager:
+
+   - `curl -skLO https://github.com/junegunn/fzf-bin/releases/download/0.18.0/fzf-0.18.0-linux_amd64.tgz`
+   - `tar zxf fzf-0.18.0-linux_amd64.tgz`
+   - `sudo mv fzf /usr/local/bin/`
+   - `rm fzf-0.18.0-linux_amd64.tgz`
+
+6. **Install Unix Shell Configurations**:<br/>
+   Install Ralf S. Engelschall's essential Unix dotfiles.<br/>
+   Rationale: you really want a reasonable pre-configured Unix shell environment.
 
    - `curl -skLO https://github.com/rse/dotfiles/archive/master.zip`
    - `tar zxf master.zip`
-   - `cd dotfiles-master`
-   - `make install`
+   - `(cd dotfiles-master && sudo make install)`
+   - `rm -f master.zip`
    - `dotfiles -f ~`
 
-~/.dotfiles.d/gitconfig
+7. **Extend Unix Shell Configurations**:<br/>
+   Extend the Unix shell configuration with your personal information.<br/>
+   Rationale: these informations are individual.
 
-[user]
-    user  = <username>
-    name  = <firstname> <lastname>
-    email = <firstname>.<lastname>@<domain>
+   - `vi ~/.dotfiles.d/gitconfig`<br/>
+     &rarr; `[user]`<br/>
+     &rarr; `    user  = <username>`<br/>
+     &rarr; `    name  = <firstname> <lastname>`<br/>
+     &rarr; `    email = <firstname>.<lastname>@<domain>`<br/>
 
 ## Configure SSH Usage
 
