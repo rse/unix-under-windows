@@ -37,9 +37,10 @@ Notice:
 1. **Ensure Windows 10 Professional/Enterprise, 64 Bit, Version &ge; 18.09**:<br/>
    Ensure you are running Windows 10 Professional or Windows 10 Enterprise
    in 64-bit mode and in Version 1809 (October 2018) or newer.<br/>
-   *Rationale*: Windows Subsystem for Linux (WSL) is available only
-   under those Windows editions, only under 64-bit and in a reasonable
-   fashion only under at least this version or newer.
+
+   > *Rationale*: Windows Subsystem for Linux (WSL) is available only
+   > under those Windows editions, only under 64-bit and in a reasonable
+   > fashion only under at least this version or newer.
 
    - *START* &rarr; *Settings* &rarr; *System* &rarr; *About*:
    - ... *Device Specifications* &rarr; *System type*
