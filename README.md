@@ -117,8 +117,10 @@ Version 2.0.0 (2019-04-27)
 
     - `exec sudo usermod -d /mnt/c/Users/$USER $USER`
 
-   (don't panic: we have to `exec` the command here to release the current user's shell
-   and let `usermod` proceeed and this will immediately close the Unix terminal)
+   Notice:
+   
+   > Don't panic: we have to `exec` the command here to release the current user's shell
+   > and let `usermod` proceeed and this will immediately close the Unix terminal.
 
 ## Configure Unix Shell Environment
 
