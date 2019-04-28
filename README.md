@@ -309,7 +309,7 @@ Version: 2.0.0 (2019-04-27)
    - `sudo usermod -aG docker $USER`
    - `vi ~/.dotfiles.d/bashrc`<br/>
      &rarr; `export DOCKER_HOST=tcp://localhost:2375`
-   - `curl -skL https://github.com/docker/compose/releases/download/1.24.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose`
+   - `curl -skL https://github.com/docker/compose/releases/download/1.24.0/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose`
    - `chmod +x /usr/local/bin/docker-compose`
    - `curl -skL https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl -o /usr/local/bin/kubectl`
    - `chmod +x /usr/local/bin/kubectl`
