@@ -162,9 +162,9 @@ Version 2.0.0 (2019-04-27)
 
    - `vi ~/.dotfiles.d/gitconfig`<br/>
      &rarr; `[user]`<br/>
-     &rarr; `&nbsp;&nbsp;user  = <username>`<br/>
-     &rarr; `&nbsp;&nbsp;name  = <firstname> <lastname>`<br/>
-     &rarr; `&nbsp;&nbsp;email = <firstname>.<lastname>@<domain>`<br/>
+     &rarr; &nbsp;&nbsp;`user  = <username>`<br/>
+     &rarr; &nbsp;&nbsp;`name  = <firstname> <lastname>`<br/>
+     &rarr; &nbsp;&nbsp;`email = <firstname>.<lastname>@<domain>`<br/>
 
 ## Configure SSH Usage
 
