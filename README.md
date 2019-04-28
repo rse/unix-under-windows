@@ -7,14 +7,14 @@ Version: 2.1.0 (2019-04-28)
 
 # Unix Environment under Windows
 
-> This is a documentation on how to setup a reasonable but opinionated Unix development environment under
-> [*Microsoft Windows 10*](https://windows.com) (Pro edition, 64-bit mode, version &ge; 1809) with the help of the
-> native [*Windows Subsystem for Linux (WSL)*](blogs.msdn.microsoft.com/wsl/),
-> the [*Ubuntu*](https://www.ubuntu.com/) GNU/Linux distribution,
-> Ralf S. Engelschall's [*Unix dotfiles*](https://github.com/rse/dotfiles) shell environment,
-> the terminal emulator [*MinTTY/WSLTTY*](https://github.com/mintty/wsltty) and
-> the [*Docker Desktop for Windows*](https://www.docker.com/products/docker-desktop)
-> container execution platform.
+This is a documentation on how to setup a reasonable but opinionated Unix development environment under
+[*Microsoft Windows 10*](https://windows.com) (Pro edition, 64-bit mode, version &ge; 1809) with the help of the
+native [*Windows Subsystem for Linux (WSL)*](blogs.msdn.microsoft.com/wsl/),
+the [*Ubuntu*](https://www.ubuntu.com/) GNU/Linux distribution,
+Ralf S. Engelschall's [*Unix dotfiles*](https://github.com/rse/dotfiles) shell environment,
+the terminal emulator [*MinTTY/WSLTTY*](https://github.com/mintty/wsltty) and
+the [*Docker Desktop for Windows*](https://www.docker.com/products/docker-desktop)
+container execution platform.
 
 ![screenshot](screenshot.png)
 
