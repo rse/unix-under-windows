@@ -159,7 +159,7 @@ Notice:
    - `sudo apt-get install -y atool gzip bzip2 xz-utils zip unzip`
    - `sudo apt-get install -y diffutils diffstat patch patchutils par`
    - `sudo apt-get install -y openssl gnupg golang-cfssl apg uuid bc`
-   - `sudo apt-get install -y imagemagick poppler-utils`
+   - `sudo apt-get install -y imagemagick ghostscript poppler-utils`
 
    Second, the tool ([FZF](https://github.com/junegunn/fzf)) not available
    (at least not in latest version) via standard package manager:
