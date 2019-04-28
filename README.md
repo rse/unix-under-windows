@@ -40,9 +40,14 @@ Version 2.0.0 (2019-04-27)
    Enable the Windows feature *Windows Subsystem for Linux*.<br/>
    Rationale: Windows Subsystem for Linux is the core feature we want to use.
 
-   - *START* &rarr; *Settings* &rarr; *Updates & Security* &rarr; *For developers* &rarr; *Developer mode*
    - <kbd>WIN+r</kbd> &rarr; `powershell` &rarr; <kbd>RIGHT-CLICK</kbd> &rarr; *Run as administrator*
    - `Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux`
+
+   Alternatively:
+
+   - *START* &rarr; `control panel` &rarr; *Programs* &rarr; *Turn Windows features on or off* &rarr; *Windows-Subsystem for Linux*
+
+   (Let the system reboot)
 
 ## Install Ubuntu GNU/Linux
 
