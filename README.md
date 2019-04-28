@@ -179,6 +179,7 @@ Notice:
    Install Ralf S. Engelschall's essential Unix dotfiles.<br/>
    Rationale: you really want a reasonable pre-configured Unix shell environment.
 
+   - `sudo apt-get install -y make`
    - `curl -skLO https://github.com/rse/dotfiles/archive/master.zip`
    - `unzip -x master.zip`
    - `(cd dotfiles-master && sudo make install)`
@@ -353,7 +354,7 @@ Notice:
    Install the GCC C/C++ compilers.<br/>
    Rationale: you want reasonable C/C++ compilers available -- feel free to skip.
 
-   - `sudo apt-get install -y make gcc g++ bison flex`
+   - `sudo apt-get install -y gcc g++ bison flex`
 
 2. **Install Go**:<br/>
    Install the Go compiler.<br/>
