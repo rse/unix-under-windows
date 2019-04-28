@@ -1,6 +1,8 @@
 
+<img src="https://assets.ubuntu.com/v1/29985a98-ubuntu-logo32.png" width="200" align="right" alt=""/>
+
 Author: [Dr. Ralf S. Engelschall](mailto:rse@engelschall.com)<br/>
-Version 2.0.0 (2019-04-27)
+Version: 2.0.0 (2019-04-27)
 
 # Unix Environment under Windows
 
