@@ -16,6 +16,8 @@ Version: 2.0.1 (2019-04-28)
 > the [*Docker Desktop for Windows*](https://www.docker.com/products/docker-desktop)
 > container execution platform.
 
+![screenshot](screenshot.png)
+
 Notice:
 
 > In short, the crux of this setup is: `sudo` `NOPASSWD` configuration,
@@ -171,6 +173,13 @@ Notice:
    - `rm -rf dotfiles-master`
    - `rm master.zip`
    - `dotfiles -f ~`
+
+4. **Install Unix Shell Addon Configurations**:<br/>
+   Install Ralf S. Engelschall's Bash-FZF and Bash-ENVRC addons.<br/>
+   Rationale: you really want a reasonable pre-configured Unix shell environment.
+
+   - `curl -skL https://raw.githubusercontent.com/rse/bash-fzf/master/bash-fzf.rc -o ~/.bash-fzf.rc`
+   - `curl -skL https://raw.githubusercontent.com/rse/bash-envrc/master/bash-envrc.rc -o ~/.bash-envrc.rc`
 
 4. **Extend Unix Shell Configurations**:<br/>
    Extend the Unix shell configuration with your personal information.<br/>
