@@ -3,7 +3,7 @@
 <img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Windows_logo_-_2012.svg" width="120" align="right" alt=""/>
 
 Author: [Dr. Ralf S. Engelschall](mailto:rse@engelschall.com)<br/>
-Version: 2.1.2 (2019-04-29)
+Version: 2.1.3 (2019-05-04)
 
 # Unix Environment under Windows
 
@@ -182,6 +182,13 @@ container execution platform.
    - `curl -skLO https://github.com/Originate/git-town/releases/download/v7.2.0/git-town-amd64.deb`
    - `sudo dpkg -i git-town-amd64.deb`
    - `rm git-town-amd64.deb`
+
+   Forth, the tool ([GoTTY]()) not available via standard package manager:
+
+   - `curl -skLO curl -LO https://github.com/yudai/gotty/releases/download/v2.0.0-alpha.3/gotty_2.0.0-alpha.3_linux_amd64.tar.gz`
+   - `tar zxf gotty*.tar.gz`
+   - `sudo install -c -m 755 gotty /usr/local/bin/`
+   - `rm gotty*.tar.gz gotty`
 
 3. **Install Unix Shell Configurations**:<br/>
    Install Ralf S. Engelschall's essential Unix dotfiles.
