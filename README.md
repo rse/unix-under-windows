@@ -3,7 +3,7 @@
 <img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Windows_logo_-_2012.svg" width="120" align="right" alt=""/>
 
 Author: [Dr. Ralf S. Engelschall](mailto:rse@engelschall.com)<br/>
-Version: 2.1.3 (2019-05-04)
+Version: 2.1.4 (2019-11-01)
 
 # Unix Environment under Windows
 
@@ -11,7 +11,7 @@ This is a documentation on how to setup a reasonable but opinionated Unix develo
 [*Microsoft Windows 10*](https://windows.com) (Pro edition, 64-bit mode, version &ge; 1809) with the help of the
 native [*Windows Subsystem for Linux (WSL)*](blogs.msdn.microsoft.com/wsl/),
 the [*Ubuntu*](https://www.ubuntu.com/) GNU/Linux distribution,
-Ralf S. Engelschall's [*Unix dotfiles*](https://github.com/rse/dotfiles) shell environment,
+Dr. Ralf S. Engelschall's [*Unix dotfiles*](https://github.com/rse/dotfiles) shell environment,
 the terminal emulator [*MinTTY/WSLTTY*](https://github.com/mintty/wsltty) and
 the [*Docker Desktop for Windows*](https://www.docker.com/products/docker-desktop)
 container execution platform.
@@ -68,7 +68,8 @@ container execution platform.
 
    Alternatively:
 
-   - *START* &rarr; `control panel` &rarr; *Programs* &rarr; *Turn Windows features on or off* &rarr; *Windows-Subsystem for Linux*
+   - *START* &rarr; `control panel` &rarr; *Programs* &rarr; *Turn Windows features on or off*
+     &rarr; *Windows-Subsystem for Linux*
 
    > Notice: In case you have trouble to enable *Windows Subsystem for Linux*, this can have many reasons.
    > In most cases, the reason is that point (1) above is not exactly fulfilled. Start over there again.
@@ -78,7 +79,7 @@ container execution platform.
 1. **Install Ubuntu 18.04 LTS**:<br/>
    Install Ubuntu GNU/Linux 18.04 Long Term Support (LTS) from the Microsoft Store.
 
-   > Rationale: you need a reasonable GNU/Linux distribution.
+   > Rationale: you need a reasonable GNU/Linux distribution and it should receive updates for a longer time.
 
    - *START* &rarr; `microsoft store` &rarr; *Search* &rarr; `ubuntu 18.04 lts` &rarr; *Get* &rarr; *Launch*
 
@@ -102,7 +103,7 @@ container execution platform.
    Enter Ubuntu GNU/Linux under Windows Subsystem for Linux.
 
    > Rationale: we have to setup Ubuntu from itself.
-    
+
     - *START* &rarr; *Ubuntu 18.04*
 
 2. **Enable Convenient Root Access**:<br/>
@@ -127,7 +128,7 @@ container execution platform.
    Configure the mounting of Windows directories in WSL (`/c` instead of `/mnt/c`) and with *Meta-Data* enabled.
 
    > Rationale: allow POSIX file permissions on Windows drives from within WSL.
-   
+
     - `sudo vi /etc/wsl.conf`<br/>
       &rarr; `[automount]`<br/>
       &rarr; `root    = /`
@@ -141,7 +142,7 @@ container execution platform.
     - `exec sudo usermod -d /c/Users/$USER $USER`
 
    > Notice: Don't panic, we have to `exec` the command here to release the current user's processes
-   > and this way let `usermod` proceeed. This will immediately close the Unix terminal, of course.
+   > and this way let `usermod` proceed. This will immediately close the Unix terminal, of course.
 
 ## Configure Unix Shell Environment
 
@@ -149,27 +150,27 @@ container execution platform.
    Re-Enter Ubuntu GNU/Linux under Windows Subsystem for Linux again.
 
    > Rationale: we have to configure the Unix environment from itself.
-    
+
     - *START* &rarr; *Ubuntu 18.04*
 
 2. **Install Essential Unix Tools**:<br/>
    Install all necessary essential and some more useful Unix tools.
 
-   > Rationale: the subsequent Unix Shell Configurations are based on them.
+   > Rationale: the subsequent Unix Shell Configurations are partially based on them and you really want a decent Unix environment.
 
-   First, the tools available via standard package manager:
+   First, install the tools which available via standard package manager:
 
    - `sudo apt-get install -y bash less vim vifm tmux`
    - `sudo apt-get install -y procps lsof dnsutils tcpdump`
    - `sudo apt-get install -y openssh-client stunnel subversion git curl`
    - `sudo apt-get install -y mc tree file findutils`
-   - `sudo apt-get install -y rsync rdup rclone w3m lftp`
+   - `sudo apt-get install -y rsync rdup rclone restic w3m lftp`
    - `sudo apt-get install -y atool gzip bzip2 xz-utils zip unzip`
    - `sudo apt-get install -y diffutils diffstat patch patchutils par`
    - `sudo apt-get install -y openssl gnupg golang-cfssl apg uuid bc`
    - `sudo apt-get install -y imagemagick ghostscript poppler-utils`
 
-   Second, the tool ([FZF](https://github.com/junegunn/fzf)) not available
+   Second, install the tool [FZF](https://github.com/junegunn/fzf) which is not available
    (at least not in latest version) via standard package manager:
 
    - `curl -skLO https://github.com/junegunn/fzf-bin/releases/download/0.18.0/fzf-0.18.0-linux_amd64.tgz`
@@ -177,13 +178,13 @@ container execution platform.
    - `sudo install -c -m 755 fzf /usr/local/bin/`
    - `rm fzf-0.18.0-linux_amd64.tgz fzf`
 
-   Third, the tool ([Git-Town](https://www.git-town.com)) not available via standard package manager:
+   Third, install the tool [Git-Town](https://www.git-town.com) which is not available via standard package manager:
 
-   - `curl -skLO https://github.com/Originate/git-town/releases/download/v7.2.0/git-town-amd64.deb`
+   - `curl -skLO https://github.com/Originate/git-town/releases/download/v7.2.1/git-town-amd64.deb`
    - `sudo dpkg -i git-town-amd64.deb`
    - `rm git-town-amd64.deb`
 
-   Forth, the tool ([GoTTY]()) not available via standard package manager:
+   Forth, install the tool [GoTTY](https://github.com/yudai/gotty) which is not available via standard package manager:
 
    - `curl -skLO curl -LO https://github.com/yudai/gotty/releases/download/v2.0.0-alpha.3/gotty_2.0.0-alpha.3_linux_amd64.tar.gz`
    - `tar zxf gotty*.tar.gz`
@@ -191,7 +192,7 @@ container execution platform.
    - `rm gotty*.tar.gz gotty`
 
 3. **Install Unix Shell Configurations**:<br/>
-   Install Ralf S. Engelschall's essential Unix dotfiles.
+   Install Dr. Ralf S. Engelschall's essential Unix dotfiles.
 
    > Rationale: you really want a reasonable pre-configured Unix shell environment.
 
@@ -204,7 +205,7 @@ container execution platform.
    - `dotfiles -f ~`
 
 4. **Install Unix Shell Addon Configurations**:<br/>
-   Install Ralf S. Engelschall's Bash-FZF and Bash-ENVRC addons.
+   Install Dr. Ralf S. Engelschall's Bash-FZF and Bash-ENVRC addons.
 
    > Rationale: you really want a reasonable pre-configured Unix shell environment.
 
@@ -214,7 +215,7 @@ container execution platform.
 4. **Extend Unix Shell Configurations**:<br/>
    Extend the Unix shell configuration with your personal information.
 
-   > Rationale: these informations are individual.
+   > Rationale: these informations individualize your environment (replace the placeholders, please).
 
    - `vi ~/.dotfiles.d/gitconfig`<br/>
      &rarr; `[user]`<br/>
@@ -246,23 +247,23 @@ container execution platform.
 
    > Rationale: a reasonable terminal emulator has to be used and the default WSL console is not good enough.
 
-   - [WSLTTY version &ge; 3.0.0](https://github.com/mintty/wsltty/releases) &rarr; `wsltty-*-install.exe`
+   - [WSLTTY version &ge; 3.0.6](https://github.com/mintty/wsltty/releases) &rarr; `wsltty-*-install.exe`
    - <kbd>WIN+r</kbd> &rarr; `%LOCALAPPDATA%\wsltty` &rarr; `add to context menu.lnk`
 
 2. **Install DejaVu Sans Mono font**:<br/>
    Install a perfect monospaced font for the terminal emulator.
 
-   > Rationale: MinTTY/WSLTTY configuration above references it.
+   > Rationale: MinTTY/WSLTTY configuration below references it.
 
    - download: [DejaVu Sans](https://dejavu-fonts.github.io/Download.html) &rarr; `dejavu-fonts-ttf-*.zip`
    - extract: `dejavu-fonts-ttf-*.zip` &rarr; <kbd>RIGHT-CLICK</kbd> *Extract all*
    - install: `dejavu-fonts-ttf-*\ttf\` &arr; select all `*.ttf` &rarr; <kbd>RIGHT-CLICK</kbd> &rarr; *Install*
 
 3. **Install MinTTY/WSLTTY Configuration**:<br/>
-   Install a reasonable MinTTY/WSLTTY configuration.
+   Install Dr. Ralf S. Engelschall's MinTTY/WSLTTY configuration.
 
-   > Rationale: colors and fonts should be used.
-   
+   > Rationale: reasonable colors and fonts should be used in the terminal emulator.
+
    - download: [MinTTY-config](https://github.com/rse/mintty-config/archive/master.zip)
    - extract: `master.zip` &rarr; <kbd>RIGHT-CLICK</kbd> *Extract all*
    - copy: `mintty-config-master\config`
@@ -273,14 +274,14 @@ container execution platform.
 1. **Install PuTTY**:<br/>
    Install the PuTTY SSH client.
 
-   > Rationale: you want to run the PuTTY Agent (`pageant`).
+   > Rationale: you want to run the PuTTY Agent (`pageant`) for reasonable SSH agent support.
 
    - [PuTTY Downloads](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) &rarr; `putty-64bit-*-installer.msi`
 
 2. **Generate SSH Key**:<br/>
    Generate (or use existing) SSH key.
 
-   > Rationale: you don't want to use passwords.
+   > Rationale: you don't want to use passwords, of course.
 
    - *START* &rarr; `puttygen` <kbd>RETURN</kbd>
    
@@ -301,15 +302,15 @@ container execution platform.
 
    > Rationale: you want to directly access PuTTY Agent from within WSL.
  
-   - [Weasel-Pageant Downloads](https://github.com/vuori/weasel-pageant/releases) &rarr; `weasel-pageant-1.3.zip`
-   - `weasel-pageant-1.3.zip` &rarr; <kbd>RIGHT-CLICK</kbd> &rarr; *Extract all*
-   - move `weasel-pageant-1.3\` to `%APPDATA%\weasel-pageant\`
+   - [Weasel-Pageant Downloads](https://github.com/vuori/weasel-pageant/releases) &rarr; `weasel-pageant-1.4.zip`
+   - `weasel-pageant-1.4.zip` &rarr; <kbd>RIGHT-CLICK</kbd> &rarr; *Extract all*
+   - move `weasel-pageant-1.4\` to `%APPDATA%\weasel-pageant\`
 
 4. **Enter Ubuntu under WSL via MinTTY/WSLTTY**:<br/>
-   Enter Ubuntu GNU/Linux under Windows Subsystem for Linux again (this time via MinTTY/WSLTTY).
+   Re-Enter Ubuntu GNU/Linux under Windows Subsystem for Linux again (this time via MinTTY/WSLTTY).
 
-   > Rationale: we have to configure also the Unix of SSH.
-    
+   > Rationale: we have to configure also the Unix version of SSH.
+
     - *START* &rarr; `wsl terminal` <kbd>RETURN</kbd>
 
 5. **Configure Unix Environment for SSH Agent**:<br/>
@@ -353,7 +354,7 @@ container execution platform.
    Re-Enter Ubuntu GNU/Linux under Windows Subsystem for Linux again.
 
    > Rationale: we have to install also the Unix client side of Docker.
-    
+
    - *START* &rarr; `wsl terminal` <kbd>RETURN</kbd>
 
 4. **Install Docker CLI and Docker-Compose**:<br/>
@@ -373,12 +374,12 @@ container execution platform.
 
    > Rationale: native Linux versions work more flawless than executing the Windows versions under WSL.
 
-   - `curl -skL https://github.com/docker/compose/releases/download/1.24.0/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose`
+   - `curl -skL https://github.com/docker/compose/releases/download/1.24.1/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose`
    - `chmod +x /usr/local/bin/docker-compose`
    - `curl -skL https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl -o /usr/local/bin/kubectl`
    - `chmod +x /usr/local/bin/kubectl`
 
-## Install C/C++/Go/JavaScript/Java Development Environments
+## Optionally install C/C++/Go/JavaScript/Java Development Environments (freel free to skip)
 
 1. **Install GCC**:<br/>
    Install the GCC C/C++ compilers.
