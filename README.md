@@ -379,7 +379,7 @@ container execution platform.
    - `curl -skL https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl -o /usr/local/bin/kubectl`
    - `chmod +x /usr/local/bin/kubectl`
 
-## Optionally install C/C++/Go/JavaScript/Java Development Environments (freel free to skip)
+## Optionally install C/C++/Go/JavaScript/Java Development Environments (feel free to skip)
 
 1. **Install GCC**:<br/>
    Install the GCC C/C++ compilers.
