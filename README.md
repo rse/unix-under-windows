@@ -9,7 +9,7 @@ Version: 2.1.4 (2019-11-01)
 
 This is a documentation on how to setup a reasonable but opinionated Unix development environment under
 [*Microsoft Windows 10*](https://windows.com) (Pro edition, 64-bit mode, version &ge; 1809) with the help of the
-native [*Windows Subsystem for Linux (WSL)*](https://blogs.msdn.microsoft.com/wsl/),
+native [*Windows Subsystem for Linux (WSL)*](https://devblogs.microsoft.com/commandline/),
 the [*Ubuntu*](https://www.ubuntu.com/) GNU/Linux distribution,
 Dr. Ralf S. Engelschall's [*Unix dotfiles*](https://github.com/rse/dotfiles) shell environment,
 the terminal emulator [*MinTTY/WSLTTY*](https://github.com/mintty/wsltty) and
