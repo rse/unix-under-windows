@@ -18,17 +18,17 @@ container execution platform.
 
 ![screenshot](screenshot.png)
 
-> Notice: In short, the crux of this setup in contrast to the usual WSL setups is:
+> Notice: In short, the crux of this setup in contrast to the usual standard WSL setups is:
 >
 > - convenient root access (password-less `sudo`)
 > - reasonably mapped home directory (`/c/Users/$USER`)
 > - essential Unix shell configurations for Bash, Vim, Vifm, TMux and Git ("dot-files")
-> - essential Unix shell tools
+> - essential Unix shell tools (OpenSSH, RSYNC, etc)
 > - additional WSL shell tools (`wsl-open`)
-> - host terminal emulator (MinTTY/WSLTTY)
+> - improved host terminal emulator (MinTTY/WSLTTY)
 > - host SSH agent with transparent access from within WSL (`weasel-pageant`)
 > - host Docker engine with transparent access from within WSL (`$DOCKER_HOST`)
-> - essential programming languages (C/C++/Go/Perl/JavaScript/Java)
+> - optionally, essential programming languages (C/C++/Go/Perl/JavaScript/Java)
 
 ## Install Windows Subsystem for Linux (WSL)
 
