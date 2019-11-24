@@ -176,14 +176,14 @@ container execution platform.
    Second, install the tool [FZF](https://github.com/junegunn/fzf) which is not available
    (at least not in latest version) via standard package manager:
 
-   - `curl -skLO https://github.com/junegunn/fzf-bin/releases/download/0.18.0/fzf-0.18.0-linux_amd64.tgz`
+   - `curl -skLO https://github.com/junegunn/fzf-bin/releases/download/0.19.0/fzf-0.19.0-linux_amd64.tgz`
    - `tar zxf fzf-0.18.0-linux_amd64.tgz`
    - `sudo install -c -m 755 fzf /usr/local/bin/`
    - `rm fzf-0.18.0-linux_amd64.tgz fzf`
 
    Third, install the tool [Git-Town](https://www.git-town.com) which is not available via standard package manager:
 
-   - `curl -skLO https://github.com/Originate/git-town/releases/download/v7.2.1/git-town-amd64.deb`
+   - `curl -skLO https://github.com/Originate/git-town/releases/download/v7.3.0/git-town-amd64.deb`
    - `sudo dpkg -i git-town-amd64.deb`
    - `rm git-town-amd64.deb`
 
@@ -377,7 +377,7 @@ container execution platform.
 
    > Rationale: native Linux versions work more flawless than executing the Windows versions under WSL.
 
-   - `curl -skL https://github.com/docker/compose/releases/download/1.24.1/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose`
+   - `curl -skL https://github.com/docker/compose/releases/download/1.25.0/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose`
    - `chmod +x /usr/local/bin/docker-compose`
    - `curl -skL https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl -o /usr/local/bin/kubectl`
    - `chmod +x /usr/local/bin/kubectl`
