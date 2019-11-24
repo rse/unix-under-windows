@@ -35,7 +35,7 @@ container execution platform.
 1. **Ensure Windows 10 Professional/Enterprise, 64 Bit, Version &ge; 18.09**:<br/>
    Ensure you are running Windows 10 Professional or Windows 10
    Enterprise in 64-bit mode and in Version 1809 (October 2018), 1903
-   (April 2019), 1909 (October 2019) or newer.
+   (April 2019), 1909 (November 2019) or newer.
 
    > Rationale: Windows Subsystem for Linux (WSL) is available only
    > under those Windows editions, only under 64-bit and in a reasonable
