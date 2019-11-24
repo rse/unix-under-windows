@@ -3,7 +3,7 @@
 <img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Windows_logo_-_2012.svg" width="120" align="right" alt=""/>
 
 Author: [Dr. Ralf S. Engelschall](mailto:rse@engelschall.com)<br/>
-Version: 2.1.4 (2019-11-01)
+Version: 2.1.5 (2019-11-24)
 
 # Unix Environment under Windows
 
@@ -33,12 +33,15 @@ container execution platform.
 ## Install Windows Subsystem for Linux (WSL)
 
 1. **Ensure Windows 10 Professional/Enterprise, 64 Bit, Version &ge; 18.09**:<br/>
-   Ensure you are running Windows 10 Professional or Windows 10 Enterprise
-   in 64-bit mode and in Version 1809 (October 2018) or newer.
+   Ensure you are running Windows 10 Professional or Windows 10
+   Enterprise in 64-bit mode and in Version 1809 (October 2018), 1903
+   (April 2019), 1909 (October 2019) or newer.
 
    > Rationale: Windows Subsystem for Linux (WSL) is available only
    > under those Windows editions, only under 64-bit and in a reasonable
    > fashion only under at least this version or newer.
+   > Windows 10 in Version 1809 is the bare minimum. The recommended
+   > system is Windows 10 in Version 1909.
 
    - *START* &rarr; *Settings* &rarr; *System* &rarr; *About*:
    - ... *Device Specifications* &rarr; *System type*
