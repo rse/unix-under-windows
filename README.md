@@ -260,7 +260,7 @@ container execution platform.
 
    - download: [DejaVu Sans](https://dejavu-fonts.github.io/Download.html) &rarr; `dejavu-fonts-ttf-*.zip`
    - extract: `dejavu-fonts-ttf-*.zip` &rarr; <kbd>RIGHT-CLICK</kbd> *Extract all*
-   - install: `dejavu-fonts-ttf-*\ttf\` &arr; select all `*.ttf` &rarr; <kbd>RIGHT-CLICK</kbd> &rarr; *Install*
+   - install: `dejavu-fonts-ttf-*\ttf\` &rarr; select all `*.ttf` &rarr; <kbd>RIGHT-CLICK</kbd> &rarr; *Install*
 
 3. **Install MinTTY/WSLTTY Configuration**:<br/>
    Install Dr. Ralf S. Engelschall's MinTTY/WSLTTY configuration.
