@@ -220,7 +220,7 @@ container execution platform.
 
    > Rationale: these informations individualize your environment (replace the placeholders, please).
 
-   - `vi ~/.dotfiles.d/gitconfig`<br/>
+   - `vi ~/.dotfiles/gitconfig`<br/>
      &rarr; `[user]`<br/>
      &rarr; `user  = <username>`<br/>
      &rarr; `name  = <firstname> <lastname>`<br/>
@@ -239,7 +239,7 @@ container execution platform.
    - `sudo install -c -m 644 wsl-open-master/wsl-open.1 /usr/local/share/man/man1/`
    - `rm -rf wsl-open-master`
    - `rm master.zip`
-   - `vi ~/.dotfiles.d/bashrc`<br/>
+   - `vi ~/.dotfiles/bashrc`<br/>
       &rarr; `PATH=$PATH:/c/Windows/System32/WindowsPowerShell/v1.0/`<br/>
       &rarr; `alias open=wsl-open`
 
@@ -321,7 +321,7 @@ container execution platform.
 
    > Rationale: in every WSL terminal you want SSH agent access available automatically.
 
-   - `vi ~/.dotfiles.d/bashrc`<br/>
+   - `vi ~/.dotfiles/bashrc`<br/>
      &rarr; `eval $(~/AppData/Roaming/weasel-pageant/weasel-pageant -r -s)`
 
 ## Install Docker/Kubernetes Container Runtimes
@@ -369,7 +369,7 @@ container execution platform.
    - `sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"`
    - `sudo apt-get update -y`
    - `sudo apt-get install -y docker-ce-cli`
-   - `vi ~/.dotfiles.d/bashrc`<br/>
+   - `vi ~/.dotfiles/bashrc`<br/>
      &rarr; `export DOCKER_HOST=tcp://localhost:2375`
 
 5. **Install Docker-Compose and Kubectl**:<br/>
