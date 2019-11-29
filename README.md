@@ -281,7 +281,7 @@ container execution platform.
 
    - *START* &rarr; `wsl terminal` &rarr; <kbd>RIGHT-CLICK</kbd> *Pin to taskbar*.
    - Taskbar &rarr; *WSL Terminal* &rarr; <kbd>RIGHT-CLICK</kbd> &rarr; *WSL Terminal* &rarr;<br/>
-   - ...<kbd>RIGHT-CLICK</kbd> &rarr; *Properties** &rarr; *Shortcut key* &rarr; <kbd>CTRL+ALT+c</kbd>.
+   - ...<kbd>RIGHT-CLICK</kbd> &rarr; *Properties* &rarr; *Shortcut key* &rarr; <kbd>CTRL+ALT+c</kbd>.
 
 ## Install Secure-Shell (SSH) Environment
 
