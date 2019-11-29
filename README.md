@@ -274,6 +274,15 @@ container execution platform.
    - copy: `mintty-config-master\config`
    - paste: `%APPDATA%\wsltty` (override `config` file)
 
+4. **Make MinTTY/WSLTTY easily accessible**:<br/>
+   Pin MinTTY/WSLTTY to the Windows taskbar and additionally assign it to the global Windows hotkey <kbd>CTRL+ALT+c</kbd>.
+
+   > Rationale: easy and quick access to the Unix shell
+
+   - *START* &rarr; `wsl terminal` &rarr; <kbd>RIGHT-CLICK</kbd> *Pin to taskbar*.
+   - Taskbar &rarr; *WSL Terminal* &rarr; <kbd>RIGHT-CLICK</kbd> &rarr; *WSL Terminal* &rarr;<br/>
+   - ...<kbd>RIGHT-CLICK</kbd> &rarr; *Properties** &rarr; *Shortcut key* &rarr; <kbd>CTRL+ALT+c</kbd>.
+
 ## Install Secure-Shell (SSH) Environment
 
 1. **Install PuTTY**:<br/>
