@@ -220,7 +220,7 @@ container execution platform.
 4. **Extend Unix Shell Configurations**:<br/>
    Extend the Unix shell configuration with your personal information.
 
-   > Rationale: these informations individualize your environment (replace the placeholders, please).
+   > Rationale: these informations individualize your environment (replace the `<xxx>` placeholders, please).
 
    - `vi ~/.dotfiles/gitconfig`<br/>
      &rarr; `[user]`<br/>
