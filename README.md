@@ -211,12 +211,11 @@ container execution platform.
    Install Dr. Ralf S. Engelschall's Bash-FZF and Bash-ENVRC addons.
 
    > Rationale: you really want a reasonable pre-configured Unix shell environment.
+   > This especially includes an improved <kbd>CTRL+r</kbd> functionality in Bash, which then opens
+   > an FZF-based search functionality (which you can see in the screenshot above, too).
 
    - `curl -skL https://raw.githubusercontent.com/rse/bash-fzf/master/bash-fzf.rc -o ~/.bash-fzf.rc`
    - `curl -skL https://raw.githubusercontent.com/rse/bash-envrc/master/bash-envrc.rc -o ~/.bash-envrc.rc`
-
-   > Remember: <kbd>CTRL+r</kbd> on the Bash prompt will be your best friend! It opens the enhanced
-   > FZF-based search functionality which you can see in the screenshot above.
 
 4. **Extend Unix Shell Configurations**:<br/>
    Extend the Unix shell configuration with your personal information.
