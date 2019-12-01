@@ -388,10 +388,10 @@ container execution platform.
 
    > Rationale: native Linux versions work more flawless than executing the Windows versions under WSL.
 
-   - `curl -skL https://github.com/docker/compose/releases/download/1.25.0/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose`
-   - `chmod +x /usr/local/bin/docker-compose`
-   - `curl -skL https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl -o /usr/local/bin/kubectl`
-   - `chmod +x /usr/local/bin/kubectl`
+   - `sudo curl -skL https://github.com/docker/compose/releases/download/1.25.0/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose`
+   - `sudo chmod +x /usr/local/bin/docker-compose`
+   - `sudo curl -skL https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl -o /usr/local/bin/kubectl`
+   - `sudo chmod +x /usr/local/bin/kubectl`
 
 ## Optionally install C/C++/Go/JavaScript/Java Development Environments (feel free to skip)
 
