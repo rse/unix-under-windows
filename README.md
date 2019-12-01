@@ -177,9 +177,9 @@ container execution platform.
    (at least not in latest version) via standard package manager:
 
    - `curl -skLO https://github.com/junegunn/fzf-bin/releases/download/0.19.0/fzf-0.19.0-linux_amd64.tgz`
-   - `tar zxf fzf-0.18.0-linux_amd64.tgz`
+   - `tar zxf fzf-0.19.0-linux_amd64.tgz`
    - `sudo install -c -m 755 fzf /usr/local/bin/`
-   - `rm fzf-0.18.0-linux_amd64.tgz fzf`
+   - `rm fzf-0.19.0-linux_amd64.tgz fzf`
 
    Third, install the tool [Git-Town](https://www.git-town.com) which is not available via standard package manager:
 
