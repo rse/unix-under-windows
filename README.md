@@ -3,7 +3,7 @@
 <img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Windows_logo_-_2012.svg" width="120" align="right" alt=""/>
 
 Author: [Dr. Ralf S. Engelschall](mailto:rse@engelschall.com)<br/>
-Version: 2.1.6 (2019-11-29)
+Version: 2.1.7 (2019-12-17)
 
 # Unix Environment under Windows
 
@@ -176,10 +176,10 @@ container execution platform.
    Second, install the tool [FZF](https://github.com/junegunn/fzf) which is not available
    (at least not in latest version) via standard package manager:
 
-   - `curl -skLO https://github.com/junegunn/fzf-bin/releases/download/0.19.0/fzf-0.19.0-linux_amd64.tgz`
-   - `tar zxf fzf-0.19.0-linux_amd64.tgz`
+   - `curl -skLO https://github.com/junegunn/fzf-bin/releases/download/0.20.0/fzf-0.20.0-linux_amd64.tgz`
+   - `tar zxf fzf-0.20.0-linux_amd64.tgz`
    - `sudo install -c -m 755 fzf /usr/local/bin/`
-   - `rm fzf-0.19.0-linux_amd64.tgz fzf`
+   - `rm fzf-0.20.0-linux_amd64.tgz fzf`
 
    Third, install the tool [Git-Town](https://www.git-town.com) which is not available via standard package manager:
 
@@ -252,7 +252,7 @@ container execution platform.
 
    > Rationale: a reasonable terminal emulator has to be used and the default WSL console is not good enough.
 
-   - [WSLTTY version &ge; 3.0.6](https://github.com/mintty/wsltty/releases) &rarr; `wsltty-*-install.exe`
+   - [WSLTTY version &ge; 3.1.0.2](https://github.com/mintty/wsltty/releases) &rarr; `wsltty-*-install.exe`
    - <kbd>WIN+r</kbd> &rarr; `%LOCALAPPDATA%\wsltty` &rarr; `add to context menu.lnk`
 
 2. **Install DejaVu Sans Mono font**:<br/>
