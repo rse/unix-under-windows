@@ -71,8 +71,8 @@ container execution platform.
 
    Alternatively:
 
-   - *START* &rarr; `control panel` &rarr; *Programs* &rarr; *Turn Windows features on or off*
-     &rarr; *Windows-Subsystem for Linux*
+   - *START* &rarr; `control panel` &rarr; *Programs* &rarr; *Programs and Features*
+     &rarr; *Turn Windows features on or off* &rarr; *Windows-Subsystem for Linux*
 
    > Notice: In case you have trouble to enable *Windows Subsystem for Linux*, this can have many reasons.
    > In most cases, the reason is that point (1) above is not exactly fulfilled. Start over there again.
@@ -343,10 +343,16 @@ container execution platform.
 
    > Rationale: you want Docker container engine be available for development.
 
-   - *START* &rarr; `control panel` &rarr; *Programs* &rarr; *Turn Windows features on or off* &rarr; *Hyper-V*
+   - *START* &rarr; `control panel` &rarr; *Programs* &rarr; *Programs and Features*
+     &rarr; *Turn Windows features on or off* &rarr; *Hyper-V*
+     (a reboot is required)
+
    - [Docker Desktop](https://www.docker.com/products/docker-desktop) &rarr; *Download for Windows*
+     (a reboot is required)
+
    - *START* &rarr; `computer management` <kbd>RIGHT-CLICK</kbd> &rarr; *Run as administrator*
    - *Computer Management* &rarr; *System Tools* &rarr; *Local Users and Groups* &rarr; *Groups* &rarr; `docker-users` &rarr; <kbd>LEFT-DOUBLE-CLICK</kbd> &rarr; *Add...*
+     (ensure that your user is really in this group -- not the case for older Docker for Windows versions)
 
    > Notice: You need a Docker Hub account for downloading and using Docker Desktop.
    > [Sign up](https://hub.docker.com/signup) first if you still don't have a Docker Hub account.
@@ -389,7 +395,7 @@ container execution platform.
 
    > Rationale: native Linux versions work more flawless than executing the Windows versions under WSL.
 
-   - `sudo curl -skL https://github.com/docker/compose/releases/download/1.25.0/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose`
+   - `sudo curl -skL https://github.com/docker/compose/releases/download/1.25.5/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose`
    - `sudo chmod +x /usr/local/bin/docker-compose`
    - `sudo curl -skL https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl -o /usr/local/bin/kubectl`
    - `sudo chmod +x /usr/local/bin/kubectl`
