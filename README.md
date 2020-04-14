@@ -298,10 +298,11 @@ container execution platform.
    > Rationale: you don't want to use passwords, of course.
 
    - *START* &rarr; `puttygen` <kbd>RETURN</kbd>
-   
-   Save the Private Key under `c:\Users\<username>\Documents\ssh-key-prv.ppk`.<br/>
-   Save the Converted Private Key under `c:\Users\<username>\Documents\ssh-key-prv.pem`.<br/>
-   Save the Public Key under `c:\Users\<username>\Documents\ssh-key-pub.pem`.
+   - &rarr; *Generate*
+   - &rarr; *Key passphrase* &amp; *Confirm passphrase*
+   - &rarr; *Save public key* &rarr; `c:\Users\<username>\Documents\ssh-key-pub.pem`
+   - &rarr; *Save private key* &rarr; `c:\Users\<username>\Documents\ssh-key-prv.ppk`
+   - &rarr; *Conversions* &rarr; *Export OpenSSH key* &rarr; `c:\Users\<username>\Documents\ssh-key-prv.pem`.<br/>
 
 3. **Autostart PuTTY Agent**:<br/>
    Enable the PuTTY Agent to autostart on login and load the SSH private key.
