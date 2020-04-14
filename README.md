@@ -66,7 +66,7 @@ container execution platform.
 
    > Rationale: Windows Subsystem for Linux is the core feature we want to use.
 
-   - <kbd>WIN+r</kbd> &rarr; `powershell` &rarr; <kbd>RIGHT-CLICK</kbd> &rarr; *Run as administrator*
+   - *START* &rarr; `powershell` &rarr; <kbd>RIGHT-CLICK</kbd> &rarr; *Run as administrator*
    - `Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux`
 
    Alternatively:
@@ -89,7 +89,7 @@ container execution platform.
    Just be patient on first launch, it really takes time.
    Then, when asked for your username, enter the same as your Windows username.
    When asked for your password, enter either your Windows password or another one, but
-   remember it (at least once until next step)!
+   remember it (at least once until the step where we configure sudo(8) below)!
 
    > Notice: In case the Microsoft Store is not available on your system, the reason
    > can be that you still have User Account Control (UAC) disabled, or
@@ -112,7 +112,7 @@ container execution platform.
 2. **Enable Convenient Root Access**:<br/>
    Ensure no password is needed for subsequent root access.
 
-   > Rationale: just convenience only -- feel free to ignore.
+   > Rationale: just convenience only -- feel free to ignore if you want to enter your password over and over again.
 
     - `sudo vi /etc/sudoers`<br/>
       &larr; `%sudo ALL=(ALL:ALL) ALL`<br/>
@@ -134,7 +134,7 @@ container execution platform.
 
     - `sudo vi /etc/wsl.conf`<br/>
       &rarr; `[automount]`<br/>
-      &rarr; `root    = /`
+      &rarr; `root    = /`<br/>
       &rarr; `options = "metadata"`
 
 5. **Use Combined Home Directory**:<br/>
@@ -176,10 +176,10 @@ container execution platform.
    Second, install the tool [FZF](https://github.com/junegunn/fzf) which is not available
    (at least not in latest version) via standard package manager:
 
-   - `curl -skLO https://github.com/junegunn/fzf-bin/releases/download/0.20.0/fzf-0.20.0-linux_amd64.tgz`
-   - `tar zxf fzf-0.20.0-linux_amd64.tgz`
+   - `curl -skLO https://github.com/junegunn/fzf-bin/releases/download/0.21.1/fzf-0.21.1-linux_amd64.tgz`
+   - `tar zxf fzf-0.21.1-linux_amd64.tgz`
    - `sudo install -c -m 755 fzf /usr/local/bin/`
-   - `rm fzf-0.20.0-linux_amd64.tgz fzf`
+   - `rm fzf fzf-0.21.1-linux_amd64.tgz fzf`
 
    Third, install the tool [Git-Town](https://www.git-town.com) which is not available via standard package manager:
 
