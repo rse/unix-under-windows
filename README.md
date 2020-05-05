@@ -195,7 +195,7 @@ container execution platform.
 
    Forth, install the tool [GoTTY](https://github.com/yudai/gotty) which is not available via standard package manager:
 
-   - `curl -skLO curl -LO https://github.com/yudai/gotty/releases/download/v2.0.0-alpha.3/gotty_2.0.0-alpha.3_linux_amd64.tar.gz`
+   - `curl -skLO https://github.com/yudai/gotty/releases/download/v2.0.0-alpha.3/gotty_2.0.0-alpha.3_linux_amd64.tar.gz`
    - `tar zxf gotty*.tar.gz`
    - `sudo install -c -m 755 gotty /usr/local/bin/`
    - `rm gotty*.tar.gz gotty`
