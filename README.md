@@ -3,7 +3,7 @@
 <img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Windows_logo_-_2012.svg" width="120" align="right" alt=""/>
 
 Author: [Dr. Ralf S. Engelschall](mailto:rse@engelschall.com)<br/>
-Version: 2.1.8 (2020-04-15)
+Version: 2.1.9 (2020-05-07)
 
 # Unix Environment under Windows
 
@@ -146,6 +146,12 @@ container execution platform.
 
    > Notice: Don't panic, we have to `exec` the command here to release the current user's processes
    > and this way let `usermod` proceed. This will immediately close the Unix terminal, of course.
+
+   This step is a tricky one as the running WSL sub-process might not allow the changing of
+   the underlying user home directory as long as it is running itself. One safe alternative is to
+   execute the following command from within a CMD or PowerShell terminal:
+
+    - `wsl sudo usermod -d /c/Users/%USERNAME% %USERNAME%`
 
 ## Configure Unix Shell Environment
 
