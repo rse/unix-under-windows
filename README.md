@@ -358,7 +358,7 @@ container execution platform.
 
    - *START* &rarr; `computer management` <kbd>RIGHT-CLICK</kbd> &rarr; *Run as administrator*
    - *Computer Management* &rarr; *System Tools* &rarr; *Local Users and Groups* &rarr; *Groups* &rarr; `docker-users` &rarr; <kbd>LEFT-DOUBLE-CLICK</kbd> &rarr; *Add...*
-     (ensure that your user is really in this group -- not the case for older Docker for Windows versions)
+     (ensure that your user is really in this group -- usually not the case by default)
 
    > Notice: You need a Docker Hub account for downloading and using Docker Desktop.
    > [Sign up](https://hub.docker.com/signup) first if you still don't have a Docker Hub account.
