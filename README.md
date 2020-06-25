@@ -342,6 +342,25 @@ container execution platform.
    - `vi ~/.dotfiles/bashrc`<br/>
      &rarr; `eval $(~/AppData/Roaming/weasel-pageant/weasel-pageant -r -s)`
 
+## Enable Windows Subsystem for Linux (WSL) Version 2 (Windows 10 Version >= 20.04 only)
+
+1. **Enable "Virtual Machine Platform" Feature**
+
+   - *START* &rarr; `powershell` &rarr; <kbd>RIGHT-CLICK</kbd> &rarr; *Run as administrator*
+   - `dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart`
+
+2. **Install WSL 2 Linux Kernel**
+
+   - Visit the Microsoft [Updating the WSL 2 Linux kernel](https://docs.microsoft.com/en-us/windows/wsl/wsl2-kernel) page
+     and [download and run the MSI installer](https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi)
+     for the WSL 2 Linux Kernel.
+
+3. **Switch to use WSL 2**
+
+   - *START* &rarr; `cmd`
+   - `wsl --set-default-version 2`
+   - `wsl --set-version Ubuntu-20.04 2`
+
 ## Install Docker/Kubernetes Container Runtimes
 
 1. **Install Docker Desktop**:<br/>
