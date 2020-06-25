@@ -435,7 +435,7 @@ container execution platform.
    > Rationale: you want a reasonable JavaScript environment available -- feel free to skip.
 
    - `curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -`
-   - `sudo apt-get install -y nodejs`
+   - `sudo apt-get install -y nodejs npm`
 
 5. **Install OpenJDK**:<br/>
    Install the OpenJDK Java runtime.
