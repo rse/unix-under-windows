@@ -134,8 +134,9 @@ container execution platform.
 
     - `sudo vi /etc/wsl.conf`<br/>
       &rarr; `[automount]`<br/>
+      &rarr; `enabled = true`<br/>
       &rarr; `root    = /`<br/>
-      &rarr; `options = "metadata"`
+      &rarr; `options = "metadata,umask=022"`
 
 5. **Use Combined Home Directory**:<br/>
    Map the Unix home directory to the regular Windows home directory.
@@ -185,7 +186,7 @@ container execution platform.
    - `curl -skLO https://github.com/junegunn/fzf-bin/releases/download/0.21.1/fzf-0.21.1-linux_amd64.tgz`
    - `tar zxf fzf-0.21.1-linux_amd64.tgz`
    - `sudo install -c -m 755 fzf /usr/local/bin/`
-   - `rm fzf fzf-0.21.1-linux_amd64.tgz fzf`
+   - `rm fzf fzf-0.21.1-linux_amd64.tgz`
 
    Third, install the tool [Git-Town](https://www.git-town.com) which is not available via standard package manager:
 
@@ -257,7 +258,7 @@ container execution platform.
 
    > Rationale: a reasonable terminal emulator has to be used and the default WSL console is not good enough.
 
-   - [WSLTTY version &ge; 3.1.0.2](https://github.com/mintty/wsltty/releases) &rarr; `wsltty-*-install.exe`
+   - [WSLTTY version &ge; 3.2.0](https://github.com/mintty/wsltty/releases) &rarr; `wsltty-*-install.exe`
    - <kbd>WIN+r</kbd> &rarr; `%LOCALAPPDATA%\wsltty` &rarr; `add to context menu.lnk`
 
 2. **Install DejaVu Sans Mono font**:<br/>
