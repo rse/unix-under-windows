@@ -79,12 +79,12 @@ container execution platform.
 
 ## Install Ubuntu GNU/Linux Operating System
 
-1. **Install Ubuntu 18.04 LTS**:<br/>
-   Install Ubuntu GNU/Linux 18.04 Long Term Support (LTS) from the Microsoft Store.
+1. **Install Ubuntu 20.04 LTS**:<br/>
+   Install Ubuntu GNU/Linux 20.04 Long Term Support (LTS) from the Microsoft Store.
 
    > Rationale: you need a reasonable GNU/Linux distribution and it should receive updates for a longer time.
 
-   - *START* &rarr; `microsoft store` &rarr; *Search* &rarr; `ubuntu 18.04 lts` &rarr; *Get* &rarr; *Launch*
+   - *START* &rarr; `microsoft store` &rarr; *Search* &rarr; `ubuntu 20.04 lts` &rarr; *Get* &rarr; *Launch*
 
    Just be patient on first launch, it really takes time.
    Then, when asked for your username, enter the same as your Windows username.
@@ -107,7 +107,7 @@ container execution platform.
 
    > Rationale: we have to setup Ubuntu from itself.
 
-    - *START* &rarr; *Ubuntu 18.04*
+    - *START* &rarr; *Ubuntu 20.04*
 
 2. **Enable Convenient Root Access**:<br/>
    Ensure no password is needed for subsequent root access.
@@ -160,7 +160,7 @@ container execution platform.
 
    > Rationale: we have to configure the Unix environment from itself.
 
-    - *START* &rarr; *Ubuntu 18.04*
+    - *START* &rarr; *Ubuntu 20.04*
 
 2. **Install Essential Unix Tools**:<br/>
    Install all necessary essential and some more useful Unix tools.
@@ -193,12 +193,11 @@ container execution platform.
    - `sudo dpkg -i git-town-amd64.deb`
    - `rm git-town-amd64.deb`
 
-   Forth, install the tool [GoTTY](https://github.com/yudai/gotty) which is not available via standard package manager:
+   Forth, install the tool [TTY2Web/GoTTY](https://github.com/kost/tty2web) which is not available via standard package manager:
 
-   - `curl -skLO https://github.com/yudai/gotty/releases/download/v2.0.0-alpha.3/gotty_2.0.0-alpha.3_linux_amd64.tar.gz`
-   - `tar zxf gotty*.tar.gz`
-   - `sudo install -c -m 755 gotty /usr/local/bin/`
-   - `rm gotty*.tar.gz gotty`
+   - `curl -skLO https://github.com/kost/tty2web/releases/download/v2.4.0/tty2web_linux_amd64`
+   - `sudo install -c -m 755 tty2web* /usr/local/bin/tty2web`
+   - `rm tty2web*`
 
 3. **Install Unix Shell Configurations**:<br/>
    Install Dr. Ralf S. Engelschall's essential Unix dotfiles.
