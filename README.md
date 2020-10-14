@@ -3,7 +3,7 @@
 <img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Windows_logo_-_2012.svg" width="120" align="right" alt=""/>
 
 Author: [Dr. Ralf S. Engelschall](mailto:rse@engelschall.com)<br/>
-Version: 2.2.0 (2020-06-27)
+Version: 2.2.1 (2020-10-14)
 
 # Unix Environment under Windows
 
@@ -183,14 +183,14 @@ container execution platform.
    Second, install the tool [FZF](https://github.com/junegunn/fzf) which is not available
    (at least not in latest version) via standard package manager:
 
-   - `curl -skLO https://github.com/junegunn/fzf-bin/releases/download/0.21.1/fzf-0.21.1-linux_amd64.tgz`
-   - `tar zxf fzf-0.21.1-linux_amd64.tgz`
-   - `sudo install -c -m 755 fzf /usr/local/bin/`
-   - `rm fzf fzf-0.21.1-linux_amd64.tgz`
+   - `curl -skLO https://github.com/junegunn/fzf-bin/releases/download/0.23.1/fzf-0.23.1-linux_amd64.tgz`
+   - `tar zxf fzf-0.23.1-linux_amd64.tgz`
+   - `sudo install -c -m 756 fzf /usr/local/bin/`
+   - `rm fzf fzf-0.23.1-linux_amd64.tgz`
 
    Third, install the tool [Git-Town](https://www.git-town.com) which is not available via standard package manager:
 
-   - `curl -skLO https://github.com/Originate/git-town/releases/download/v7.3.0/git-town-amd64.deb`
+   - `curl -skLO https://github.com/Originate/git-town/releases/download/v7.4.0/git-town-amd64.deb`
    - `sudo dpkg -i git-town-amd64.deb`
    - `rm git-town-amd64.deb`
 
@@ -258,7 +258,7 @@ container execution platform.
 
    > Rationale: a reasonable terminal emulator has to be used and the default WSL console is not good enough.
 
-   - [WSLTTY version &ge; 3.2.0](https://github.com/mintty/wsltty/releases) &rarr; `wsltty-*-install.exe`
+   - [WSLTTY version &ge; 3.3.0](https://github.com/mintty/wsltty/releases) &rarr; `wsltty-*-install.exe`
    - <kbd>WIN+r</kbd> &rarr; `%LOCALAPPDATA%\wsltty` &rarr; `add to context menu.lnk`
 
 2. **Install DejaVu Sans Mono font**:<br/>
@@ -420,7 +420,7 @@ container execution platform.
 
    > Rationale: native Linux versions work more flawless than executing the Windows versions under WSL.
 
-   - `sudo curl -skL https://github.com/docker/compose/releases/download/1.26.0/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose`
+   - `sudo curl -skL https://github.com/docker/compose/releases/download/1.27.4/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose`
    - `sudo chmod +x /usr/local/bin/docker-compose`
    - `sudo curl -skL https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl -o /usr/local/bin/kubectl`
    - `sudo chmod +x /usr/local/bin/kubectl`
