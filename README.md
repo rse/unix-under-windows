@@ -191,8 +191,8 @@ container execution platform.
    Third, install the tool [Git-Town](https://www.git-town.com) which is not available via standard package manager:
 
    - `curl -skLO https://github.com/Originate/git-town/releases/download/v7.5.0/git-town_7.5.0_linux_intel_64.deb`
-   - `sudo dpkg -i git-town-*.deb`
-   - `rm git-town-*.deb`
+   - `sudo dpkg -i git-town_*.deb`
+   - `rm git-town_*.deb`
 
    Forth, install the tool [TTY2Web/GoTTY](https://github.com/kost/tty2web) which is not available via standard package manager:
 
