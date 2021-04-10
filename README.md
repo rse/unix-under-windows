@@ -377,7 +377,7 @@ container execution platform.
 
    - *START* &rarr; `computer management` <kbd>RIGHT-CLICK</kbd> &rarr; *Run as administrator*
    - *Computer Management* &rarr; *System Tools* &rarr; *Local Users and Groups* &rarr; *Groups* &rarr; `docker-users` &rarr; <kbd>LEFT-DOUBLE-CLICK</kbd> &rarr; *Add...*
-     (ensure that your user is really in this group -- usually not the case by default)
+     (ensure that your user is really in this group -- usually it is the case by default)
 
    > Notice: You need a Docker Hub account for downloading and using Docker Desktop.
    > [Sign up](https://hub.docker.com/signup) first if you still don't have a Docker Hub account.
@@ -391,7 +391,8 @@ container execution platform.
 2. **Start & Configure Docker Desktop**:<br/>
    Start and configure Docker Desktop.
 
-   > Rationale: for CLI access from within WSL, the Docker daemon API has to be exposed via TCP on localhost.
+   > Rationale: for CLI access from within WSL 1, the Docker daemon API has to be exposed via TCP on localhost.
+   > For WSL 2 Docker for Windows has a special type of integration which does not need this any longer.
 
    - *START* &rarr; `docker desktop` <kbd>RETURN</kbd>
    - *System Tray* &rarr; *Docker Desktop* &rarr; <kbd>RIGHT-CLICK</kbd> &rarr; *Settings* &rarr; *General* &rarr; *Expose daemon...*
@@ -404,7 +405,7 @@ container execution platform.
    - *START* &rarr; `wsl terminal` <kbd>RETURN</kbd>
 
 4. **Install Docker CLI and Docker-Compose**:<br/>
-   Install native Linux versions of the Docker CLI.
+   Install native Linux versions of the Docker CLI (for WSL 1 usage).
 
    > Rationale: native Linux version works more flawless than executing the Windows version under WSL.
 
@@ -416,11 +417,11 @@ container execution platform.
      &rarr; `export DOCKER_HOST=tcp://localhost:2375`
 
 5. **Install Docker-Compose and Kubectl**:<br/>
-   Install native Linux versions of the Docker-Compose and Kubernetes Kubectl.
+   Install native Linux versions of the Docker-Compose and Kubernetes Kubectl (for WSL 1 usage).
 
    > Rationale: native Linux versions work more flawless than executing the Windows versions under WSL.
 
-   - `sudo curl -skL https://github.com/docker/compose/releases/download/1.27.4/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose`
+   - `sudo curl -skL https://github.com/docker/compose/releases/download/1.29.0/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose`
    - `sudo chmod +x /usr/local/bin/docker-compose`
    - `sudo curl -skL https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl -o /usr/local/bin/kubectl`
    - `sudo chmod +x /usr/local/bin/kubectl`
@@ -453,7 +454,7 @@ container execution platform.
 
    > Rationale: you want a reasonable JavaScript environment available -- feel free to skip.
 
-   - `curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -`
+   - `curl -sL https://deb.nodesource.com/setup_15.x | sudo -E bash -`
    - `sudo apt-get install -y nodejs npm`
 
 5. **Install OpenJDK**:<br/>
