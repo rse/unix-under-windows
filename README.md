@@ -3,7 +3,7 @@
 <img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Windows_logo_-_2012.svg" width="120" align="right" alt=""/>
 
 Author: [Dr. Ralf S. Engelschall](mailto:rse@engelschall.com)<br/>
-Version: 2.2.1 (2020-10-14)
+Version: 2.2.2 (2021-04-10)
 
 # Unix Environment under Windows
 
@@ -183,14 +183,14 @@ container execution platform.
    Second, install the tool [FZF](https://github.com/junegunn/fzf) which is not available
    (at least not in latest version) via standard package manager:
 
-   - `curl -skLO https://github.com/junegunn/fzf-bin/releases/download/0.23.1/fzf-0.23.1-linux_amd64.tgz`
-   - `tar zxf fzf-0.23.1-linux_amd64.tgz`
+   - `curl -skLO https://github.com/junegunn/fzf/releases/download/0.27.0/fzf-0.27.0-linux_amd64.tar.gz`
+   - `tar zxf fzf-0.27.0-linux_amd64.tar.gz`
    - `sudo install -c -m 756 fzf /usr/local/bin/`
-   - `rm fzf fzf-0.23.1-linux_amd64.tgz`
+   - `rm fzf fzf-0.27.0-linux_amd64.tar.gz`
 
    Third, install the tool [Git-Town](https://www.git-town.com) which is not available via standard package manager:
 
-   - `curl -skLO https://github.com/Originate/git-town/releases/download/v7.4.0/git-town-amd64.deb`
+   - `curl -skLO https://github.com/Originate/git-town/releases/download/v7.5.0/git-town-amd64.deb`
    - `sudo dpkg -i git-town-amd64.deb`
    - `rm git-town-amd64.deb`
 
