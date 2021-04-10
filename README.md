@@ -342,12 +342,12 @@ container execution platform.
    - `vi ~/.dotfiles/bashrc`<br/>
      &rarr; `eval $(~/AppData/Roaming/weasel-pageant/weasel-pageant -r -s)`
 
-## Enable Windows Subsystem for Linux (WSL) Version 2 (Windows 10 Version >= 20.04 only)
+## Enable Windows Subsystem for Linux (WSL) Version 2 (Windows 10 Version >= 19.03 only)
 
 1. **Enable "Virtual Machine Platform" Feature**
 
-   - *START* &rarr; `powershell` &rarr; <kbd>RIGHT-CLICK</kbd> &rarr; *Run as administrator*
-   - `dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart`
+   - *START* &rarr; `cmd` &rarr; <kbd>RIGHT-CLICK</kbd> &rarr; *Run as administrator*
+   - `dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all`
 
 2. **Install WSL 2 Linux Kernel**
 
