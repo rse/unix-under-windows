@@ -3,7 +3,7 @@
 <img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Windows_logo_-_2012.svg" width="120" align="right" alt=""/>
 
 Author: [Dr. Ralf S. Engelschall](mailto:rse@engelschall.com)<br/>
-Version: 2.2.3 (2021-04-23)
+Version: 2.2.4 (2021-04-23)
 
 # Unix Environment under Windows
 
@@ -194,19 +194,19 @@ container execution platform.
    - `sudo install -c -m 756 fzf /usr/local/bin/`
    - `rm fzf fzf-0.27.0-linux_amd64.tar.gz`
 
-   Third, install the tool [Git-Town](https://www.git-town.com) which is not available via standard package manager:
+3. **Optionally Install Additional Unix Tools**:<br/>
+   Install additionally useful Unix tools.
+
+   > Rationale: Git-Town and TTY2Web are often useful.
 
    - `curl -skLO https://github.com/Originate/git-town/releases/download/v7.5.0/git-town_7.5.0_linux_intel_64.deb`
    - `sudo dpkg -i git-town_*.deb`
    - `rm git-town_*.deb`
-
-   Forth, install the tool [TTY2Web/GoTTY](https://github.com/kost/tty2web) which is not available via standard package manager:
-
    - `curl -skLO https://github.com/kost/tty2web/releases/download/v2.4.0/tty2web_linux_amd64`
    - `sudo install -c -m 755 tty2web* /usr/local/bin/tty2web`
    - `rm tty2web*`
 
-3. **Install Unix Shell Configurations**:<br/>
+4. **Install Unix Shell Configurations**:<br/>
    Install Dr. Ralf S. Engelschall's essential Unix dotfiles.
 
    > Rationale: you really want a reasonable pre-configured Unix shell environment.
@@ -219,7 +219,7 @@ container execution platform.
    - `rm master.zip`
    - `dotfiles -f ~`
 
-4. **Install Unix Shell Addon Configurations**:<br/>
+5. **Install Unix Shell Addon Configurations**:<br/>
    Install Dr. Ralf S. Engelschall's Bash-FZF and Bash-ENVRC addons.
 
    > Rationale: you really want a reasonable pre-configured Unix shell environment.
@@ -229,7 +229,7 @@ container execution platform.
    - `curl -skL https://raw.githubusercontent.com/rse/bash-fzf/master/bash-fzf.rc -o ~/.bash-fzf.rc`
    - `curl -skL https://raw.githubusercontent.com/rse/bash-envrc/master/bash-envrc.rc -o ~/.bash-envrc.rc`
 
-4. **Extend Unix Shell Configurations**:<br/>
+6. **Optionally Extend Unix Shell Configurations**:<br/>
    Extend the Unix shell configuration with your personal information.
 
    > Rationale: these informations individualize your environment (replace the `<xxx>` placeholders, please).
@@ -240,7 +240,7 @@ container execution platform.
      &rarr; `name  = <firstname> <lastname>`<br/>
      &rarr; `email = <firstname>.<lastname>@<domain>`<br/>
 
-6. **Install WSL Utilities**:<br/>
+7. **Install WSL Utilities**:<br/>
    Install additional WSL utilities.
 
    > Rationale: you want additional features inside WSL.
@@ -257,7 +257,7 @@ container execution platform.
       &rarr; `PATH=$PATH:/c/Windows/System32/WindowsPowerShell/v1.0/`<br/>
       &rarr; `alias open=wsl-open`
 
-7. **Avoid system messages**:<br/>
+8. **Optionally Avoid system messages**:<br/>
    Force the system to not display messages.
 
    > Rationale: you don't want to be nerved with those messages
@@ -293,7 +293,7 @@ container execution platform.
    - copy: `mintty-config-master\config`
    - paste: `%APPDATA%\wsltty` (override `config` file)
 
-4. **Make MinTTY/WSLTTY easily accessible**:<br/>
+4. **Optionally Make MinTTY/WSLTTY easily accessible**:<br/>
    Pin MinTTY/WSLTTY to the Windows taskbar and additionally assign it to the global Windows hotkey <kbd>CTRL+ALT+c</kbd>.
 
    > Rationale: easy and quick access to the Unix shell
@@ -302,7 +302,7 @@ container execution platform.
    - Taskbar &rarr; *WSL Terminal* &rarr; <kbd>RIGHT-CLICK</kbd> &rarr; *WSL Terminal* &rarr;<br/>
    - ...<kbd>RIGHT-CLICK</kbd> &rarr; *Properties* &rarr; *Shortcut key* &rarr; <kbd>CTRL+ALT+c</kbd>.
 
-## Install Secure-Shell (SSH) Environment
+## Optionally Install Secure-Shell (SSH) Environment (feel free to skip)
 
 1. **Install PuTTY**:<br/>
    Install the PuTTY SSH client.
@@ -355,7 +355,7 @@ container execution platform.
    - `vi ~/.dotfiles/bashrc`<br/>
      &rarr; `eval $(~/AppData/Roaming/weasel-pageant/weasel-pageant -r -s)`
 
-## Enable Windows Subsystem for Linux (WSL) Version 2 (Windows 10 Version >= 19.03 only)
+## Optionally Enable Windows Subsystem for Linux (WSL) Version 2 (Windows 10 Version >= 19.03 only) (feel free to skip)
 
 1. **Enable "Virtual Machine Platform" Feature**
 
@@ -374,7 +374,7 @@ container execution platform.
    - `wsl --set-default-version 2`
    - `wsl --set-version Ubuntu-20.04 2`
 
-## Install Docker/Kubernetes Container Runtimes
+## Optionally Install Docker/Kubernetes Container Runtimes (feel free to skip)
 
 1. **Install Docker Desktop**:<br/>
    Install the Docker Desktop for Windows (Community Edition) distribution.
