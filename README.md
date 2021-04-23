@@ -3,7 +3,7 @@
 <img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Windows_logo_-_2012.svg" width="120" align="right" alt=""/>
 
 Author: [Dr. Ralf S. Engelschall](mailto:rse@engelschall.com)<br/>
-Version: 2.2.2 (2021-04-10)
+Version: 2.2.3 (2021-04-23)
 
 # Unix Environment under Windows
 
@@ -154,6 +154,12 @@ container execution platform.
 
     - `wsl sudo usermod -d /c/Users/%USERNAME% %USERNAME%`
 
+6. **Activate Filesystem Layout**:<br/>
+   Perform a logout/login cycle on the host system to
+   activate the new filesystem layout (mapping of /c and home directory)
+
+   > Rationale: WSL does not re-mount the filesystem without a logout/login or reboot
+
 ## Configure Unix Shell Environment
 
 1. **Re-Enter Ubuntu under WSL**:<br/>
@@ -251,6 +257,13 @@ container execution platform.
       &rarr; `PATH=$PATH:/c/Windows/System32/WindowsPowerShell/v1.0/`<br/>
       &rarr; `alias open=wsl-open`
 
+7. **Avoid system messages**:<br/>
+   Force the system to not display messages.
+
+   > Rationale: you don't want to be nerved with those messages
+
+   - `touch ~/.hushlogin`
+
 ## Install MinTTY/WSLTTY Terminal Emulator
 
 1. **Install MinTTY/WSLTTY**:<br/>
@@ -258,7 +271,7 @@ container execution platform.
 
    > Rationale: a reasonable terminal emulator has to be used and the default WSL console is not good enough.
 
-   - [WSLTTY version &ge; 3.3.0](https://github.com/mintty/wsltty/releases) &rarr; `wsltty-*-install.exe`
+   - [WSLTTY version &ge; 3.5.0](https://github.com/mintty/wsltty/releases) &rarr; `wsltty-*-install.exe`
    - <kbd>WIN+r</kbd> &rarr; `%LOCALAPPDATA%\wsltty` &rarr; `add to context menu.lnk`
 
 2. **Install DejaVu Sans Mono font**:<br/>
@@ -454,7 +467,7 @@ container execution platform.
 
    > Rationale: you want a reasonable JavaScript environment available -- feel free to skip.
 
-   - `curl -sL https://deb.nodesource.com/setup_15.x | sudo -E bash -`
+   - `curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -`
    - `sudo apt-get install -y nodejs npm`
 
 5. **Install OpenJDK**:<br/>
