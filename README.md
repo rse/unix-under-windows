@@ -123,9 +123,9 @@ container execution platform.
 
    > Rationale: you always want the latest updates and Docker later needs HTTPS access.
 
-   - `sudo apt-get update`
-   - `sudo apt-get upgrade -y --with-new-pkgs`
-   - `sudo apt-get install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common`
+   - `sudo apt update`
+   - `sudo apt upgrade -y --with-new-pkgs`
+   - `sudo apt install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common`
 
 4. **Mount Windows directories in WSL with Meta-Data enabled**:<br/>
    Configure the mounting of Windows directories in WSL (`/c` instead of `/mnt/c`) and with *Meta-Data* enabled.
@@ -176,15 +176,15 @@ container execution platform.
 
    First, install the tools which available via standard package manager:
 
-   - `sudo apt-get install -y bash less vim vifm tmux`
-   - `sudo apt-get install -y procps lsof dnsutils tcpdump`
-   - `sudo apt-get install -y openssh-client stunnel subversion git curl`
-   - `sudo apt-get install -y mc tree file findutils`
-   - `sudo apt-get install -y rsync rdup rclone restic w3m lftp`
-   - `sudo apt-get install -y atool gzip bzip2 xz-utils zip unzip`
-   - `sudo apt-get install -y diffutils diffstat patch patchutils par`
-   - `sudo apt-get install -y openssl gnupg golang-cfssl apg uuid bc`
-   - `sudo apt-get install -y imagemagick ghostscript poppler-utils`
+   - `sudo apt install -y bash less vim vifm tmux`
+   - `sudo apt install -y procps lsof dnsutils tcpdump`
+   - `sudo apt install -y openssh-client stunnel subversion git curl`
+   - `sudo apt install -y mc tree file findutils`
+   - `sudo apt install -y rsync rdup rclone restic w3m lftp`
+   - `sudo apt install -y atool gzip bzip2 xz-utils zip unzip`
+   - `sudo apt install -y diffutils diffstat patch patchutils par`
+   - `sudo apt install -y openssl gnupg golang-cfssl apg uuid bc`
+   - `sudo apt install -y imagemagick ghostscript poppler-utils`
 
    Second, install the tool [FZF](https://github.com/junegunn/fzf) which is not available
    (at least not in latest version) via standard package manager:
@@ -211,7 +211,7 @@ container execution platform.
 
    > Rationale: you really want a reasonable pre-configured Unix shell environment.
 
-   - `sudo apt-get install -y make`
+   - `sudo apt install -y make`
    - `curl -skLO https://github.com/rse/dotfiles/archive/master.zip`
    - `unzip -x master.zip`
    - `(cd dotfiles-master && sudo make install)`
@@ -245,7 +245,7 @@ container execution platform.
 
    > Rationale: you want additional features inside WSL.
 
-   - `sudo apt-get install -y ubuntu-wsl wslu`
+   - `sudo apt install -y ubuntu-wsl wslu`
    - `curl -skLO https://github.com/4U6U57/wsl-open/archive/master.zip`
    - `unzip -x master.zip`
    - `sudo install -c -m 755 wsl-open-master/wsl-open.sh /usr/local/bin/wsl-open`
@@ -424,8 +424,8 @@ container execution platform.
 
    - `curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -`
    - `sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"`
-   - `sudo apt-get update -y`
-   - `sudo apt-get install -y docker-ce-cli`
+   - `sudo apt update -y`
+   - `sudo apt install -y docker-ce-cli`
    - `vi ~/.dotfiles/bashrc`<br/>
      &rarr; `export DOCKER_HOST=tcp://localhost:2375`
 
@@ -446,21 +446,21 @@ container execution platform.
 
    > Rationale: you want reasonable C/C++ compilers available -- feel free to skip.
 
-   - `sudo apt-get install -y gcc g++ bison flex`
+   - `sudo apt install -y gcc g++ bison flex`
 
 2. **Install Go**:<br/>
    Install the Go compiler.
 
    > Rationale: you want reasonable Go compiler available -- feel free to skip.
 
-   - `sudo apt-get install -y golang`
+   - `sudo apt install -y golang`
 
 3. **Install Perl**:<br/>
    Install the Perl runtime.
 
    > Rationale: you want reasonable Perl runtime available -- feel free to skip.
 
-   - `sudo apt-get install -y perl`
+   - `sudo apt install -y perl`
 
 4. **Install Node.js**:<br/>
    Install the Node.js JavaScript runtime.
@@ -468,12 +468,12 @@ container execution platform.
    > Rationale: you want a reasonable JavaScript environment available -- feel free to skip.
 
    - `curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -`
-   - `sudo apt-get install -y nodejs`
+   - `sudo apt install -y nodejs`
 
 5. **Install OpenJDK**:<br/>
    Install the OpenJDK Java runtime.
 
    > Rationale: you want a reasonable Java environment available -- feel free to skip.
 
-   - `sudo apt-get install -y default-jdk`
+   - `sudo apt install -y default-jdk`
 
