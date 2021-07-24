@@ -3,7 +3,7 @@
 <img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Windows_logo_-_2012.svg" width="120" align="right" alt=""/>
 
 Author: [Dr. Ralf S. Engelschall](mailto:rse@engelschall.com)<br/>
-Version: 2.2.4 (2021-04-23)
+Version: 2.2.5 (2021-07-24)
 
 # Unix Environment under Windows
 
@@ -84,12 +84,7 @@ container execution platform.
 
    > Rationale: you need a reasonable GNU/Linux distribution and it should receive updates for a longer time.
 
-   - *START* &rarr; `microsoft store` &rarr; *Search* &rarr; `ubuntu 20.04 lts` &rarr; *Get* &rarr; *Launch*
-
-   Just be patient on first launch, it really takes time.
-   Then, when asked for your username, enter the same as your Windows username.
-   When asked for your password, enter either your Windows password or another one, but
-   remember it (at least once until the step where we configure sudo(8) below)!
+   - *START* &rarr; `microsoft store` &rarr; *Search* &rarr; `ubuntu 20.04 lts` &rarr; *Install*
 
    > Notice: In case the Microsoft Store is not available on your system, the reason
    > can be that you still have User Account Control (UAC) disabled, or
@@ -108,6 +103,11 @@ container execution platform.
    > Rationale: we have to setup Ubuntu from itself.
 
     - *START* &rarr; *Ubuntu 20.04*
+
+   Just be patient on first launch, it really takes time.
+   Then, when asked for your username, enter the same as your Windows username.
+   When asked for your password, enter either your Windows password or another one, but
+   remember it (at least once until the step where we configure sudo(8) below)!
 
 2. **Enable Convenient Root Access**:<br/>
    Ensure no password is needed for subsequent root access.
