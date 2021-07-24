@@ -189,7 +189,7 @@ container execution platform.
 
    - `curl -skLO https://github.com/junegunn/fzf/releases/download/0.27.2/fzf-0.27.2-linux_amd64.tar.gz`
    - `tar zxf fzf-0.27.2-linux_amd64.tar.gz`
-   - `sudo install -c -m 756 fzf /usr/local/bin/`
+   - `sudo install -c -m 755 fzf /usr/local/bin/`
    - `rm fzf fzf-0.27.2-linux_amd64.tar.gz`
 
 3. **Optionally Install Additional Unix Tools**:<br/>
@@ -226,6 +226,8 @@ container execution platform.
 
    - `curl -skL https://raw.githubusercontent.com/rse/bash-fzf/master/bash-fzf.rc -o ~/.bash-fzf.rc`
    - `curl -skL https://raw.githubusercontent.com/rse/bash-envrc/master/bash-envrc.rc -o ~/.bash-envrc.rc`
+   - `exec bash`
+   - `cdpaths -g`
 
 6. **Optionally Extend Unix Shell Configurations**:<br/>
    Extend the Unix shell configuration with your personal information.
