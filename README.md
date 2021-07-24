@@ -187,10 +187,10 @@ container execution platform.
    Second, install the tool [FZF](https://github.com/junegunn/fzf) which is not available
    (at least not in latest version) via standard package manager:
 
-   - `curl -skLO https://github.com/junegunn/fzf/releases/download/0.27.0/fzf-0.27.0-linux_amd64.tar.gz`
-   - `tar zxf fzf-0.27.0-linux_amd64.tar.gz`
+   - `curl -skLO https://github.com/junegunn/fzf/releases/download/0.27.2/fzf-0.27.2-linux_amd64.tar.gz`
+   - `tar zxf fzf-0.27.2-linux_amd64.tar.gz`
    - `sudo install -c -m 756 fzf /usr/local/bin/`
-   - `rm fzf fzf-0.27.0-linux_amd64.tar.gz`
+   - `rm fzf fzf-0.27.2-linux_amd64.tar.gz`
 
 3. **Optionally Install Additional Unix Tools**:<br/>
    Install additionally useful Unix tools.
@@ -269,7 +269,7 @@ container execution platform.
 
    > Rationale: a reasonable terminal emulator has to be used and the default WSL console is not good enough.
 
-   - [WSLTTY version &ge; 3.5.0](https://github.com/mintty/wsltty/releases) &rarr; `wsltty-*-install.exe`
+   - [WSLTTY version &ge; 3.5.0.2](https://github.com/mintty/wsltty/releases) &rarr; `wsltty-*-install.exe`
    - <kbd>WIN+r</kbd> &rarr; `%LOCALAPPDATA%\wsltty` &rarr; `add to context menu.lnk`
 
 2. **Install DejaVu Sans Mono font**:<br/>
