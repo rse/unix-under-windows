@@ -147,12 +147,10 @@ container execution platform.
 
    > Notice: Don't panic, we have to `exec` the command here to release the current user's processes
    > and this way let `usermod` proceed. This will immediately close the Unix terminal, of course.
-
-   This step is a tricky one as the running WSL sub-process might not allow the changing of
-   the underlying user home directory as long as it is running itself. One safe alternative is to
-   execute the following command from within a CMD or PowerShell terminal:
-
-    - `wsl sudo usermod -d /c/Users/%USERNAME% %USERNAME%`
+   > This step actually is a tricky one as the running WSL sub-process might not allow the changing of
+   > the underlying user home directory as long as it is running itself. One safe alternative is to
+   > execute the following command from within a CMD or PowerShell terminal:<br/>
+   > `wsl sudo usermod -d /c/Users/%USERNAME% %USERNAME%`
 
 6. **Activate Filesystem Layout**:<br/>
    Perform a logout/login cycle on the host system to
