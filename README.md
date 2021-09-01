@@ -302,6 +302,8 @@ container execution platform.
    - Taskbar &rarr; *WSL Terminal* &rarr; <kbd>RIGHT-CLICK</kbd> &rarr; *WSL Terminal* &rarr;<br/>
    - ...<kbd>RIGHT-CLICK</kbd> &rarr; *Properties* &rarr; *Shortcut key* &rarr; <kbd>CTRL+ALT+c</kbd>.
 
+<hr/>
+
 ## Optionally Install Secure-Shell (SSH) Environment (feel free to skip)
 
 1. **Install PuTTY**:<br/>
