@@ -426,7 +426,7 @@ container execution platform.
    - `V=$(curl -skL https://github.com/kubernetes/helm/releases | egrep 'releases/tag/v3\.[0-9.]*"' | sed -e 's;^.*releases/tag/v;;' -e 's;".*$;;' | head -1);`
      `curl -skL $(printf "%s%s" https://get.helm.sh/helm-v${V}-linux-amd64.tar.gz) | sudo tar -z -x -f - --strip-components=1 -C /usr/local/bin linux-amd64/helm; sudo chmod 755 /usr/local/bin/helm`
 
-## Optionally Establish Podman as Container Runtime (WSL2 only) (feel free to skip)
+## Optionally Establish Podman as Container Runtime (Alternative 1, WSL2 only) (feel free to skip)
 
 1. **Provide Docker REST API Service**:<br/>
    Let Podman provide the Docker REST API as a Unix domain socket under the usual `/var/run/docker.sock` path.
@@ -450,7 +450,7 @@ container execution platform.
    - `sudo apt remove docker-ce docker-ce-cli`
    - `sudo sh -c '(echo "#!/bin/sh"; echo "exec /usr/bin/podman \"\$@\"") >/usr/local/bin/docker && chmod 755 /usr/local/bin/docker'`
 
-## Optionally Establish DockerD/ContainerD as Container Runtime (WSL2 only) (feel free to skip)
+## Optionally Establish DockerD/ContainerD as Container Runtime (Alternative 2, WSL2 only) (feel free to skip)
 
 1. **Allow Access to Daemon**<br/>
    Allow the current user access to the Docker daemon.
@@ -465,7 +465,7 @@ container execution platform.
    - `vi ~/.dotfiles/bashrc`<br/>
      &rarr; `(sudo service docker start || true) >/dev/null 2>&1`
 
-## Optionally Establish Docker for Windows as Container Runtime (Host only) (feel free to skip)
+## Optionally Establish Docker for Windows as Container Runtime (Alternative 3, Host only) (feel free to skip)
 
 1. **Install Docker Desktop**:<br/>
    Install the Docker Desktop for Windows (Community Edition) distribution.
