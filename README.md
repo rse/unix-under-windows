@@ -2,7 +2,7 @@
 <img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Windows_logo_-_2012.svg" width="120" align="right" alt=""/>
 
 Author: [Dr. Ralf S. Engelschall](mailto:rse@engelschall.com)<br/>
-Version: 2.2.5 (2021-07-24)
+Version: 2.3.0 (2021-09-02)
 
 # Unix Environment under Windows
 
@@ -122,7 +122,7 @@ container execution platform.
 
    > Rationale: you always want the latest updates and Docker later needs HTTPS access.
 
-   - `sudo apt update &&`<br/>
+   - `sudo apt update -y &&`<br/>
      `sudo apt upgrade -y --with-new-pkgs &&`<br/>
      `sudo apt install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common`
 
@@ -181,7 +181,8 @@ container execution platform.
      `sudo apt install -y atool gzip bzip2 xz-utils zip unzip && `<br/>
      `sudo apt install -y diffutils diffstat patch patchutils par && `<br/>
      `sudo apt install -y openssl gnupg golang-cfssl apg uuid bc && `<br/>
-     `sudo apt install -y imagemagick ghostscript poppler-utils`
+     `sudo apt install -y imagemagick ghostscript poppler-utils && `<br/>
+     `sudo apt install -y gcc g++ bison flex`
 
    Second, install the tool [FZF](https://github.com/junegunn/fzf) which is not available
    (at least not in latest version) via standard package manager:
@@ -373,7 +374,7 @@ container execution platform.
    - `wsl --set-default-version 2`
    - `wsl --set-version Ubuntu-20.04 2`
 
-## Optionally Install Podman Container Runtime (feel free to skip)
+## Optionally Install Podman/Docker/Docker-Compose/Kubectl/Helm Client CLIs (feel free to skip)
 
 1. **Re-Enter Ubuntu under WSL**:<br/>
    Re-Enter Ubuntu GNU/Linux under Windows Subsystem for Linux again.
@@ -382,74 +383,94 @@ container execution platform.
 
    - *START* &rarr; `wsl terminal` <kbd>RETURN</kbd>
 
-2. **Install Podman and companion tools**:<br/>
-   Install Podman container runtime, the daemon-less Docker alternative, and its companion tools
+2. **Install Podman/Skopeo/Buildah**:<br/>
+   Install Podman, the daemon-less Docker alternative, and its companion tools
    Skopeo (registry access) and Buildah (container build).
 
-   > Rationale: Podman is a Docker-compatible daemon-less way to run containers directly under Ubuntu/WSL2 and a decent
-   > alternative to running Docker for Windows (see below) on the host. If you want to just run Docker containers
-   > without Docker for Windows, Podman is the way to go.
+   > Rationale: Podman is a Docker-compatible daemon-less way to run containers.
+   > Notice that In WSL there are no systemd(8) and journald(8) daemons running,
+   > so the environment has to be slightly adjusted to allow podman to work correctly.
 
    - `(. /etc/os-release;
      echo "deb https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/testing/xUbuntu_${VERSION_ID}/ /" | sudo tee /etc/apt/sources.list.d/devel:kubic:libcontainers:testing.list;
-     curl -L "https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/testing/xUbuntu_${VERSION_ID}/Release.key" | sudo apt-key add - ) &&
-     sudo apt update;
-     sudo apt install -y podman skopeo buildah cri-o-runc`
-
-3. **Configure Environment for Podman**:<br/>
-   Configure the operating system environment to allow Podman to work correctly.
-
-   > Rationale: In WSL there are no systemd(8) and no journald(8) daemons running.
+     curl -skL "https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/testing/xUbuntu_${VERSION_ID}/Release.key" | sudo apt-key add - ) &&
+     sudo apt update -y;
+     sudo apt install -y podman skopeo buildah`
 
    - `sed -e 's;^# cgroup_manager = .*;cgroup_manager = "cgroupfs";'
       -e 's;^# events_logger = .*;events_logger = "file";'
       </usr/share/containers/containers.conf >/tmp/container.conf;
       sudo install -c -m 644 /tmp/containers.conf /etc/containers/containers.conf; rm /tmp/containers.conf`
 
-4. **Provide Docker Wrapper**:<br/>
-   Provide a wrapper docker(1) for the call-compatible podman(1) command-line interface.
+3. **Install Docker/Docker-Compose**:<br/>
+   Install original native Linux version of the Docker and Docker-Compose CLIs.
 
-   > Rationale: Lots of scripts expect docker(1).
+   > Rationale: the original native Linux versions works more flawless than executing the Windows versions under WSL.
 
-   - `sudo sh -c '(echo "#!/bin/sh"; echo "exec /usr/bin/podman \"\$@\"") >/usr/bin/docker && chmod 755 /usr/bin/docker'`
+   - `curl -skL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - &&`
+     `sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" &&`
+     `sudo apt update -y &&`
+     `sudo apt install -y docker-ce docker-ce-cli`
 
-5. **Provide Docker REST API Service**:<br/>
-   Provide the Docker REST API as a Unix domain socket under the `/var/run/docker.sock` path.
+   - `V=$(curl -skL https://github.com/docker/compose/releases | egrep 'releases/tag/[0-9.]*"' | sed -e 's;^.*releases/tag/;;' -e 's;".*$;;' | head -1);`
+     `sudo curl -skL $(printf "%s%s" https://github.com/docker/compose/releases/download/${V}/ docker-compose-Linux-x86_64) -o /usr/local/bin/docker-compose; sudo chmod 755 /usr/local/bin/docker-compose`
 
-   > Rationale: Docker-Compose (see next step) requires this access method.
+4. **Install Kubectl/Helm**:<br/>
+   Install the Kubernetes client kubectl(1) and the package manager helm(1).
 
-   - `curl -L "https://fdit-gitlab.dit.htwk-leipzig.de/martin.meszaros/wsl2-podman-compose/-/raw/master/podman-service?inline=false" >podman-service;
-     install -c -m 755 podman-service /etc/init.d/; rm podman-service`
+   > Rationale: when dealing with the Kubernetes world of containers, those two CLIs are essential.
 
-6. **Install Docker-Compose**:<br/>
-   Install Docker-Compose for managing entire container stacks.
+   - `sudo curl -skL https://storage.googleapis.com/kubernetes-release/release/$(curl -skL https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl -o /usr/local/bin/kubectl &&`
+     `sudo chmod 755 /usr/local/bin/kubectl`
 
-   > Rationale: Docker just deals with single containers and Docker-Compose is the preferred way to manage entire container stacks.
+   - `V=$(curl -skL https://github.com/kubernetes/helm/releases | egrep 'releases/tag/v3\.[0-9.]*"' | sed -e 's;^.*releases/tag/v;;' -e 's;".*$;;' | head -1);`
+     `curl -skL $(printf "%s%s" https://get.helm.sh/helm-v${V}-linux-amd64.tar.gz) | sudo tar -z -x -f - --strip-components=1 -C /usr/local/bin linux-amd64/helm; sudo chmod 755 /usr/local/bin/helm`
 
-   - `sudo apt install -y python3 python3-pip && sudo pip3 install docker-compose`
+## Optionally Establish Podman as Container Runtime (WSL2 only) (feel free to skip)
 
-7. **Configure User Environment**:<br/>
-   Configure the user environment to allow Podman and Docker-Compose to work correctly.
+1. **Provide Docker REST API Service**:<br/>
+   Let Podman provide the Docker REST API as a Unix domain socket under the usual `/var/run/docker.sock` path.
 
-   > Rationale: WSL has to init scripts, so start the Podman socket service manually when the shell is opened.
+   > Rationale: Docker-Compose requires this access method.
 
-   - `vi ~/.dotfiles/bashrc`
+   - `curl -L "https://fdit-gitlab.dit.htwk-leipzig.de/martin.meszaros/wsl2-podman-compose/-/raw/master/podman-service?inline=false" >podman-service;`
+     `install -c -m 755 podman-service /etc/init.d/; rm podman-service`
 
-     ```
-     #  support docker(1) via Podman
-     export XDG_RUNTIME_DIR=/tmp/$USER-runtime
-     mkdir -p -m 0700 "$XDG_RUNTIME_DIR"
+2. **Configure User Environment**:<br/>
+   Configure the user environment to auto-start the Docker REST API of Podman.
 
-     #  support docker-compose(1) via Podman service
-     (sudo service podman-service start || true) >/dev/null 2>&1
-     ```
+   > Rationale: WSL has no init scripts, so start the Podman socket service manually when the shell is opened.
 
-## Optionally Install Docker/Kubernetes Container Runtimes (feel free to skip)
+   - `vi ~/.dotfiles/bashrc`<br/>
+     &rarr; `(sudo service podman-service start || true) >/dev/null 2>&1`
+
+3. **Substitute Docker CLI**<br/>
+   Substitute the call-compatible podman(1) for docker(1).
+
+   - `sudo apt remove docker-ce docker-ce-cli`
+   - `sudo sh -c '(echo "#!/bin/sh"; echo "exec /usr/bin/podman \"\$@\"") >/usr/local/bin/docker && chmod 755 /usr/local/bin/docker'`
+
+## Optionally Establish DockerD/ContainerD as Container Runtime (WSL2 only) (feel free to skip)
+
+1. **Allow Access to Daemon**<br/>
+   Allow the current user access to the Docker daemon.
+
+   - `sudo usermod -aG docker $USER`
+
+2. **Configure User Environment**:<br/>
+   Configure the user environment to auto-start the Docker daemon.
+
+   > Rationale: WSL has no init scripts, so start the Docker daemon manually when the shell is opened.
+
+   - `vi ~/.dotfiles/bashrc`<br/>
+     &rarr; `(sudo service docker start || true) >/dev/null 2>&1`
+
+## Optionally Establish Docker for Windows as Container Runtime (Host only) (feel free to skip)
 
 1. **Install Docker Desktop**:<br/>
    Install the Docker Desktop for Windows (Community Edition) distribution.
 
-   > Rationale: you want Docker container engine be available for development.
+   > Rationale: you want Docker container engine be available on the host.
 
    - *START* &rarr; `control panel` &rarr; *Programs* &rarr; *Programs and Features*
      &rarr; *Turn Windows features on or off* &rarr; *Hyper-V*
@@ -468,8 +489,7 @@ container execution platform.
    > Notice: Yes, Hyper-V is necessary as Docker Desktop for Windows (in
    > contrast to the regular Docker for Linux) runs Docker inside a
    > small Linux distribution which is executed in a virtual machine via
-   > Hyper-V. You have to use this separate Docker Desktop for Windows,
-   > as Docker cannot be run on the WSL-based Ubuntu directly.
+   > Hyper-V. 
 
 2. **Start & Configure Docker Desktop**:<br/>
    Start and configure Docker Desktop.
@@ -487,63 +507,28 @@ container execution platform.
 
    - *START* &rarr; `wsl terminal` <kbd>RETURN</kbd>
 
-4. **Install Docker CLI and Docker-Compose**:<br/>
-   Install native Linux versions of the Docker CLI (for WSL 1 usage).
+4. **Configure User Environment**:<br/>
+   Configure the user environment to access Docker for Windows on the host.
 
-   > Rationale: native Linux version works more flawless than executing the Windows version under WSL.
+   > Rationale: the access works through the TCP socket instead of the usual Unix domain socket.
 
-   - `curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -`
-   - `sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"`
-   - `sudo apt update -y`
-   - `sudo apt install -y docker-ce-cli`
    - `vi ~/.dotfiles/bashrc`<br/>
      &rarr; `export DOCKER_HOST=tcp://localhost:2375`
 
-5. **Install Docker-Compose and Kubectl**:<br/>
-   Install native Linux versions of the Docker-Compose and Kubernetes Kubectl (for WSL 1 usage).
+## Optionally install JavaScript/Java Development Environments (feel free to skip)
 
-   > Rationale: native Linux versions work more flawless than executing the Windows versions under WSL.
-
-   - `sudo curl -skL https://github.com/docker/compose/releases/download/1.29.0/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose`
-   - `sudo chmod +x /usr/local/bin/docker-compose`
-   - `sudo curl -skL https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl -o /usr/local/bin/kubectl`
-   - `sudo chmod +x /usr/local/bin/kubectl`
-
-## Optionally install C/C++/Go/JavaScript/Java Development Environments (feel free to skip)
-
-1. **Install GCC**:<br/>
-   Install the GCC C/C++ compilers.
-
-   > Rationale: you want reasonable C/C++ compilers available -- feel free to skip.
-
-   - `sudo apt install -y gcc g++ bison flex`
-
-2. **Install Go**:<br/>
-   Install the Go compiler.
-
-   > Rationale: you want reasonable Go compiler available -- feel free to skip.
-
-   - `sudo apt install -y golang`
-
-3. **Install Perl**:<br/>
-   Install the Perl runtime.
-
-   > Rationale: you want reasonable Perl runtime available -- feel free to skip.
-
-   - `sudo apt install -y perl`
-
-4. **Install Node.js**:<br/>
+1. **Install Node.js**:<br/>
    Install the Node.js JavaScript runtime.
 
-   > Rationale: you want a reasonable JavaScript environment available -- feel free to skip.
+   > Rationale: you want a reasonable JavaScript environment available.
 
    - `curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -`
    - `sudo apt install -y nodejs`
 
-5. **Install OpenJDK**:<br/>
+2. **Install OpenJDK**:<br/>
    Install the OpenJDK Java runtime.
 
-   > Rationale: you want a reasonable Java environment available -- feel free to skip.
+   > Rationale: you want a reasonable Java environment available.
 
    - `sudo apt install -y default-jdk`
 
