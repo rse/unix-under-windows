@@ -255,6 +255,8 @@ container execution platform.
    - `rm master.zip`
    - `vi ~/.dotfiles/bashrc`<br/>
       &rarr; `PATH=$PATH:/c/Windows/System32/WindowsPowerShell/v1.0/`<br/>
+      &rarr; `alias wsl="/c/Windows/System32/wsl.exe"`
+      &rarr; `alias cmd="/c/Windows/System32/cmd.exe"`
       &rarr; `alias open=wsl-open`
 
 8. **Optionally Avoid system messages**:<br/>
