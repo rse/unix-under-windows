@@ -258,8 +258,9 @@ container execution platform.
    - `curl -skLO https://github.com/CzBiX/WSLHostPatcher/releases/download/v0.1.0/release.zip;`<br/>
      `unzip -x release.zip;`<br/>
      `mkdir -p ~/AppData/Local/WSLHostPatcher;`<br/>
+     `chmod 755 WSLHostPatcher.exe;`<br/>
      `mv WSLHostPatch* ~/AppData/Local/WSLHostPatcher;`<br/>
-     `rm -f release.zip`
+     `rm -f release.zip WSLHostPatch*.*`
 
    - `vi ~/.dotfiles/bashrc`<br/>
       &rarr; `PATH=$PATH:/c/Windows/System32/WindowsPowerShell/v1.0/`<br/>
