@@ -187,35 +187,35 @@ container execution platform.
    Second, install the tool [FZF](https://github.com/junegunn/fzf) which is not available
    (at least not in latest version) via standard package manager:
 
-   - `curl -skLO https://github.com/junegunn/fzf/releases/download/0.27.2/fzf-0.27.2-linux_amd64.tar.gz`
-   - `tar zxf fzf-0.27.2-linux_amd64.tar.gz`
-   - `sudo install -c -m 755 fzf /usr/local/bin/`
-   - `rm fzf fzf-0.27.2-linux_amd64.tar.gz`
+   - `curl -skLO https://github.com/junegunn/fzf/releases/download/0.27.2/fzf-0.27.2-linux_amd64.tar.gz;`
+     `tar zxf fzf-*-linux_amd64.tar.gz;`
+     `sudo install -c -m 755 fzf /usr/local/bin/;`
+     `rm fzf fzf-*-linux_amd64.tar.gz`
 
 3. **Optionally Install Additional Unix Tools**:<br/>
    Install additionally useful Unix tools.
 
    > Rationale: Git-Town and TTY2Web are often useful.
 
-   - `curl -skLO https://github.com/Originate/git-town/releases/download/v7.5.0/git-town_7.5.0_linux_intel_64.deb`
-   - `sudo dpkg -i git-town_*.deb`
-   - `rm git-town_*.deb`
-   - `curl -skLO https://github.com/kost/tty2web/releases/download/v2.4.0/tty2web_linux_amd64`
-   - `sudo install -c -m 755 tty2web* /usr/local/bin/tty2web`
-   - `rm tty2web*`
+   - `curl -skLO https://github.com/Originate/git-town/releases/download/v7.5.0/git-town_7.5.0_linux_intel_64.deb;`
+     `sudo dpkg -i git-town_*.deb;`
+     `rm git-town_*.deb;`
+     `curl -skLO https://github.com/kost/tty2web/releases/download/v2.4.0/tty2web_linux_amd64;`
+     `sudo install -c -m 755 tty2web* /usr/local/bin/tty2web;`
+     `rm tty2web*`
 
 4. **Install Unix Shell Configurations**:<br/>
    Install Dr. Ralf S. Engelschall's essential Unix dotfiles.
 
    > Rationale: you really want a reasonable pre-configured Unix shell environment.
 
-   - `sudo apt install -y make`
-   - `curl -skLO https://github.com/rse/dotfiles/archive/master.zip`
-   - `unzip -x master.zip`
-   - `(cd dotfiles-master && sudo make install)`
-   - `rm -rf dotfiles-master`
-   - `rm master.zip`
-   - `dotfiles -f ~`
+   - `sudo apt install -y make;`
+     `curl -skLO https://github.com/rse/dotfiles/archive/master.zip;`
+     `unzip -x master.zip;`
+     `(cd dotfiles-master && sudo make install);`
+     `rm -rf dotfiles-master;`
+     `rm master.zip;`
+     `dotfiles -f ~`
 
 5. **Install Unix Shell Addon Configurations**:<br/>
    Install Dr. Ralf S. Engelschall's Bash-FZF and Bash-ENVRC addons.
