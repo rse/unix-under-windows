@@ -1,4 +1,3 @@
-
 <img src="https://assets.ubuntu.com/v1/29985a98-ubuntu-logo32.png" width="120" align="right" alt=""/>
 <img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Windows_logo_-_2012.svg" width="120" align="right" alt=""/>
 
@@ -123,9 +122,9 @@ container execution platform.
 
    > Rationale: you always want the latest updates and Docker later needs HTTPS access.
 
-   - `sudo apt update`
-   - `sudo apt upgrade -y --with-new-pkgs`
-   - `sudo apt install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common`
+   - `sudo apt update &&`<br/>
+     `sudo apt upgrade -y --with-new-pkgs &&`<br/>
+     `sudo apt install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common`
 
 4. **Mount Windows directories in WSL with Meta-Data enabled**:<br/>
    Configure the mounting of Windows directories in WSL (`/c` instead of `/mnt/c`) and with *Meta-Data* enabled.
@@ -174,15 +173,15 @@ container execution platform.
 
    First, install the tools which available via standard package manager:
 
-   - `sudo apt install -y bash less vim vifm tmux`
-   - `sudo apt install -y procps lsof dnsutils tcpdump`
-   - `sudo apt install -y openssh-client stunnel subversion git curl`
-   - `sudo apt install -y mc tree file findutils`
-   - `sudo apt install -y rsync rdup rclone restic w3m lftp`
-   - `sudo apt install -y atool gzip bzip2 xz-utils zip unzip`
-   - `sudo apt install -y diffutils diffstat patch patchutils par`
-   - `sudo apt install -y openssl gnupg golang-cfssl apg uuid bc`
-   - `sudo apt install -y imagemagick ghostscript poppler-utils`
+   - `sudo apt install -y bash less vim vifm tmux && `<br/>
+     `sudo apt install -y procps lsof dnsutils tcpdump && `<br/>
+     `sudo apt install -y openssh-client stunnel subversion git curl && `<br/>
+     `sudo apt install -y mc tree file findutils && `<br/>
+     `sudo apt install -y rsync rdup rclone restic w3m lftp && `<br/>
+     `sudo apt install -y atool gzip bzip2 xz-utils zip unzip && `<br/>
+     `sudo apt install -y diffutils diffstat patch patchutils par && `<br/>
+     `sudo apt install -y openssl gnupg golang-cfssl apg uuid bc && `<br/>
+     `sudo apt install -y imagemagick ghostscript poppler-utils`
 
    Second, install the tool [FZF](https://github.com/junegunn/fzf) which is not available
    (at least not in latest version) via standard package manager:
@@ -335,7 +334,7 @@ container execution platform.
    Install Weasel-Pageant for accessing the PuTTY Agent from within WSL.
 
    > Rationale: you want to directly access PuTTY Agent from within WSL.
- 
+
    - [Weasel-Pageant Downloads](https://github.com/vuori/weasel-pageant/releases) &rarr; `weasel-pageant-1.4.zip`
    - `weasel-pageant-1.4.zip` &rarr; <kbd>RIGHT-CLICK</kbd> &rarr; *Extract all*
    - move `weasel-pageant-1.4\` to `%APPDATA%\weasel-pageant\`
@@ -373,6 +372,69 @@ container execution platform.
    - *START* &rarr; `cmd`
    - `wsl --set-default-version 2`
    - `wsl --set-version Ubuntu-20.04 2`
+
+## Optionally Install Podman Container Runtime (feel free to skip)
+
+1. **Install Podman and companion tools**:<br/>
+   Install Podman container runtime, the daemon-less Docker alternative, and its companion tools
+   Skopeo (registry access) and Buildah (container build).
+
+   > Rationale: Podman is Docker compatible daemon-less way to run containers inside Ubuntu/WSL.
+   > If you want to just run Docker containers without Docker for Windows, Podman is the way to go.
+
+   - `(. /etc/os-release;
+     echo "deb https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/testing/xUbuntu_${VERSION_ID}/ /" | sudo tee /etc/apt/sources.list.d/devel:kubic:libcontainers:testing.list;
+     curl -L "https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/testing/xUbuntu_${VERSION_ID}/Release.key" | sudo apt-key add - ) &&
+     sudo apt-get update;
+     sudo apt-get -y install podman skopeo buildah cri-o-runc`
+
+2. **Configure Environment for Podman**:<br/>
+   Configure the operating system environment to allow Podman to work correctly.
+
+   > Rationale: In WSL there are no systemd(8) and no journald(8) daemons running.
+
+   - `sed -e 's;^# cgroup_manager = .*;cgroup_manager = "cgroupfs";'
+      -e 's;^# events_logger = .*;events_logger = "file";'
+      </usr/share/containers/containers.conf >/tmp/container.conf;
+      sudo install -c -m 644 /tmp/containers.conf /etc/containers/containers.conf; rm /tmp/containers.conf`
+
+3. **Provide Docker Wrapper**:<br/>
+   Provide a wrapper docker(1) for the call-compatible podman(1) command-line interface.
+
+   > Rationale: Lots of scripts expect docker(1).
+
+   - `sudo sh -c '(echo "#!/bin/sh"; echo "exec /usr/bin/podman \"\$@\"") >/usr/bin/docker && chmod 755 /usr/bin/docker'`
+
+4. **Provide Docker REST API Service**:<br/>
+   Provide the Docker REST API as a Unix domain socket under the `/var/run/docker.sock` path.
+
+   > Rationale: Docker-Compose (see next step) requires this access method.
+
+   - `curl -L "https://fdit-gitlab.dit.htwk-leipzig.de/martin.meszaros/wsl2-podman-compose/-/raw/master/podman-service?inline=false" >podman-service;
+     install -c -m 755 podman-service /etc/init.d/; rm podman-service`
+
+5. **Install Docker-Compose**:<br/>
+   Install Docker-Compose for managing entire container stacks.
+
+   > Rationale: Docker just deals with single containers and Docker-Compose is the preferred way to manage entire container stacks.
+
+   - `sudo apt-get -y python3 python3-pip && sudo pip3 install docker-compose`
+
+6. **Configure User Environment**:<br/>
+   Configure the user environment to allow Podman and Docker-Compose to work correctly.
+
+   > Rationale: WSL has to init scripts, so start the Podman socket service manually when the shell is opened.
+
+   - `vi ~/.dotfiles/bashrc`
+
+     ```sh
+     #  support docker(1) via Podman
+     export XDG_RUNTIME_DIR=/tmp/$USER-runtime
+     mkdir -p -m 0700 "$XDG_RUNTIME_DIR"
+
+     #  support docker-compose(1) via Podman service
+     (sudo service podman-service start || true) >/dev/null 2>&1
+     ```
 
 ## Optionally Install Docker/Kubernetes Container Runtimes (feel free to skip)
 
