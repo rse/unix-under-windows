@@ -375,7 +375,14 @@ container execution platform.
 
 ## Optionally Install Podman Container Runtime (feel free to skip)
 
-1. **Install Podman and companion tools**:<br/>
+1. **Re-Enter Ubuntu under WSL**:<br/>
+   Re-Enter Ubuntu GNU/Linux under Windows Subsystem for Linux again.
+
+   > Rationale: we have to operate inside Ubuntu here again.
+
+   - *START* &rarr; `wsl terminal` <kbd>RETURN</kbd>
+
+2. **Install Podman and companion tools**:<br/>
    Install Podman container runtime, the daemon-less Docker alternative, and its companion tools
    Skopeo (registry access) and Buildah (container build).
 
@@ -388,7 +395,7 @@ container execution platform.
      sudo apt-get update;
      sudo apt-get -y install podman skopeo buildah cri-o-runc`
 
-2. **Configure Environment for Podman**:<br/>
+3. **Configure Environment for Podman**:<br/>
    Configure the operating system environment to allow Podman to work correctly.
 
    > Rationale: In WSL there are no systemd(8) and no journald(8) daemons running.
@@ -398,14 +405,14 @@ container execution platform.
       </usr/share/containers/containers.conf >/tmp/container.conf;
       sudo install -c -m 644 /tmp/containers.conf /etc/containers/containers.conf; rm /tmp/containers.conf`
 
-3. **Provide Docker Wrapper**:<br/>
+4. **Provide Docker Wrapper**:<br/>
    Provide a wrapper docker(1) for the call-compatible podman(1) command-line interface.
 
    > Rationale: Lots of scripts expect docker(1).
 
    - `sudo sh -c '(echo "#!/bin/sh"; echo "exec /usr/bin/podman \"\$@\"") >/usr/bin/docker && chmod 755 /usr/bin/docker'`
 
-4. **Provide Docker REST API Service**:<br/>
+5. **Provide Docker REST API Service**:<br/>
    Provide the Docker REST API as a Unix domain socket under the `/var/run/docker.sock` path.
 
    > Rationale: Docker-Compose (see next step) requires this access method.
@@ -413,21 +420,21 @@ container execution platform.
    - `curl -L "https://fdit-gitlab.dit.htwk-leipzig.de/martin.meszaros/wsl2-podman-compose/-/raw/master/podman-service?inline=false" >podman-service;
      install -c -m 755 podman-service /etc/init.d/; rm podman-service`
 
-5. **Install Docker-Compose**:<br/>
+6. **Install Docker-Compose**:<br/>
    Install Docker-Compose for managing entire container stacks.
 
    > Rationale: Docker just deals with single containers and Docker-Compose is the preferred way to manage entire container stacks.
 
    - `sudo apt-get -y python3 python3-pip && sudo pip3 install docker-compose`
 
-6. **Configure User Environment**:<br/>
+7. **Configure User Environment**:<br/>
    Configure the user environment to allow Podman and Docker-Compose to work correctly.
 
    > Rationale: WSL has to init scripts, so start the Podman socket service manually when the shell is opened.
 
    - `vi ~/.dotfiles/bashrc`
 
-     ```sh
+     ```
      #  support docker(1) via Podman
      export XDG_RUNTIME_DIR=/tmp/$USER-runtime
      mkdir -p -m 0700 "$XDG_RUNTIME_DIR"
