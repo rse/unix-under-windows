@@ -388,7 +388,7 @@ container execution platform.
    - `wsl --set-default-version 2`
    - `wsl --set-version Ubuntu-20.04 2`
 
-## Optionally Install Podman/Docker/Docker-Compose/Kubectl/Helm Client CLIs (feel free to skip)
+## Optionally Install Podman/Docker/Docker-Compose/Kubectl/Minikube/Helm Client CLIs (feel free to skip)
 
 1. **Re-Enter Ubuntu under WSL**:<br/>
    Re-Enter Ubuntu GNU/Linux under Windows Subsystem for Linux again.
@@ -429,13 +429,16 @@ container execution platform.
    - `V=$(curl -skL https://github.com/docker/compose/releases | egrep 'releases/tag/[0-9.]*"' | sed -e 's;^.*releases/tag/;;' -e 's;".*$;;' | head -1);`
      `sudo curl -skL $(printf "%s%s" https://github.com/docker/compose/releases/download/${V}/ docker-compose-Linux-x86_64) -o /usr/local/bin/docker-compose; sudo chmod 755 /usr/local/bin/docker-compose`
 
-4. **Install Kubectl/Helm**:<br/>
-   Install the Kubernetes client kubectl(1) and the package manager helm(1).
+4. **Install Kubectl/Minikube/Helm**:<br/>
+   Install the Kubernetes client kubectl(1), the Kubernetes all-in-one server minikube(8) and the Kubernetes package manager helm(1).
 
    > Rationale: when dealing with the Kubernetes world of containers, those two CLIs are essential.
 
    - `sudo curl -skL https://storage.googleapis.com/kubernetes-release/release/$(curl -skL https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl -o /usr/local/bin/kubectl &&`
      `sudo chmod 755 /usr/local/bin/kubectl`
+
+   - `sudo curl -skL https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 -o /usr/local/bin/minikube;`
+     `sudo chmod 755 /usr/local/bin/minikube`
 
    - `V=$(curl -skL https://github.com/kubernetes/helm/releases | egrep 'releases/tag/v3\.[0-9.]*"' | sed -e 's;^.*releases/tag/v;;' -e 's;".*$;;' | head -1);`
      `curl -skL $(printf "%s%s" https://get.helm.sh/helm-v${V}-linux-amd64.tar.gz) | sudo tar -z -x -f - --strip-components=1 -C /usr/local/bin linux-amd64/helm; sudo chmod 755 /usr/local/bin/helm`
