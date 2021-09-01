@@ -426,7 +426,28 @@ container execution platform.
    - `V=$(curl -skL https://github.com/kubernetes/helm/releases | egrep 'releases/tag/v3\.[0-9.]*"' | sed -e 's;^.*releases/tag/v;;' -e 's;".*$;;' | head -1);`
      `curl -skL $(printf "%s%s" https://get.helm.sh/helm-v${V}-linux-amd64.tar.gz) | sudo tar -z -x -f - --strip-components=1 -C /usr/local/bin linux-amd64/helm; sudo chmod 755 /usr/local/bin/helm`
 
-## Optionally Establish Podman as Container Runtime (Alternative 1, WSL2 only) (feel free to skip)
+## Optionally Establish DockerD/ContainerD as Container Runtime (Alternative 1, WSL2 only) (feel free to skip)
+
+Pro: the original and no root permissions required for docker(1) and docker-compose(1) calls<br/>
+Con: intransparent and slowed down development
+
+1. **Allow Access to Daemon**<br/>
+   Allow the current user access to the Docker daemon.
+
+   - `sudo usermod -aG docker $USER`
+
+2. **Configure User Environment**:<br/>
+   Configure the user environment to auto-start the Docker daemon.
+
+   > Rationale: WSL has no init scripts, so start the Docker daemon manually when the shell is opened.
+
+   - `vi ~/.dotfiles/bashrc`<br/>
+     &rarr; `(sudo service docker start || true) >/dev/null 2>&1`
+
+## Optionally Establish Podman as Container Runtime (Alternative 2, WSL2 only) (feel free to skip)
+
+Pro: fully transparent and fast Open Source development<br/>
+Con: the clone and root permissions required for docker(1) and docker-compose(1) calls
 
 1. **Provide Docker REST API Service**:<br/>
    Let Podman provide the Docker REST API as a Unix domain socket under the usual `/var/run/docker.sock` path.
@@ -450,22 +471,10 @@ container execution platform.
    - `sudo apt remove docker-ce docker-ce-cli`
    - `sudo sh -c '(echo "#!/bin/sh"; echo "exec /usr/bin/podman \"\$@\"") >/usr/local/bin/docker && chmod 755 /usr/local/bin/docker'`
 
-## Optionally Establish DockerD/ContainerD as Container Runtime (Alternative 2, WSL2 only) (feel free to skip)
-
-1. **Allow Access to Daemon**<br/>
-   Allow the current user access to the Docker daemon.
-
-   - `sudo usermod -aG docker $USER`
-
-2. **Configure User Environment**:<br/>
-   Configure the user environment to auto-start the Docker daemon.
-
-   > Rationale: WSL has no init scripts, so start the Docker daemon manually when the shell is opened.
-
-   - `vi ~/.dotfiles/bashrc`<br/>
-     &rarr; `(sudo service docker start || true) >/dev/null 2>&1`
-
 ## Optionally Establish Docker for Windows as Container Runtime (Alternative 3, Host only) (feel free to skip)
+
+Pro: Docker available also on the host, Kubernetes included<br/>
+Con: intransparent and slowed down development, no longer free for large Enterprise use
 
 1. **Install Docker Desktop**:<br/>
    Install the Docker Desktop for Windows (Community Edition) distribution.
