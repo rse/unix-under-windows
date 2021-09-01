@@ -26,8 +26,9 @@ container execution platform.
 > - additional WSL shell tools (`wsl-open`)
 > - improved host terminal emulator (MinTTY/WSLTTY)
 > - host SSH agent with transparent access from within WSL (`weasel-pageant`)
-> - host Docker engine with transparent access from within WSL (`$DOCKER_HOST`)
-> - optionally, essential programming languages (C/C++/Go/Perl/JavaScript/Java)
+> - Docker and Kubernetes client CLIs
+> - optionally, Docker runtimes inside WSL (DockerD, Podman) or on host (Docker for Windows)
+> - optionally, essential programming language runtime (JavaScript/Java)
 
 ## Install Windows Subsystem for Linux (WSL)
 
@@ -254,10 +255,17 @@ container execution platform.
      `rm -rf wsl-open-master;`<br/>
      `rm master.zip`
 
+   - `curl -skLO https://github.com/CzBiX/WSLHostPatcher/releases/download/v0.1.0/release.zip;`<br/>
+     `unzip -x release.zip;`<br/>
+     `mkdir -p ~/AppData/Local/WSLHostPatcher;`<br/>
+     `mv WSLHostPatch* ~/AppData/Local/WSLHostPatcher;`<br/>
+     `rm -f release.zip`
+
    - `vi ~/.dotfiles/bashrc`<br/>
       &rarr; `PATH=$PATH:/c/Windows/System32/WindowsPowerShell/v1.0/`<br/>
       &rarr; `alias wsl="/c/Windows/System32/wsl.exe"`<br/>
       &rarr; `alias cmd="/c/Windows/System32/cmd.exe"`<br/>
+      &rarr; `alias wsl-host-patcher="$HOME/AppData/Local/WSLHostPatcher/WSLHostPatcher.exe"`<br/>
       &rarr; `alias open=wsl-open`
 
 8. **Optionally Avoid system messages**:<br/>
