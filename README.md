@@ -515,10 +515,10 @@ container execution platform.
    - `vi ~/.dotfiles/bashrc`<br/>
      &rarr; `export DOCKER_HOST=tcp://localhost:2375`
 
-## Optionally install JavaScript/Java Development Environments (feel free to skip)
+## Optionally install Language Runtimes (feel free to skip)
 
 1. **Install Node.js**:<br/>
-   Install the Node.js JavaScript runtime.
+   Install the Node.js JavaScript language runtime.
 
    > Rationale: you want a reasonable JavaScript environment available.
 
@@ -526,7 +526,7 @@ container execution platform.
    - `sudo apt install -y nodejs`
 
 2. **Install OpenJDK**:<br/>
-   Install the OpenJDK Java runtime.
+   Install the OpenJDK Java language runtime.
 
    > Rationale: you want a reasonable Java environment available.
 
