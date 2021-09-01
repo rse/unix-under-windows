@@ -386,14 +386,15 @@ container execution platform.
    Install Podman container runtime, the daemon-less Docker alternative, and its companion tools
    Skopeo (registry access) and Buildah (container build).
 
-   > Rationale: Podman is Docker compatible daemon-less way to run containers inside Ubuntu/WSL.
-   > If you want to just run Docker containers without Docker for Windows, Podman is the way to go.
+   > Rationale: Podman is a Docker-compatible daemon-less way to run containers directly under Ubuntu/WSL2 and a decent
+   > alternative to running Docker for Windows (see below) on the host. If you want to just run Docker containers
+   > without Docker for Windows, Podman is the way to go.
 
    - `(. /etc/os-release;
      echo "deb https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/testing/xUbuntu_${VERSION_ID}/ /" | sudo tee /etc/apt/sources.list.d/devel:kubic:libcontainers:testing.list;
      curl -L "https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/testing/xUbuntu_${VERSION_ID}/Release.key" | sudo apt-key add - ) &&
-     sudo apt-get update;
-     sudo apt-get -y install podman skopeo buildah cri-o-runc`
+     sudo apt update;
+     sudo apt install -y podman skopeo buildah cri-o-runc`
 
 3. **Configure Environment for Podman**:<br/>
    Configure the operating system environment to allow Podman to work correctly.
@@ -425,7 +426,7 @@ container execution platform.
 
    > Rationale: Docker just deals with single containers and Docker-Compose is the preferred way to manage entire container stacks.
 
-   - `sudo apt-get -y python3 python3-pip && sudo pip3 install docker-compose`
+   - `sudo apt install -y python3 python3-pip && sudo pip3 install docker-compose`
 
 7. **Configure User Environment**:<br/>
    Configure the user environment to allow Podman and Docker-Compose to work correctly.
