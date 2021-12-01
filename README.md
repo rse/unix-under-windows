@@ -2,7 +2,7 @@
 <img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Windows_logo_-_2012.svg" width="120" align="right" alt=""/>
 
 Author: [Dr. Ralf S. Engelschall](mailto:rse@engelschall.com)<br/>
-Version: 2.3.0 (2021-09-02)
+Version: 2.3.1 (2021-12-01)
 
 # Unix Environment under Windows
 
@@ -426,8 +426,8 @@ container execution platform.
      `sudo apt update -y &&`
      `sudo apt install -y docker-ce docker-ce-cli`
 
-   - `V=$(curl -skL https://github.com/docker/compose/releases | egrep 'releases/tag/[0-9.]*"' | sed -e 's;^.*releases/tag/;;' -e 's;".*$;;' | head -1);`
-     `sudo curl -skL $(printf "%s%s" https://github.com/docker/compose/releases/download/${V}/ docker-compose-Linux-x86_64) -o /usr/local/bin/docker-compose; sudo chmod 755 /usr/local/bin/docker-compose`
+   - `V=$(curl -skL https://github.com/docker/compose/releases | egrep 'releases/tag/v[0-9.]*"' | sed -e 's;^.*releases/tag/v;;' -e 's;".*$;;' | head -1);`
+     `sudo curl -skL https://github.com/docker/compose/releases/download/v${V}/docker-compose-linux-x86_64 -o /usr/libexec/docker/cli-plugins/docker-compose; sudo chmod 755 /usr/libexec/docker/cli-plugins/docker-compose`
 
 4. **Install Kubectl/Minikube/Helm**:<br/>
    Install the Kubernetes client kubectl(1), the Kubernetes all-in-one server minikube(8) and the Kubernetes package manager helm(1).
