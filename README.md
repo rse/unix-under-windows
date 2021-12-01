@@ -198,10 +198,10 @@ container execution platform.
 
    > Rationale: Git-Town and TTY2Web are often useful.
 
-   - `curl -skLO https://github.com/Originate/git-town/releases/download/v7.5.0/git-town_7.5.0_linux_intel_64.deb;`<br/>
+   - `curl -skLO https://github.com/Originate/git-town/releases/download/v7.6.0/git-town_7.6.0_linux_intel_64.deb;`<br/>
      `sudo dpkg -i git-town_*.deb;`<br/>
      `rm git-town_*.deb;`<br/>
-     `curl -skLO https://github.com/kost/tty2web/releases/download/v2.4.0/tty2web_linux_amd64;`<br/>
+     `curl -skLO https://github.com/kost/tty2web/releases/download/v2.6.0/tty2web_linux_amd64;`<br/>
      `sudo install -c -m 755 tty2web* /usr/local/bin/tty2web;`<br/>
      `rm tty2web*`
 
@@ -269,7 +269,7 @@ container execution platform.
       &rarr; `alias wsl-host-patcher="$HOME/AppData/Local/WSLHostPatcher/WSLHostPatcher.exe"`<br/>
       &rarr; `alias open=wsl-open`
 
-8. **Optionally Avoid system messages**:<br/>
+8. **Optionally avoid system messages**:<br/>
    Force the system to not display messages.
 
    > Rationale: you don't want to be nerved with those messages
@@ -283,7 +283,7 @@ container execution platform.
 
    > Rationale: a reasonable terminal emulator has to be used and the default WSL console is not good enough.
 
-   - [WSLTTY version &ge; 3.5.0.2](https://github.com/mintty/wsltty/releases) &rarr; `wsltty-*-install.exe`
+   - [WSLTTY version &ge; 3.5.1](https://github.com/mintty/wsltty/releases) &rarr; `wsltty-*-install.exe`
    - <kbd>WIN+r</kbd> &rarr; `%LOCALAPPDATA%\wsltty` &rarr; `add to context menu.lnk`
 
 2. **Install DejaVu Sans Mono font**:<br/>
