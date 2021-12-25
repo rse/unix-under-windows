@@ -83,7 +83,7 @@ container execution platform.
    > Notice: In case you have trouble to enable *Windows Subsystem for Linux*, this can have many reasons.
    > In most cases, the reason is that point (1) above is not exactly fulfilled. Start over there again.
 
-3. **Enable "Virtual Machine Platform" Feature**
+3. **Enable "Virtual Machine Platform" Feature**<br/>
    Enable the Windows feature *Virtual Machine Platform* (required for WSL2).
    A reboot might be necessary.
 
@@ -102,7 +102,7 @@ container execution platform.
    - *START* &rarr; `control panel` &rarr; *Programs* &rarr; *Programs and Features*
      &rarr; *Turn Windows features on or off* &rarr; *Virtual Machine Platform*
 
-4. **Install/Update WSL2 Linux Kernel**
+4. **Install/Update WSL2 Linux Kernel**<br/>
    Update the WSL2 Linux kernel.
 
    > Rationale: WSL2 Linux kernel has to be up-to-date or WSL2 will complain.
@@ -110,6 +110,13 @@ container execution platform.
    - Visit the Microsoft [WSL2 Information Page](https://aka.ms/wsl2kernel)
      and [download and run the MSI installer](https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi)
      for the WSL 2 Linux Kernel.
+
+5. **Enable Hardware Virtualization**<br/>
+   Enable the CPU Hardware Virtualization in the PC BIOS (required for WSL2).
+
+   - Reboot your system
+   - Hold "DELETE" key during boot.
+   - Enable CPU Hardware Virtualization (VT-x/VMX).
 
 ## Install Ubuntu GNU/Linux Operating System
 
