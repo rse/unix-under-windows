@@ -2,7 +2,7 @@
 <img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Windows_logo_-_2012.svg" width="120" align="right" alt=""/>
 
 Author: [Dr. Ralf S. Engelschall](mailto:rse@engelschall.com)<br/>
-Version: 2.3.1 (2021-12-01)
+Version: 2.4.0 (2021-12-25)
 
 # Unix Environment under Windows
 
@@ -41,7 +41,7 @@ container execution platform.
    > under those Windows editions, only under 64-bit and in a reasonable
    > fashion only under at least this version or newer.
    > Windows 10 in Version 1809 is the bare minimum. The recommended
-   > system is Windows 10 in Version 1909.
+   > system is at least Windows 10 in Version 1909 or newer.
 
    - *START* &rarr; *Settings* &rarr; *System* &rarr; *About*:
    - ... *Device Specifications* &rarr; *System type*
@@ -63,6 +63,7 @@ container execution platform.
 
 2. **Enable Windows Subsystem for Linux**:<br/>
    Enable the Windows feature *Windows Subsystem for Linux*.
+   A reboot might be necessary.
 
    > Rationale: Windows Subsystem for Linux is the core feature we want to use.
 
@@ -71,11 +72,44 @@ container execution platform.
 
    Alternatively:
 
+   - *START* &rarr; `cmd` &rarr; <kbd>RIGHT-CLICK</kbd> &rarr; *Run as administrator*
+   - `dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart`
+
+   Alternatively:
+
    - *START* &rarr; `control panel` &rarr; *Programs* &rarr; *Programs and Features*
      &rarr; *Turn Windows features on or off* &rarr; *Windows-Subsystem for Linux*
 
    > Notice: In case you have trouble to enable *Windows Subsystem for Linux*, this can have many reasons.
    > In most cases, the reason is that point (1) above is not exactly fulfilled. Start over there again.
+
+3. **Enable "Virtual Machine Platform" Feature**
+   Enable the Windows feature *Virtual Machine Platform* (required for WSL2).
+   A reboot might be necessary.
+
+   > Rationale: WSL2 is recommended.
+
+   - *START* &rarr; `powershell` &rarr; <kbd>RIGHT-CLICK</kbd> &rarr; *Run as administrator*
+   - `Enable-WindowsOptionalFeature -Online -FeatureName VirtualMachinePlatform`
+
+   Alternatively:
+
+   - *START* &rarr; `cmd` &rarr; <kbd>RIGHT-CLICK</kbd> &rarr; *Run as administrator*
+   - `dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart`
+
+   Alternatively:
+
+   - *START* &rarr; `control panel` &rarr; *Programs* &rarr; *Programs and Features*
+     &rarr; *Turn Windows features on or off* &rarr; *Virtual Machine Platform*
+
+4. **Install/Update WSL2 Linux Kernel**
+   Update the WSL2 Linux kernel.
+
+   > Rationale: WSL2 Linux kernel has to be up-to-date or WSL2 will complain.
+
+   - Visit the Microsoft [WSL2 Information Page](https://aka.ms/wsl2kernel)
+     and [download and run the MSI installer](https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi)
+     for the WSL 2 Linux Kernel.
 
 ## Install Ubuntu GNU/Linux Operating System
 
@@ -371,18 +405,7 @@ container execution platform.
 
 ## Optionally Enable Windows Subsystem for Linux (WSL) Version 2 (Windows 10 Version >= 19.03 only) (feel free to skip)
 
-1. **Enable "Virtual Machine Platform" Feature**
-
-   - *START* &rarr; `cmd` &rarr; <kbd>RIGHT-CLICK</kbd> &rarr; *Run as administrator*
-   - `dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all`
-
-2. **Install WSL 2 Linux Kernel**
-
-   - Visit the Microsoft [Updating the WSL 2 Linux kernel](https://docs.microsoft.com/en-us/windows/wsl/wsl2-kernel) page
-     and [download and run the MSI installer](https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi)
-     for the WSL 2 Linux Kernel.
-
-3. **Switch to use WSL 2**
+2. **Switch to use WSL 2**
 
    - *START* &rarr; `cmd`
    - `wsl --set-default-version 2`
