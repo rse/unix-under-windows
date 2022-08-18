@@ -230,9 +230,9 @@ container execution platform.
    Second, install the tool [FZF](https://github.com/junegunn/fzf) which is not available
    (at least not in latest version) via standard package manager:
 
-   - `curl -skLO https://github.com/junegunn/fzf/releases/download/0.32.1/fzf-0.32.1-linux_amd64.tar.gz;`<br/>
-     `tar zxf fzf-*-linux_amd64.tar.gz;`<br/>
-     `sudo install -c -m 755 fzf /usr/local/bin/;`<br/>
+   - `curl -skLO https://github.com/junegunn/fzf/releases/download/0.32.1/fzf-0.32.1-linux_amd64.tar.gz && `<br/>
+     `tar zxf fzf-*-linux_amd64.tar.gz && `<br/>
+     `sudo install -c -m 755 fzf /usr/local/bin/ && `<br/>
      `rm fzf fzf-*-linux_amd64.tar.gz`
 
 3. **Optionally Install Additional Unix Tools**:<br/>
@@ -240,11 +240,11 @@ container execution platform.
 
    > Rationale: Git-Town and TTY2Web are often useful.
 
-   - `curl -skLO https://github.com/Originate/git-town/releases/download/v7.8.0/git-town_7.8.0_linux_intel_64.deb;`<br/>
-     `sudo dpkg -i git-town_*.deb;`<br/>
-     `rm git-town_*.deb;`<br/>
-     `curl -skLO https://github.com/kost/tty2web/releases/download/v2.6.0/tty2web_linux_amd64;`<br/>
-     `sudo install -c -m 755 tty2web* /usr/local/bin/tty2web;`<br/>
+   - `curl -skLO https://github.com/Originate/git-town/releases/download/v7.8.0/git-town_7.8.0_linux_intel_64.deb && `<br/>
+     `sudo dpkg -i git-town_*.deb && `<br/>
+     `rm git-town_*.deb && `<br/>
+     `curl -skLO https://github.com/kost/tty2web/releases/download/v2.6.0/tty2web_linux_amd64 && `<br/>
+     `sudo install -c -m 755 tty2web* /usr/local/bin/tty2web && `<br/>
      `rm tty2web*`
 
 4. **Install Unix Shell Configurations**:<br/>
@@ -252,12 +252,12 @@ container execution platform.
 
    > Rationale: you really want a reasonable pre-configured Unix shell environment.
 
-   - `sudo apt install -y make;`<br/>
-     `curl -skLO https://github.com/rse/dotfiles/archive/master.zip;`<br/>
-     `unzip -x master.zip;`<br/>
-     `(cd dotfiles-master && sudo make install);`<br/>
-     `rm -rf dotfiles-master;`<br/>
-     `rm master.zip;`<br/>
+   - `sudo apt install -y make && `<br/>
+     `curl -skLO https://github.com/rse/dotfiles/archive/master.zip && `<br/>
+     `unzip -x master.zip && `<br/>
+     `(cd dotfiles-master && sudo make install) && `<br/>
+     `rm -rf dotfiles-master && `<br/>
+     `rm master.zip && `<br/>
      `dotfiles -f ~`
 
 5. **Install Unix Shell Addon Configurations**:<br/>
@@ -267,10 +267,11 @@ container execution platform.
    > This especially includes an improved <kbd>CTRL+r</kbd> functionality in Bash, which then opens
    > an FZF-based search functionality (which you can see in the screenshot above, too).
 
-   - `curl -skL https://raw.githubusercontent.com/rse/bash-fzf/master/bash-fzf.rc -o ~/.bash-fzf.rc;`<br/>
-     `curl -skL https://raw.githubusercontent.com/rse/bash-envrc/master/bash-envrc.rc -o ~/.bash-envrc.rc;`<br/>
-     `exec bash;`<br/>
-     `cdpaths -g`
+   - `curl -skL https://raw.githubusercontent.com/rse/bash-fzf/master/bash-fzf.rc -o ~/.bash-fzf.rc && `<br/>
+     `curl -skL https://raw.githubusercontent.com/rse/bash-envrc/master/bash-envrc.rc -o ~/.bash-envrc.rc && `<br/>
+     `exec bash`<br/>
+
+   - `cdpaths -g`
 
 6. **Optionally Extend Unix Shell Configurations**:<br/>
    Extend the Unix shell configuration with your personal information.
@@ -288,21 +289,21 @@ container execution platform.
 
    > Rationale: you want additional features inside WSL.
 
-   - `sudo apt install -y ubuntu-wsl wslu;`<br/>
-     `curl -skLO https://github.com/4U6U57/wsl-open/archive/master.zip;`<br/>
-     `unzip -x master.zip;`<br/>
-     `sudo install -c -m 755 wsl-open-master/wsl-open.sh /usr/local/bin/wsl-open;`<br/>
-     `sudo mkdir -p /usr/local/share/man/man1;`<br/>
-     `sudo install -c -m 644 wsl-open-master/wsl-open.1 /usr/local/share/man/man1/;`<br/>
-     `rm -rf wsl-open-master;`<br/>
+   - `sudo apt install -y ubuntu-wsl wslu && `<br/>
+     `curl -skLO https://github.com/4U6U57/wsl-open/archive/master.zip && `<br/>
+     `unzip -x master.zip && `<br/>
+     `sudo install -c -m 755 wsl-open-master/wsl-open.sh /usr/local/bin/wsl-open && `<br/>
+     `sudo mkdir -p /usr/local/share/man/man1 && `<br/>
+     `sudo install -c -m 644 wsl-open-master/wsl-open.1 /usr/local/share/man/man1/ && `<br/>
+     `rm -rf wsl-open-master && `<br/>
      `rm master.zip`
 
-   - `curl -skLO https://github.com/CzBiX/WSLHostPatcher/releases/download/v0.1.0/release.zip;`<br/>
-     `unzip -x release.zip;`<br/>
-     `mkdir -p ~/AppData/Local/WSLHostPatcher;`<br/>
-     `chmod 755 WSLHostPatcher.exe;`<br/>
-     `mv WSLHostPatch* ~/AppData/Local/WSLHostPatcher;`<br/>
-     `rm -f release.zip WSLHostPatch*.*`
+   - `curl -skLO https://github.com/CzBiX/WSLHostPatcher/releases/download/v0.1.1/WSLHostPatcher.zip && `<br/>
+     `unzip -x WSLHostPatcher.zip && `<br/>
+     `mkdir -p ~/AppData/Local/WSLHostPatcher && `<br/>
+     `chmod 755 WSLHostPatcher.exe && `<br/>
+     `mv WSLHostPatch* ~/AppData/Local/WSLHostPatcher && `<br/>
+     `rm -f WSLHostPatcher.zip WSLHostPatch*.*`
 
    - `vi ~/.dotfiles/bashrc`<br/>
       &rarr; `PATH=$PATH:/c/Windows/System32/WindowsPowerShell/v1.0/`<br/>
