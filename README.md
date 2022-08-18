@@ -334,7 +334,7 @@ container execution platform.
 
    > Rationale: MinTTY/WSLTTY configuration below references it.
 
-   - download: [DejaVu Sans](https://dejavu-fonts.github.io/Download.html) &rarr; `dejavu-fonts-ttf-*.zip`
+   - download: [DejaVu Sans &ge; 2.37](https://dejavu-fonts.github.io/Download.html) &rarr; `dejavu-fonts-ttf-*.zip`
    - extract: `dejavu-fonts-ttf-*.zip` &rarr; <kbd>RIGHT-CLICK</kbd> *Extract all*
    - install: `dejavu-fonts-ttf-*\ttf\` &rarr; select all `*.ttf` &rarr; <kbd>RIGHT-CLICK</kbd> &rarr; *Install*
 
