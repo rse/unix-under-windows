@@ -580,7 +580,7 @@ Con: intransparent and slowed down development, no longer free for large Enterpr
 
    > Rationale: you want a reasonable JavaScript environment available.
 
-   - `curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -`
+   - `curl -sL https://deb.nodesource.com/setup_18.x | sudo -E bash -`
    - `sudo apt install -y nodejs`
 
 2. **Install OpenJDK**:<br/>
