@@ -302,7 +302,7 @@ container execution platform.
      `unzip -x WSLHostPatcher.zip && `<br/>
      `mkdir -p ~/AppData/Local/WSLHostPatcher && `<br/>
      `chmod 755 WSLHostPatcher.exe && `<br/>
-     `mv WSLHostPatch* ~/AppData/Local/WSLHostPatcher && `<br/>
+     `mv WSLHostPatch.dll WSLHostPatcher.exe ~/AppData/Local/WSLHostPatcher/ && `<br/>
      `rm -f WSLHostPatcher.zip WSLHostPatch*.*`
 
    - `vi ~/.dotfiles/bashrc`<br/>
@@ -326,7 +326,7 @@ container execution platform.
 
    > Rationale: a reasonable terminal emulator has to be used and the default WSL console is not good enough.
 
-   - [WSLTTY version &ge; 3.5.1](https://github.com/mintty/wsltty/releases) &rarr; `wsltty-*-install.exe`
+   - [WSLTTY version &ge; 3.6.0](https://github.com/mintty/wsltty/releases) &rarr; `wsltty-*-install.exe`
    - <kbd>WIN+r</kbd> &rarr; `%LOCALAPPDATA%\wsltty` &rarr; `add to context menu.lnk`
 
 2. **Install DejaVu Sans Mono font**:<br/>
