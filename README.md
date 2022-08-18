@@ -2,7 +2,7 @@
 <img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Windows_logo_-_2012.svg" width="120" align="right" alt=""/>
 
 Author: [Dr. Ralf S. Engelschall](mailto:rse@engelschall.com)<br/>
-Version: 2.4.0 (2021-12-25)
+Version: 2.4.1 (2022-08-18)
 
 # Unix Environment under Windows
 
@@ -120,12 +120,12 @@ container execution platform.
 
 ## Install Ubuntu GNU/Linux Operating System
 
-1. **Install Ubuntu 20.04 LTS**:<br/>
-   Install Ubuntu GNU/Linux 20.04 Long Term Support (LTS) from the Microsoft Store.
+1. **Install Ubuntu 22.04 LTS**:<br/>
+   Install Ubuntu GNU/Linux 22.04 Long Term Support (LTS) from the Microsoft Store.
 
    > Rationale: you need a reasonable GNU/Linux distribution and it should receive updates for a longer time.
 
-   - *START* &rarr; `microsoft store` &rarr; *Search* &rarr; `ubuntu 20.04 lts` &rarr; *Install*
+   - *START* &rarr; `microsoft store` &rarr; *Search* &rarr; `ubuntu 22.04 lts` &rarr; *Install*
 
    > Notice: In case the Microsoft Store is not available on your system, the reason
    > can be that you still have User Account Control (UAC) disabled, or
@@ -143,12 +143,13 @@ container execution platform.
 
    > Rationale: we have to setup Ubuntu from itself.
 
-    - *START* &rarr; *Ubuntu 20.04*
+    - *START* &rarr; *Ubuntu 22.04*
 
    Just be patient on first launch, it really takes time.
    Then, when asked for your username, enter the same as your Windows username.
    When asked for your password, enter either your Windows password or another one, but
    remember it (at least once until the step where we configure sudo(8) below)!
+   For all other questions, keep the defaults.
 
 2. **Enable Convenient Root Access**:<br/>
    Ensure no password is needed for subsequent root access.
@@ -206,7 +207,7 @@ container execution platform.
 
    > Rationale: we have to configure the Unix environment from itself.
 
-    - *START* &rarr; *Ubuntu 20.04*
+    - *START* &rarr; *Ubuntu 22.04*
 
 2. **Install Essential Unix Tools**:<br/>
    Install all necessary essential and some more useful Unix tools.
@@ -229,7 +230,7 @@ container execution platform.
    Second, install the tool [FZF](https://github.com/junegunn/fzf) which is not available
    (at least not in latest version) via standard package manager:
 
-   - `curl -skLO https://github.com/junegunn/fzf/releases/download/0.27.2/fzf-0.27.2-linux_amd64.tar.gz;`<br/>
+   - `curl -skLO https://github.com/junegunn/fzf/releases/download/0.32.1/fzf-0.32.1-linux_amd64.tar.gz;`<br/>
      `tar zxf fzf-*-linux_amd64.tar.gz;`<br/>
      `sudo install -c -m 755 fzf /usr/local/bin/;`<br/>
      `rm fzf fzf-*-linux_amd64.tar.gz`
@@ -239,7 +240,7 @@ container execution platform.
 
    > Rationale: Git-Town and TTY2Web are often useful.
 
-   - `curl -skLO https://github.com/Originate/git-town/releases/download/v7.6.0/git-town_7.6.0_linux_intel_64.deb;`<br/>
+   - `curl -skLO https://github.com/Originate/git-town/releases/download/v7.8.0/git-town_7.8.0_linux_intel_64.deb;`<br/>
      `sudo dpkg -i git-town_*.deb;`<br/>
      `rm git-town_*.deb;`<br/>
      `curl -skLO https://github.com/kost/tty2web/releases/download/v2.6.0/tty2web_linux_amd64;`<br/>
@@ -416,7 +417,7 @@ container execution platform.
 
    - *START* &rarr; `cmd`
    - `wsl --set-default-version 2`
-   - `wsl --set-version Ubuntu-20.04 2`
+   - `wsl --set-version Ubuntu-22.04 2`
 
 ## Optionally Install Podman/Docker/Docker-Compose/Kubectl/Minikube/Helm Client CLIs (feel free to skip)
 
