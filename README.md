@@ -2,7 +2,7 @@
 <img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Windows_logo_-_2012.svg" width="120" align="right" alt=""/>
 
 Author: [Dr. Ralf S. Engelschall](mailto:rse@engelschall.com)<br/>
-Version: 2.4.1 (2022-08-18)
+Version: 2.4.1 (2022-11-26)
 
 # Unix Environment under Windows
 
@@ -33,7 +33,7 @@ container execution platform.
 ## Install Windows Subsystem for Linux (WSL)
 
 1. **Ensure Windows 10 Professional/Enterprise, 64 Bit, Version &ge; 18.09**:<br/>
-   Ensure you are running Windows 10 Professional or Windows 10
+   Ensure you are running at least Windows 10 Professional or Windows 10
    Enterprise in 64-bit mode and in Version 1809 (October 2018), 1903
    (April 2019), 1909 (November 2019) or newer.
 
@@ -326,7 +326,7 @@ container execution platform.
 
    > Rationale: a reasonable terminal emulator has to be used and the default WSL console is not good enough.
 
-   - [WSLTTY version &ge; 3.6.0](https://github.com/mintty/wsltty/releases) &rarr; `wsltty-*-install.exe`
+   - [WSLTTY version &ge; 3.6.1.2](https://github.com/mintty/wsltty/releases) &rarr; `wsltty-*-install.exe`
    - <kbd>WIN+r</kbd> &rarr; `%LOCALAPPDATA%\wsltty` &rarr; `add to context menu.lnk`
 
 2. **Install DejaVu Sans Mono font**:<br/>
