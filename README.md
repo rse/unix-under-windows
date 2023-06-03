@@ -2,7 +2,7 @@
 <img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Windows_logo_-_2012.svg" width="120" align="right" alt=""/>
 
 Author: [Dr. Ralf S. Engelschall](mailto:rse@engelschall.com)<br/>
-Version: 2.4.1 (2022-11-26)
+Version: 2.4.2 (2023-06-03)
 
 # Unix Environment under Windows
 
@@ -176,6 +176,7 @@ container execution platform.
 
     - `sudo vi /etc/wsl.conf`<br/>
       &rarr; `[automount]`<br/>
+      &rarr; `systemd = true`<br/>
       &rarr; `enabled = true`<br/>
       &rarr; `root    = /`<br/>
       &rarr; `options = "metadata,umask=022"`
@@ -230,7 +231,7 @@ container execution platform.
    Second, install the tool [FZF](https://github.com/junegunn/fzf) which is not available
    (at least not in latest version) via standard package manager:
 
-   - `curl -skLO https://github.com/junegunn/fzf/releases/download/0.32.1/fzf-0.32.1-linux_amd64.tar.gz && `<br/>
+   - `curl -skLO https://github.com/junegunn/fzf/releases/download/0.41.1/fzf-0.41.1-linux_amd64.tar.gz && `<br/>
      `tar zxf fzf-*-linux_amd64.tar.gz && `<br/>
      `sudo install -c -m 755 fzf /usr/local/bin/ && `<br/>
      `rm fzf fzf-*-linux_amd64.tar.gz`
@@ -240,10 +241,10 @@ container execution platform.
 
    > Rationale: Git-Town and TTY2Web are often useful.
 
-   - `curl -skLO https://github.com/Originate/git-town/releases/download/v7.8.0/git-town_7.8.0_linux_intel_64.deb && `<br/>
+   - `curl -skLO https://github.com/Originate/git-town/releases/download/v9.0.0/git-town_9.0.0_linux_intel_64.deb && `<br/>
      `sudo dpkg -i git-town_*.deb && `<br/>
      `rm git-town_*.deb && `<br/>
-     `curl -skLO https://github.com/kost/tty2web/releases/download/v2.6.0/tty2web_linux_amd64 && `<br/>
+     `curl -skLO https://github.com/kost/tty2web/releases/download/v3.0.0/tty2web_linux_amd64 && `<br/>
      `sudo install -c -m 755 tty2web* /usr/local/bin/tty2web && `<br/>
      `rm tty2web*`
 
@@ -298,7 +299,7 @@ container execution platform.
      `rm -rf wsl-open-master && `<br/>
      `rm master.zip`
 
-   - `curl -skLO https://github.com/CzBiX/WSLHostPatcher/releases/download/v0.1.1/WSLHostPatcher.zip && `<br/>
+   - `curl -skLO https://github.com/CzBiX/WSLHostPatcher/releases/download/v0.1.2/WSLHostPatcher.zip && `<br/>
      `unzip -x WSLHostPatcher.zip && `<br/>
      `mkdir -p ~/AppData/Local/WSLHostPatcher && `<br/>
      `chmod 755 WSLHostPatcher.exe && `<br/>
@@ -326,7 +327,7 @@ container execution platform.
 
    > Rationale: a reasonable terminal emulator has to be used and the default WSL console is not good enough.
 
-   - [WSLTTY version &ge; 3.6.1.2](https://github.com/mintty/wsltty/releases) &rarr; `wsltty-*-install.exe`
+   - [WSLTTY version &ge; 3.6.4](https://github.com/mintty/wsltty/releases) &rarr; `wsltty-*-install.exe`
    - <kbd>WIN+r</kbd> &rarr; `%LOCALAPPDATA%\wsltty` &rarr; `add to context menu.lnk`
 
 2. **Install DejaVu Sans Mono font**:<br/>
@@ -580,7 +581,7 @@ Con: intransparent and slowed down development, no longer free for large Enterpr
 
    > Rationale: you want a reasonable JavaScript environment available.
 
-   - `curl -sL https://deb.nodesource.com/setup_18.x | sudo -E bash -`
+   - `curl -sL https://deb.nodesource.com/setup_20.x | sudo -E bash -`
    - `sudo apt install -y nodejs`
 
 2. **Install OpenJDK**:<br/>
