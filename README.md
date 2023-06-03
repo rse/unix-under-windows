@@ -118,6 +118,12 @@ container execution platform.
    - Hold "DELETE" key during boot.
    - Enable CPU Hardware Virtualization (VT-x/VMX).
 
+6. **Update WSL**:<br/>
+   Update to the latest version of *Windows Subsystem for Linux*.
+
+   - *START* &rarr; `powershell` &rarr; <kbd>RIGHT-CLICK</kbd> &rarr; *Run as administrator*
+   - `wsl.exe --update`
+
 ## Install Ubuntu GNU/Linux Operating System
 
 1. **Install Ubuntu 22.04 LTS**:<br/>
