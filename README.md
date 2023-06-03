@@ -267,7 +267,14 @@ container execution platform.
      `rm master.zip && `<br/>
      `dotfiles -f ~`
 
-5. **Install Unix Shell Addon Configurations**:<br/>
+5. **Install UTF-8 locale information**:<br/>
+   Install the UTF-8 locale information into the system.
+
+   > Rationale: prevent Bash from complaining afterwards.
+
+   - `sudo localedef -i en_US -f UTF-8 en_US.UTF-8`
+
+6. **Install Unix Shell Addon Configurations**:<br/>
    Install Dr. Ralf S. Engelschall's Bash-FZF and Bash-ENVRC addons.
 
    > Rationale: you really want a reasonable pre-configured Unix shell environment.
@@ -280,7 +287,7 @@ container execution platform.
 
    - `cdpaths -g`
 
-6. **Optionally Extend Unix Shell Configurations**:<br/>
+7. **Optionally Extend Unix Shell Configurations**:<br/>
    Extend the Unix shell configuration with your personal information.
 
    > Rationale: these informations individualize your environment (replace the `<xxx>` placeholders, please).
@@ -291,7 +298,7 @@ container execution platform.
      &rarr; `name  = <firstname> <lastname>`<br/>
      &rarr; `email = <firstname>.<lastname>@<domain>`<br/>
 
-7. **Install WSL Utilities**:<br/>
+8. **Install WSL Utilities**:<br/>
    Install additional WSL utilities.
 
    > Rationale: you want additional features inside WSL.
@@ -319,7 +326,7 @@ container execution platform.
       &rarr; `alias wsl-host-patcher="$HOME/AppData/Local/WSLHostPatcher/WSLHostPatcher.exe"`<br/>
       &rarr; `alias open=wsl-open`
 
-8. **Optionally avoid system messages**:<br/>
+9. **Optionally avoid system messages**:<br/>
    Force the system to not display messages.
 
    > Rationale: you don't want to be nerved with those messages
