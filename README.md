@@ -181,8 +181,9 @@ container execution platform.
    > Rationale: allow POSIX file permissions on Windows drives from within WSL.
 
     - `sudo vi /etc/wsl.conf`<br/>
-      &rarr; `[automount]`<br/>
+      &rarr; `[boot]`<br/>
       &rarr; `systemd = true`<br/>
+      &rarr; `[automount]`<br/>
       &rarr; `enabled = true`<br/>
       &rarr; `root    = /`<br/>
       &rarr; `options = "metadata,umask=022"`
