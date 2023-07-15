@@ -238,7 +238,7 @@ container execution platform.
    Second, install the tool [FZF](https://github.com/junegunn/fzf) which is not available
    (at least not in latest version) via standard package manager:
 
-   - `curl -skLO https://github.com/junegunn/fzf/releases/download/0.41.1/fzf-0.41.1-linux_amd64.tar.gz && `<br/>
+   - `curl -skLO https://github.com/junegunn/fzf/releases/download/0.42.0/fzf-0.42.0-linux_amd64.tar.gz && `<br/>
      `tar zxf fzf-*-linux_amd64.tar.gz && `<br/>
      `sudo install -c -m 755 fzf /usr/local/bin/ && `<br/>
      `rm fzf fzf-*-linux_amd64.tar.gz`
