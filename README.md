@@ -2,12 +2,12 @@
 <img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Windows_logo_-_2012.svg" width="120" align="right" alt=""/>
 
 Author: [Dr. Ralf S. Engelschall](mailto:rse@engelschall.com)<br/>
-Version: 2.4.2 (2023-06-03)
+Version: 2.4.3 (2024-03-12)
 
 # Unix Environment under Windows
 
 This is a documentation on how to setup a reasonable but opinionated Unix development environment under
-[*Microsoft Windows 10*](https://windows.com) (Pro edition, 64-bit mode, version &ge; 1809) with the help of the
+[*Microsoft Windows 10/11*](https://windows.com) (Pro edition, 64-bit mode, version &ge; 1809) with the help of the
 native [*Windows Subsystem for Linux (WSL)*](https://devblogs.microsoft.com/commandline/),
 the [*Ubuntu*](https://www.ubuntu.com/) GNU/Linux distribution,
 Dr. Ralf S. Engelschall's [*Unix dotfiles*](https://github.com/rse/dotfiles) shell environment,
@@ -32,16 +32,16 @@ container execution platform.
 
 ## Install Windows Subsystem for Linux (WSL)
 
-1. **Ensure Windows 10 Professional/Enterprise, 64 Bit, Version &ge; 18.09**:<br/>
+1. **Ensure Windows 10/11 Professional/Enterprise, 64 Bit, Version &ge; 18.09**:<br/>
    Ensure you are running at least Windows 10 Professional or Windows 10
    Enterprise in 64-bit mode and in Version 1809 (October 2018), 1903
-   (April 2019), 1909 (November 2019) or newer.
+   (April 2019), 1909 (November 2019) or newer (including Windows 11).
 
    > Rationale: Windows Subsystem for Linux (WSL) is available only
    > under those Windows editions, only under 64-bit and in a reasonable
    > fashion only under at least this version or newer.
    > Windows 10 in Version 1809 is the bare minimum. The recommended
-   > system is at least Windows 10 in Version 1909 or newer.
+   > system is at least Windows 10 in Version 1909 or newer (including Windows 11).
 
    - *START* &rarr; *Settings* &rarr; *System* &rarr; *About*:
    - ... *Device Specifications* &rarr; *System type*
@@ -53,13 +53,15 @@ container execution platform.
    > If you have a different edition or you are running in 32-bit mode,
    > you are out of luck with WSL. Sorry, then you have to went with
    > [MSYS2](https://www.msys2.org/) or [Cygwin](https://www.cygwin.com/).
-   > If you want to perform a fresh Windows 10 installation, start over with Microsoft's
-   > [Download Windows 10 Disc Image (ISO File)](https://www.microsoft.com/en-us/software-download/windows10ISO/).
+   > If you want to perform a fresh Windows 10/11 installation, start over with Microsoft's
+   > [Download Windows 10 Disc Image (ISO File)](https://www.microsoft.com/en-us/software-download/windows10ISO/)
+   > or [Download Windows 11 Disc Image (ISO File)](https://www.microsoft.com/software-download/windows11).
    > If you just still have an older Windows version, upgrade with one of the following
-   > two options:
+   > options:
    >
    > - Windows Updates: *START* &rarr; `windows update settings` <kbd>RETURN</kbd>
    > - Windows Upgrades: [Windows 10 Update Assistant](https://www.microsoft.com/software-download/windows10)
+   > - Windows Upgrades: [Windows 11 Update Assistant](https://www.microsoft.com/software-download/windows10)
 
 2. **Enable Windows Subsystem for Linux**:<br/>
    Enable the Windows feature *Windows Subsystem for Linux*.
@@ -427,7 +429,7 @@ container execution platform.
    - `vi ~/.dotfiles/bashrc`<br/>
      &rarr; `eval $(~/AppData/Roaming/weasel-pageant/weasel-pageant -r -s)`
 
-## Optionally Enable Windows Subsystem for Linux (WSL) Version 2 (Windows 10 Version >= 19.03 only) (feel free to skip)
+## Optionally Enable Windows Subsystem for Linux (WSL) Version 2 (Windows 10/11 Version >= 19.03 only) (feel free to skip)
 
 2. **Switch to use WSL 2**
 
