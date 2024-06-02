@@ -2,7 +2,7 @@
 <img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Windows_logo_-_2012.svg" width="120" align="right" alt=""/>
 
 Author: [Dr. Ralf S. Engelschall](mailto:rse@engelschall.com)<br/>
-Version: 2.4.3 (2024-03-12)
+Version: 2.4.4 (2024-06-02)
 
 # Unix Environment under Windows
 
@@ -240,7 +240,7 @@ container execution platform.
    Second, install the tool [FZF](https://github.com/junegunn/fzf) which is not available
    (at least not in latest version) via standard package manager:
 
-   - `curl -skLO https://github.com/junegunn/fzf/releases/download/0.42.0/fzf-0.42.0-linux_amd64.tar.gz && `<br/>
+   - `curl -skLO https://github.com/junegunn/fzf/releases/download/0.52.1/fzf-0.52.1-linux_amd64.tar.gz && `<br/>
      `tar zxf fzf-*-linux_amd64.tar.gz && `<br/>
      `sudo install -c -m 755 fzf /usr/local/bin/ && `<br/>
      `rm fzf fzf-*-linux_amd64.tar.gz`
@@ -250,10 +250,10 @@ container execution platform.
 
    > Rationale: Git-Town and TTY2Web are often useful.
 
-   - `curl -skLO https://github.com/Originate/git-town/releases/download/v9.0.0/git-town_9.0.0_linux_intel_64.deb && `<br/>
+   - `curl -skLO https://github.com/git-town/git-town/releases/download/v14.2.1/git-town_linux_intel_64.deb && `<br/>
      `sudo dpkg -i git-town_*.deb && `<br/>
      `rm git-town_*.deb && `<br/>
-     `curl -skLO https://github.com/kost/tty2web/releases/download/v3.0.0/tty2web_linux_amd64 && `<br/>
+     `curl -skLO https://github.com/kost/tty2web/releases/download/v3.0.3/tty2web_linux_amd64 && `<br/>
      `sudo install -c -m 755 tty2web* /usr/local/bin/tty2web && `<br/>
      `rm tty2web*`
 
@@ -315,7 +315,7 @@ container execution platform.
      `rm -rf wsl-open-master && `<br/>
      `rm master.zip`
 
-   - `curl -skLO https://github.com/CzBiX/WSLHostPatcher/releases/download/v0.1.2/WSLHostPatcher.zip && `<br/>
+   - `curl -skLO https://github.com/CzBiX/WSLHostPatcher/releases/download/v0.1.3/WSLHostPatcher.zip && `<br/>
      `unzip -x WSLHostPatcher.zip && `<br/>
      `mkdir -p ~/AppData/Local/WSLHostPatcher && `<br/>
      `chmod 755 WSLHostPatcher.exe && `<br/>
@@ -343,7 +343,7 @@ container execution platform.
 
    > Rationale: a reasonable terminal emulator has to be used and the default WSL console is not good enough.
 
-   - [WSLTTY version &ge; 3.6.4](https://github.com/mintty/wsltty/releases) &rarr; `wsltty-*-install.exe`
+   - [WSLTTY version &ge; 3.7.1](https://github.com/mintty/wsltty/releases) &rarr; `wsltty-*-install.exe`
    - <kbd>WIN+r</kbd> &rarr; `%LOCALAPPDATA%\wsltty` &rarr; `add to context menu.lnk`
 
 2. **Install DejaVu Sans Mono font**:<br/>
