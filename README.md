@@ -197,7 +197,7 @@ container execution platform.
 
    - *START* &rarr; `cmd`
    - `wsl --shutdown`
-   > `wsl -u root usermod -d /c/Users/%USERNAME% %USERNAME%`
+   - `wsl -u root usermod -d /c/Users/%USERNAME% %USERNAME%`
 
 6. **Activate Filesystem Layout**:<br/>
    Perform a logout/login cycle on the host system to
