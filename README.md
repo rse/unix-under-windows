@@ -235,7 +235,7 @@ container execution platform.
    Second, install the tool [FZF](https://github.com/junegunn/fzf) which is not available
    (at least not in latest version) via standard package manager:
 
-   - `curl -skLO https://github.com/junegunn/fzf/releases/download/0.52.1/fzf-0.52.1-linux_amd64.tar.gz && `<br/>
+   - `curl -skLO https://github.com/junegunn/fzf/releases/download/0.54.1/fzf-0.54.1-linux_amd64.tar.gz && `<br/>
      `tar zxf fzf-*-linux_amd64.tar.gz && `<br/>
      `sudo install -c -m 755 fzf /usr/local/bin/ && `<br/>
      `rm fzf fzf-*-linux_amd64.tar.gz`
@@ -245,7 +245,7 @@ container execution platform.
 
    > Rationale: Git-Town and TTY2Web are often useful.
 
-   - `curl -skLO https://github.com/git-town/git-town/releases/download/v14.2.1/git-town_linux_intel_64.deb && `<br/>
+   - `curl -skLO https://github.com/git-town/git-town/releases/download/v14.3.1/git-town_linux_intel_64.deb && `<br/>
      `sudo dpkg -i git-town_*.deb && `<br/>
      `rm git-town_*.deb && `<br/>
      `curl -skLO https://github.com/kost/tty2web/releases/download/v3.0.3/tty2web_linux_amd64 && `<br/>
