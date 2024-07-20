@@ -2,7 +2,7 @@
 <img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Windows_logo_-_2012.svg" width="120" align="right" alt=""/>
 
 Author: [Dr. Ralf S. Engelschall](mailto:rse@engelschall.com)<br/>
-Version: 2.4.4 (2024-06-02)
+Version: 2.4.5 (2024-07-20)
 
 # Unix Environment under Windows
 
@@ -128,12 +128,12 @@ container execution platform.
 
 ## Install Ubuntu GNU/Linux Operating System
 
-1. **Install Ubuntu 22.04 LTS**:<br/>
-   Install Ubuntu GNU/Linux 22.04 Long Term Support (LTS) from the Microsoft Store.
+1. **Install Ubuntu 24.04 LTS**:<br/>
+   Install Ubuntu GNU/Linux 24.04 Long Term Support (LTS) from the Microsoft Store.
 
    > Rationale: you need a reasonable GNU/Linux distribution and it should receive updates for a longer time.
 
-   - *START* &rarr; `microsoft store` &rarr; *Search* &rarr; `ubuntu 22.04 lts` &rarr; *Install*
+   - *START* &rarr; `microsoft store` &rarr; *Search* &rarr; `ubuntu 24.04 lts` &rarr; *Install*
 
    > Notice: In case the Microsoft Store is not available on your system, the reason
    > can be that you still have User Account Control (UAC) disabled, or
@@ -151,7 +151,7 @@ container execution platform.
 
    > Rationale: we have to setup Ubuntu from itself.
 
-    - *START* &rarr; *Ubuntu 22.04*
+    - *START* &rarr; *Ubuntu 24.04*
 
    Just be patient on first launch, it really takes time.
    Then, when asked for your username, enter the same as your Windows username.
@@ -195,14 +195,9 @@ container execution platform.
 
    > Rationale: just convenience only -- feel free to ignore.
 
-    - `exec sudo usermod -d /c/Users/$USER $USER`
-
-   > Notice: Don't panic, we have to `exec` the command here to release the current user's processes
-   > and this way let `usermod` proceed. This will immediately close the Unix terminal, of course.
-   > This step actually is a tricky one as the running WSL sub-process might not allow the changing of
-   > the underlying user home directory as long as it is running itself. One safe alternative is to
-   > execute the following command from within a CMD or PowerShell terminal:<br/>
-   > `wsl sudo usermod -d /c/Users/%USERNAME% %USERNAME%`
+   - *START* &rarr; `cmd`
+   - `wsl --shutdown`
+   > `wsl -u root usermod -d /c/Users/%USERNAME% %USERNAME%`
 
 6. **Activate Filesystem Layout**:<br/>
    Perform a logout/login cycle on the host system to
@@ -217,7 +212,7 @@ container execution platform.
 
    > Rationale: we have to configure the Unix environment from itself.
 
-    - *START* &rarr; *Ubuntu 22.04*
+    - *START* &rarr; *Ubuntu 24.04*
 
 2. **Install Essential Unix Tools**:<br/>
    Install all necessary essential and some more useful Unix tools.
@@ -435,7 +430,7 @@ container execution platform.
 
    - *START* &rarr; `cmd`
    - `wsl --set-default-version 2`
-   - `wsl --set-version Ubuntu-22.04 2`
+   - `wsl --set-version Ubuntu-24.04 2`
 
 ## Optionally Install Podman/Docker/Docker-Compose/Kubectl/Minikube/Helm Client CLIs (feel free to skip)
 
