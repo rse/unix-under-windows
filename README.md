@@ -457,7 +457,7 @@ container execution platform.
 
    - `sed -e 's;^# cgroup_manager = .*;cgroup_manager = "cgroupfs";'
       -e 's;^# events_logger = .*;events_logger = "file";'
-      </usr/share/containers/containers.conf >/tmp/container.conf;
+      </usr/share/containers/containers.conf >/tmp/containers.conf;
       sudo install -c -m 644 /tmp/containers.conf /etc/containers/containers.conf; rm /tmp/containers.conf`
 
 3. **Install Docker/Docker-Compose**:<br/>
